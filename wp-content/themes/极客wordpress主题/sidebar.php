@@ -8,6 +8,6 @@
  */
 ?>
 
-<aside id="secondary" class="widget-area site-sidebar" uk-margin>
+<aside id="secondary" class="widget-area site-sidebar mt-8 ml-4">
     <?php dynamic_sidebar( 'sidebar-1' ); ?>
 </aside>
