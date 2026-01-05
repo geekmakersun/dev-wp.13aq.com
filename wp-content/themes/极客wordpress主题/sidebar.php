@@ -8,7 +8,6 @@
  */
 ?>
 
-<!-- 侧边栏 -->
-<aside id="secondary" class="widget-area sidebar">
+<aside id="secondary" class="widget-area site-sidebar" uk-margin>
     <?php dynamic_sidebar( 'sidebar-1' ); ?>
 </aside>

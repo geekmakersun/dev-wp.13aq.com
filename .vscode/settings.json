@@ -1,0 +1,21 @@
+{
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "compressed",
+      "extensionName": ".min.css",
+      // "savePath": "/public/static/kopron-v2/css",
+      "savePathReplacementPairs": null,
+      "generateMap": true
+    }
+  ],
+  "liveSassCompile.settings.forceBaseDirectory": "",
+  "color-highlight.enable": true,
+  "color-highlight.matchWords": true,
+  "color-highlight.markRuler": true,
+  "color-highlight.matchRGB": true,
+  "color-highlight.matchHSL": true,
+  "color-highlight.matchHEX": true,
+  "color-highlight.matchRGBA": true,
+  "color-highlight.matchHSLA": true,
+  "color-highlight.languages": ["css", "scss", "sass", "less", "postcss", "stylus"]
+}

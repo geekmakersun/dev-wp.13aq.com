@@ -1,0 +1,321 @@
+/****************
+** 覆盖UIkit样式 **
+*****************/
+
+.uk-h1,
+.uk-h2,
+.uk-h3,
+.uk-h4,
+.uk-h5,
+.uk-h6,
+.uk-heading-2xlarge,
+.uk-heading-large,
+.uk-heading-medium,
+.uk-heading-small,
+.uk-heading-xlarge,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Source Han Sans SC VF', 'Segoe UI', roboto, 'Helvetica Neue', arial, 'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  margin: 0;
+}
+
+* + .uk-h1,
+* + .uk-h2,
+* + .uk-h3,
+* + .uk-h4,
+* + .uk-h5,
+* + .uk-h6,
+* + .uk-heading-2xlarge,
+* + .uk-heading-large,
+* + .uk-heading-medium,
+* + .uk-heading-small,
+* + .uk-heading-xlarge,
+* + h1,
+* + h2,
+* + h3,
+* + h4,
+* + h5,
+* + h6 {
+  margin: 0;
+}
+
+.uk-h4,
+h4 {
+  font-size: 18px;
+}
+.uk-h5,
+h5 {
+  font-size: 14px;
+}
+
+* + address,
+* + dl,
+* + fieldset,
+* + figure,
+* + ol,
+* + p,
+* + pre,
+* + ul {
+  margin-top: 5px;
+}
+
+.uk-card-primary.uk-card-body,
+.uk-card-primary > :not([class*='uk-card-media']),
+.uk-card-secondary.uk-card-body,
+.uk-card-secondary > :not([class*='uk-card-media']),
+.uk-light,
+.uk-offcanvas-bar,
+.uk-overlay-primary,
+.uk-section-primary:not(.uk-preserve-color),
+.uk-section-secondary:not(.uk-preserve-color),
+.uk-tile-primary:not(.uk-preserve-color),
+.uk-tile-secondary:not(.uk-preserve-color),
+.uk-card-primary.uk-card-body .uk-hr,
+.uk-card-primary.uk-card-body hr,
+.uk-card-primary > :not([class*='uk-card-media']) .uk-hr,
+.uk-card-primary > :not([class*='uk-card-media']) hr,
+.uk-card-secondary.uk-card-body .uk-hr,
+.uk-card-secondary.uk-card-body hr,
+.uk-card-secondary > :not([class*='uk-card-media']) .uk-hr,
+.uk-card-secondary > :not([class*='uk-card-media']) hr,
+.uk-light .uk-hr,
+.uk-light hr,
+.uk-offcanvas-bar .uk-hr,
+.uk-offcanvas-bar hr,
+.uk-overlay-primary .uk-hr,
+.uk-overlay-primary hr,
+.uk-section-primary:not(.uk-preserve-color) .uk-hr,
+.uk-section-primary:not(.uk-preserve-color) hr,
+.uk-section-secondary:not(.uk-preserve-color) .uk-hr,
+.uk-section-secondary:not(.uk-preserve-color) hr,
+.uk-tile-primary:not(.uk-preserve-color) .uk-hr,
+.uk-tile-primary:not(.uk-preserve-color) hr,
+.uk-tile-secondary:not(.uk-preserve-color) .uk-hr,
+.uk-tile-secondary:not(.uk-preserve-color) hr ,.uk-light .uk-icon-button{
+  color: #fff;
+}
+
+address,
+dl,
+fieldset,
+figure,
+ol,
+p,
+pre,
+ul {
+  margin: 0;
+}
+ol,
+ul {
+  padding-left: 0;
+}
+mark {
+  padding: 5px 10px;
+  background-color: rgba(var(--secondary-color), 1);
+}
+
+/* background 背景 */
+.uk-background-primary {
+  background-color: rgba(var(--main-color), 1);
+}
+
+.uk-background-secondary {
+  background-color: rgba(var(--secondary-color), 1);
+}
+
+/* badge 徽章 */
+.uk-badge {
+  background-color: rgba(var(--main-color), 1);
+}
+
+/* button 按钮 */
+.uk-button-default {
+  border-color: #000000;
+}
+
+.uk-button-primary {
+  background-color: rgba(var(--main-color), 1);
+
+  &:hover {
+    background-color: rgba(var(--secondary-color), 1);
+  }
+}
+
+.uk-button-secondary{
+  background-color: rgba(var(--secondary-color), 1);
+
+  &:hover {
+    background-color: rgba(var(--main-color), 1);
+  }
+}
+.uk-button-default:hover,
+.uk-button-text::before {
+  border-color: rgba(var(--main-color), 1);
+}
+
+.uk-button-link:hover {
+  color: rgba(var(--main-color), 1);
+}
+
+.uk-border-rounded {
+  border-radius: 20px;
+}
+
+.uk-checkbox:checked,
+.uk-checkbox:indeterminate,
+.uk-radio:checked,
+.uk-checkbox:checked:focus,
+.uk-checkbox:indeterminate:focus,
+.uk-radio:checked:focus {
+  background-color: rgba(var(--secondary-color), 1);
+}
+/* card 卡片 */
+.uk-card-default {
+  overflow: hidden;
+  color: #585858;
+  box-shadow: 0 0 pxTorem(5px) 0 rgb(0 0 0 / 30%);
+}
+
+.uk-card-primary {
+  background-color: rgba(var(--main-color), 1);
+}
+
+.uk-card-secondary {
+  background-color: rgba(var(--secondary-color), 1);
+}
+
+/* dropdown 下拉菜单 */
+.uk-dropdown {
+  color: #333333;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.input-group {
+  border-color: rgba(var(--secondary-color), 1);
+  background-color: rgba(var(--secondary-color), 1);
+}
+.uk-form-controls {
+  padding: 3px;
+  .uk-input,
+  .uk-textarea {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+}
+
+/*  link 链接 */
+.uk-link,
+a,
+.uk-link-heading a:hover,
+.uk-link-toggle:hover .uk-link-heading,
+a.uk-link-heading:hover,
+.uk-link-toggle:hover .uk-link,
+.uk-link:hover,
+a:hover {
+  text-decoration: none;
+  color: rgba(var(--main-color), 1);
+}
+
+/* heading */
+.uk-heading-line {
+  &:before {
+    z-index: 9;
+    border-left-color: rgba(var(--main-color), 1);
+  }
+}
+
+/* navbar 导航栏 */
+.uk-navbar-nav {
+  & > li {
+    & > a {
+      font-family: 'Source Han Sans SC VF', sans-serif;
+      color: #000000;
+    }
+
+    &.uk-active > a,
+    &:hover > a,
+    & > a[aria-expanded='true'] {
+      position: relative;
+      color: rgba(var(--main-color), 1);
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+        width: 20%;
+        height: 2px;
+        bottom: 15px;
+        background-color: rgba(var(--main-color), 1);
+      }
+      &::before {
+        left: 50%;
+      }
+      &::after {
+        right: 50%;
+      }
+    }
+  }
+}
+
+.uk-navbar-toggle {
+  min-height: auto;
+  color: rgba(var(--main-color), 1);
+  padding: 0 10px;
+}
+
+/* overlay 遮罩 */
+.uk-overlay-default {
+  color: rgba(var(--main-color), 1);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.uk-overlay-primary {
+  background-color: rgba(var(--secondary-color), 0.7);
+}
+
+/* section 区段 */
+.uk-section-primary {
+  background-color: rgba(var(--main-color), 1);
+}
+
+/* slidenav 幻灯片导航 */
+.uk-slidenav:hover {
+  color: rgba(var(--main-color), 1);
+}
+
+.uk-subnav-pill {
+  & > * {
+    padding: 10px;
+    & > :first-child {
+      padding: 5px 30px;
+      background-color: rgb(247, 232, 5);
+      color: #000000;
+      border: 1px solid #000;
+    }
+  }
+  & > .uk-active > a,
+  & > * > a:hover {
+    background-color: rgba(var(--main-color), 1);
+    color: #fff;
+  }
+}
+
+/* text 文本 */
+.uk-text-primary {
+  color: rgba(var(--main-color), 1) !important;
+}
+
+.uk-text-secondary {
+  color: rgba(var(--secondary-color), 1) !important;
+}
+
+/* tile 瓷砖 */
+.uk-tile-primary {
+  background-color: rgba(var(--main-color), 1);
+}
+
+

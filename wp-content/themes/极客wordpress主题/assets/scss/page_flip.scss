@@ -1,0 +1,42 @@
+/****************
+**电脑端通栏导航条**
+*****************/
+.page_flip {
+  text-align: center;
+
+  ul {
+    display: inline-block;
+    padding: 5px;
+
+    li {
+      display: inline;
+
+      a {
+        font-size: 14px;
+        line-height: 42px;
+        display: inline-block;
+        height: 42px;
+        margin-left: 9px;
+        padding: 0 12px;
+        text-decoration: none;
+        color: #333333;
+        border: 1px solid #e3e3e3;
+        border-radius: 3px;
+        background-color: #ffffff;
+      }
+
+      &.active a {
+        width: 40px;
+        color: #ffffff;
+        background-color: #333333;
+      }
+
+      &.disabled a {
+        margin: 2px;
+        padding: 2px 5px;
+        color: #dddddd;
+        border: #eeeeee 1px solid;
+      }
+    }
+  }
+}

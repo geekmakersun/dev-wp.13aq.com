@@ -11,3 +11,8 @@ Stack trace:
 #6 /var/www/dev-wp.13aq.com/index.php(17): require('...')
 #7 {main}
   thrown in /var/www/dev-wp.13aq.com/wp-content/themes/极客wordpress主题/header.php on line 60
+[05-Jan-2026 07:05:09 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/dev-wp.13aq.com/wp-includes/class-wpdb.php on line 1988
+[05-Jan-2026 11:33:31 UTC] PHP Warning:  translations_api(): 发生了预料之外的错误。 WordPress.org 或是此服务器的配置可能出了一些问题。如果您持续遇到困难，请试试<a href="https://cn.wordpress.org/support/forums/">支持论坛</a>。 （WordPress 无法建立到 WordPress.org 的安全连接，请联系您的服务器管理员。） in /var/www/dev-wp.13aq.com/wp-includes/functions.php on line 6131
+[05-Jan-2026 11:33:35 UTC] PHP Warning:  translations_api(): 发生了预料之外的错误。 WordPress.org 或是此服务器的配置可能出了一些问题。如果您持续遇到困难，请试试<a href="https://cn.wordpress.org/support/forums/">支持论坛</a>。 （WordPress 无法建立到 WordPress.org 的安全连接，请联系您的服务器管理员。） in /var/www/dev-wp.13aq.com/wp-includes/functions.php on line 6131
+[05-Jan-2026 11:33:37 UTC] PHP Warning:  translations_api(): 发生了预料之外的错误。 WordPress.org 或是此服务器的配置可能出了一些问题。如果您持续遇到困难，请试试<a href="https://cn.wordpress.org/support/forums/">支持论坛</a>。 （WordPress 无法建立到 WordPress.org 的安全连接，请联系您的服务器管理员。） in /var/www/dev-wp.13aq.com/wp-includes/functions.php on line 6131
+[05-Jan-2026 11:33:41 UTC] PHP Warning:  translations_api(): 发生了预料之外的错误。 WordPress.org 或是此服务器的配置可能出了一些问题。如果您持续遇到困难，请试试<a href="https://cn.wordpress.org/support/forums/">支持论坛</a>。 （WordPress 无法建立到 WordPress.org 的安全连接，请联系您的服务器管理员。） in /var/www/dev-wp.13aq.com/wp-includes/functions.php on line 6131

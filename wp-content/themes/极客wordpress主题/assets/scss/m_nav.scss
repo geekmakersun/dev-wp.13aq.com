@@ -1,0 +1,79 @@
+/* 移动端导航样式 */
+.common_wap-logo {
+  height: 50px;
+}
+#m-top_nav {
+  /* 移动端侧边栏主体 */
+  .uk-offcanvas-bar {
+    padding: 20px;
+    height: calc(100vh - 74px); /* 减去底部菜单高度 */
+    overflow-y: auto; /* 确保内容超出时可滚动 */
+  }
+
+  /* 一级导航菜单 */
+  .uk-nav-default {
+    > li {
+      > a {
+        font-size: 18px; /* 增大一级菜单字体 */
+        padding: 12px 0; /* 增大点击区域 */
+        line-height: 1.5;
+      }
+    }
+  }
+
+  /* 二级和三级导航菜单 */
+  .uk-nav-sub {
+    > li {
+      > a {
+        font-size: 16px; /* 增大子菜单字体 */
+        padding: 10px 0 10px 20px; /* 增大点击区域并增加缩进 */
+        line-height: 1.4;
+      }
+    }
+  }
+
+  /* 激活状态样式增强 */
+  .uk-nav {
+    li {
+      &.uk-active {
+        > a {
+          font-weight: bold;
+          color: rgba(var(--main-color), 1);
+        }
+      }
+    }
+  }
+
+  /* 菜单分隔线 */
+  .uk-nav-divider {
+    margin: 8px 0;
+  }
+}
+
+.m_bottom_nav {
+  position: fixed;
+  z-index: 666666;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ff4e00;
+
+  & > a {
+    font-size: 16px;
+    padding: 10px 0;
+    color: #ffffff;
+    &.uk-active {
+      background-color: #666666;
+    }
+  }
+
+  & > a:not(:first-child) {
+    border-left: 2px solid #666666;
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+  }
+}
