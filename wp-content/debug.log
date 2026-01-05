@@ -1,0 +1,13 @@
+[05-Jan-2026 06:15:14 UTC] PHP Deprecated:  文件 没有 comments.php 的主题 自版本 3.0.0 起已<strong>弃用</strong>，且没有可用的替代。 请在您的主题中包含一个 comments.php 模板。 in /var/www/dev-wp.13aq.com/wp-includes/functions.php on line 6131
+[05-Jan-2026 06:36:13 UTC] PHP Deprecated:  文件 没有 comments.php 的主题 自版本 3.0.0 起已<strong>弃用</strong>，且没有可用的替代。 请在您的主题中包含一个 comments.php 模板。 in /var/www/dev-wp.13aq.com/wp-includes/functions.php on line 6131
+[05-Jan-2026 06:40:58 UTC] PHP Fatal error:  Uncaught Error: Class "Geek_Walker_Nav_Menu" not found in /var/www/dev-wp.13aq.com/wp-content/themes/极客wordpress主题/header.php:60
+Stack trace:
+#0 /var/www/dev-wp.13aq.com/wp-includes/template.php(814): require_once()
+#1 /var/www/dev-wp.13aq.com/wp-includes/template.php(749): load_template()
+#2 /var/www/dev-wp.13aq.com/wp-includes/general-template.php(48): locate_template()
+#3 /var/www/dev-wp.13aq.com/wp-content/themes/极客wordpress主题/index.php(10): get_header()
+#4 /var/www/dev-wp.13aq.com/wp-includes/template-loader.php(125): include('...')
+#5 /var/www/dev-wp.13aq.com/wp-blog-header.php(19): require_once('...')
+#6 /var/www/dev-wp.13aq.com/index.php(17): require('...')
+#7 {main}
+  thrown in /var/www/dev-wp.13aq.com/wp-content/themes/极客wordpress主题/header.php on line 60

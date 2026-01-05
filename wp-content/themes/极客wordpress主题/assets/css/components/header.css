@@ -1,0 +1,69 @@
+/*
+ * 头部样式
+ *
+ * 定义网站头部的样式
+ *
+ * @package 极客wordpress主题
+ */
+
+.site-header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.site-branding {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.site-title a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-title a:hover {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.site-description {
+    color: #bdc3c7;
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+}
+
+/* 自定义Logo样式 */
+.custom-logo-link {
+    display: inline-block;
+    max-width: 150px;
+}
+
+.custom-logo {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 头部布局变体 */
+.header-center {
+    text-align: center;
+}
+
+.header-center .site-branding {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.header-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}

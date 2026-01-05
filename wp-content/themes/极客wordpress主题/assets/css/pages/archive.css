@@ -1,0 +1,479 @@
+/*
+ * 极客WordPress主题 - 归档页面样式
+ *
+ * 归档页面特定的样式定义，包括分类、标签、日期归档等
+ *
+ * @package 极客wordpress主题
+ */
+
+/* 归档页面容器 */
+.archive-template {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 归档主内容 */
+.archive-main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 40px;
+    margin: 40px 0;
+    align-items: start;
+}
+
+/* 归档内容容器 */
+.archive-content-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+}
+
+/* 归档标题 */
+.archive-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* 归档描述 */
+.archive-description {
+    text-align: center;
+    color: #6c757d;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* 归档文章列表 */
+.archive-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* 归档文章项 */
+.archive-post {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+}
+
+.archive-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* 归档文章缩略图 */
+.archive-post-thumbnail {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+/* 归档文章内容 */
+.archive-post-content {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 归档文章分类 */
+.archive-post-category {
+    display: inline-block;
+    background-color: #667eea;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.archive-post-category:hover {
+    background-color: #5a6fd8;
+}
+
+/* 归档文章标题 */
+.archive-post-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.archive-post-title a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.archive-post-title a:hover {
+    color: #667eea;
+}
+
+/* 归档文章元信息 */
+.archive-post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: 15px;
+}
+
+.archive-post-date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.archive-post-author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.archive-post-author a {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.archive-post-author a:hover {
+    color: #667eea;
+}
+
+/* 归档文章摘要 */
+.archive-post-excerpt {
+    color: #495057;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+/* 列表样式的归档 */
+.archive-list-style .archive-posts {
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.archive-list-style .archive-post {
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.archive-list-style .archive-post-thumbnail {
+    width: 200px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.archive-list-style .archive-post-content {
+    padding: 20px;
+}
+
+.archive-list-style .archive-post-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+/* 分类归档特定样式 */
+.category-archive .archive-title {
+    color: #667eea;
+}
+
+.category-archive .archive-post-category {
+    background-color: #667eea;
+}
+
+/* 标签归档特定样式 */
+.tag-archive .archive-title {
+    color: #f093fb;
+}
+
+.tag-archive .archive-post-category {
+    background-color: #f093fb;
+}
+
+/* 日期归档特定样式 */
+.date-archive .archive-title {
+    color: #4facfe;
+}
+
+.date-archive .archive-post-category {
+    background-color: #4facfe;
+}
+
+/* 作者归档特定样式 */
+.author-archive .archive-title {
+    color: #43e97b;
+}
+
+.author-archive .archive-post-category {
+    background-color: #43e97b;
+}
+
+/* 分类云 */
+.category-cloud {
+    margin: 30px 0;
+    padding: 25px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.category-cloud-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.category-cloud-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.category-cloud-item {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #fff;
+    color: #6c757d;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.category-cloud-item:hover {
+    background-color: #667eea;
+    color: #fff;
+    border-color: #667eea;
+    transform: translateY(-2px);
+}
+
+/* 标签云 */
+.tag-cloud {
+    margin: 30px 0;
+    padding: 25px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.tag-cloud-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.tag-cloud-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.tag-cloud-item {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #fff;
+    color: #6c757d;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.tag-cloud-item:hover {
+    background-color: #f093fb;
+    color: #fff;
+    border-color: #f093fb;
+    transform: translateY(-2px);
+}
+
+/* 侧边栏 */
+.archive-sidebar {
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    position: sticky;
+    top: 20px;
+}
+
+/* 分页导航 */
+.archive-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 40px 0;
+    padding: 20px 0;
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.archive-pagination a,
+.archive-pagination span {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.archive-pagination a:hover {
+    background-color: #667eea;
+    color: #fff;
+    border-color: #667eea;
+}
+
+.archive-pagination .current {
+    background-color: #667eea;
+    color: #fff;
+    border-color: #667eea;
+}
+
+.archive-pagination .prev,
+.archive-pagination .next {
+    font-weight: 600;
+}
+
+/* 响应式调整 */
+@media (max-width: 1024px) {
+    .archive-main {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .archive-sidebar {
+        position: static;
+    }
+    
+    .archive-posts {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    
+    .archive-list-style .archive-post {
+        flex-direction: column;
+    }
+    
+    .archive-list-style .archive-post-thumbnail {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .archive-content-container {
+        padding: 25px;
+    }
+    
+    .archive-title {
+        font-size: 2rem;
+    }
+    
+    .archive-description {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    
+    .archive-posts {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .archive-post-content {
+        padding: 20px;
+    }
+    
+    .archive-post-title {
+        font-size: 1.25rem;
+    }
+    
+    .archive-pagination {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .archive-pagination a,
+    .archive-pagination span {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .category-cloud,
+    .tag-cloud {
+        padding: 20px;
+    }
+    
+    .category-cloud-list,
+    .tag-cloud-list {
+        gap: 10px;
+    }
+    
+    .category-cloud-item,
+    .tag-cloud-item {
+        padding: 6px 14px;
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .archive-content-container {
+        padding: 20px;
+    }
+    
+    .archive-title {
+        font-size: 1.75rem;
+    }
+    
+    .archive-post-thumbnail {
+        height: 180px;
+    }
+    
+    .archive-post-content {
+        padding: 18px;
+    }
+    
+    .archive-post-title {
+        font-size: 1.15rem;
+    }
+    
+    .archive-post-excerpt {
+        font-size: 0.9rem;
+    }
+}

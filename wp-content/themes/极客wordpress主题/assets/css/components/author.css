@@ -1,0 +1,211 @@
+/*
+ * 极客WordPress主题 - 作者信息样式
+ *
+ * 作者信息组件的样式定义，包括作者头像、名称、简介等
+ *
+ * @package 极客wordpress主题
+ */
+
+/* 作者信息容器 */
+.author-info {
+    margin: 40px 0;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* 作者头像 */
+.author-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 作者名称 */
+.author-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.author-name:hover {
+    color: #007bff;
+}
+
+/* 作者描述 */
+.author-description {
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+/* 作者链接 */
+.author-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.author-links a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background-color: #e9ecef;
+    color: #495057;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.author-links a:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* 作者文章链接 */
+.author-posts-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.author-posts-link:hover {
+    background-color: #0056b3;
+}
+
+/* 作者信息卡片变体 - 紧凑模式 */
+.author-info-compact {
+    flex-direction: row;
+    text-align: left;
+    padding: 20px;
+}
+
+.author-info-compact .author-avatar {
+    margin-right: 20px;
+    margin-bottom: 0;
+    width: 80px;
+    height: 80px;
+}
+
+.author-info-compact .author-name {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+}
+
+.author-info-compact .author-description {
+    margin-bottom: 10px;
+}
+
+.author-info-compact .author-links {
+    margin-top: 10px;
+}
+
+/* 作者信息在侧边栏 */
+.widget .author-info {
+    padding: 20px;
+    margin: 0;
+}
+
+.widget .author-avatar {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.widget .author-name {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+.widget .author-description {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.widget .author-links {
+    gap: 10px;
+}
+
+.widget .author-links a {
+    width: 32px;
+    height: 32px;
+    font-size: 0.875rem;
+}
+
+/* 作者存档页面样式 */
+.author-archive-header {
+    text-align: center;
+    padding: 40px 0;
+    margin-bottom: 40px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.author-archive-header .author-avatar {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+}
+
+.author-archive-header .author-name {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.author-archive-header .author-description {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .author-info-compact {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .author-info-compact .author-avatar {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .author-archive-header {
+        padding: 30px 20px;
+    }
+    
+    .author-archive-header .author-name {
+        font-size: 1.5rem;
+    }
+    
+    .author-info {
+        padding: 20px;
+    }
+}
