@@ -3,10 +3,13 @@
     {
       "format": "compressed",
       "extensionName": ".min.css",
-      // "savePath": "/public/static/kopron-v2/css",
+      "savePath": "/wp-content/themes/极客wordpress主题/assets/css",
       "savePathReplacementPairs": null,
       "generateMap": true
     }
+  ],
+  "liveSassCompile.settings.includeItems": [
+    "/wp-content/themes/极客wordpress主题/assets/scss/**/*.scss"
   ],
   "liveSassCompile.settings.forceBaseDirectory": "",
   "color-highlight.enable": true,
