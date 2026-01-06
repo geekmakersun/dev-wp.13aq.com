@@ -1,0 +1,168 @@
+/**
+ * 后台管理样式
+ *
+ * 极客主题后台管理页面的自定义样式
+ *
+ * @package 极客wordpress主题
+ */
+
+/* 基本样式 */
+.geek-admin-page {
+    max-width: 1000px;
+    margin: 20px 0;
+}
+
+/* 卡片样式 */
+.card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* 表单字段样式 */
+.form-field {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f9fafb;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+.form-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+.form-field input[type="text"],
+.form-field input[type="number"],
+.form-field input[type="email"],
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.form-field input[type="text"]:focus,
+.form-field input[type="number"]:focus,
+.form-field input[type="email"]:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-field .description {
+    margin-top: 5px;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+/* 复选框样式 */
+.form-field input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.1);
+}
+
+/* 颜色选择器样式 */
+.color-picker-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.color-picker-container input[type="color"] {
+    width: 50px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* 提交按钮样式 */
+.submit-btn-container {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 15px;
+    }
+    
+    .form-field {
+        padding: 12px;
+    }
+    
+    .color-picker-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .color-picker-container input[type="text"] {
+        width: 150px;
+    }
+}
+
+/* 帮助文本样式 */
+.help-text {
+    margin-top: 20px;
+    padding: 15px;
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 6px;
+    color: #1e40af;
+}
+
+.help-text h3 {
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.help-text ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.help-text li {
+    margin-bottom: 5px;
+}
+
+/* 设置区域标题样式 */
+.settings-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 20px 0 15px;
+    padding: 10px 0;
+    border-bottom: 2px solid #007bff;
+    color: #007bff;
+}

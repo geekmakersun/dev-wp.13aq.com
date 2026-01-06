@@ -9,8 +9,21 @@
  */
 
 /**
- * 主题初始化
+ * 优化WordPress媒体库上传路径
+ * 
+ * @description 设置标准的媒体上传路径，避免路径配置问题
+ * @since 1.0.0
  */
+function optimize_media_upload_path()
+{
+    $upload_path = get_option('upload_path');
+
+    // 如果是默认路径或未设置，则设置为标准路径
+    if ($upload_path === 'wp-content/uploads' || $upload_path === null || $upload_path === '') {
+        update_option('upload_path', WP_CONTENT_DIR . '/uploads');
+    }
+}
+add_action('after_setup_theme', 'optimize_media_upload_path');
 
 /**
  * 注册侧边栏
@@ -44,3 +57,23 @@ function geek_theme_scripts()
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js', array('jquery'), '5.3.0', true);
 }
 add_action('wp_enqueue_scripts', 'geek_theme_scripts');
+
+/**
+ * 后台管理初始化
+ */
+function geek_theme_admin_init()
+{
+    require_once get_template_directory() . '/admin/init.php';
+}
+add_action('after_setup_theme', 'geek_theme_admin_init');
+
+/**
+ * 注册自定义菜单位置
+ */
+function custom_theme_setup() {
+    register_nav_menus( array(
+        'header-menu' => __( 'Header Menu', 'your-theme' ),
+        'footer-menu' => __( 'Footer Menu', 'your-theme' ),
+    ) );
+}
+add_action( 'after_setup_theme', 'custom_theme_setup' );
