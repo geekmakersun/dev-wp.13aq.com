@@ -44,6 +44,24 @@ function geek_admin_settings_init() {
         'geek-theme-options',    // 页面
         'geek_general_section'   // 部分
     );
+    
+    // Navbar背景颜色
+    add_settings_field(
+        'geek_navbar_bg_color', // 字段ID
+        '导航栏背景颜色',        // 标题
+        'geek_navbar_bg_color_callback', // 回调
+        'geek-theme-options',    // 页面
+        'geek_general_section'   // 部分
+    );
+    
+    // Navbar背景图片
+    add_settings_field(
+        'geek_navbar_bg_image', // 字段ID
+        '导航栏背景图片',        // 标题
+        'geek_navbar_bg_image_callback', // 回调
+        'geek-theme-options',    // 页面
+        'geek_general_section'   // 部分
+    );
 }
 add_action('admin_init', 'geek_admin_settings_init');
 
@@ -107,6 +125,69 @@ function geek_logo_callback() {
                     preview.find('img').attr('src', attachment.url);
                 } else {
                     $('.logo-upload-container').append('<div class="logo-preview" style="margin-top: 10px;"><img src="' + attachment.url + '" style="max-width: 200px; max-height: 100px;" alt="LOGO预览"></div>');
+                }
+            })
+            .open();
+        });
+    });
+    </script>
+    <?php
+}
+
+/**
+ * Navbar背景颜色字段回调
+ */
+function geek_navbar_bg_color_callback() {
+    $options = get_option('geek_theme_general');
+    $value = isset($options['navbar_bg_color']) ? $options['navbar_bg_color'] : '#ffffff';
+    
+    echo '<input type="color" id="geek_navbar_bg_color" name="geek_theme_general[navbar_bg_color]" value="' . esc_attr($value) . '" class="regular-text">';
+    echo '<p class="description">设置导航栏的背景颜色，默认为白色。</p>';
+}
+
+/**
+ * Navbar背景图片字段回调
+ */
+function geek_navbar_bg_image_callback() {
+    $options = get_option('geek_theme_general');
+    $bg_image_url = isset($options['navbar_bg_image']) ? $options['navbar_bg_image'] : '';
+    
+    echo '<div class="navbar-bg-image-upload-container">';
+    echo '<input type="text" id="geek_navbar_bg_image" name="geek_theme_general[navbar_bg_image]" value="' . esc_attr($bg_image_url) . '" class="regular-text">';
+    echo '<button type="button" class="button upload-navbar-bg-image-button">上传背景图片</button>';
+    
+    if (!empty($bg_image_url)) {
+        echo '<div class="navbar-bg-image-preview" style="margin-top: 10px;">';
+        echo '<img src="' . esc_url($bg_image_url) . '" style="max-width: 300px; max-height: 100px; object-fit: cover;" alt="导航栏背景图片预览">';
+        echo '</div>';
+    }
+    
+    echo '</div>';
+    
+    // 添加jQuery上传脚本
+    ?>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $('.upload-navbar-bg-image-button').click(function(e) {
+            e.preventDefault();
+            
+            var custom_uploader = wp.media({
+                title: '选择导航栏背景图片',
+                button: {
+                    text: '使用此图片'
+                },
+                multiple: false
+            })
+            .on('select', function() {
+                var attachment = custom_uploader.state().get('selection').first().toJSON();
+                $('#geek_navbar_bg_image').val(attachment.url);
+                
+                // 更新预览
+                var preview = $('.navbar-bg-image-preview');
+                if (preview.length > 0) {
+                    preview.find('img').attr('src', attachment.url);
+                } else {
+                    $('.navbar-bg-image-upload-container').append('<div class="navbar-bg-image-preview" style="margin-top: 10px;"><img src="' + attachment.url + '" style="max-width: 300px; max-height: 100px; object-fit: cover;" alt="导航栏背景图片预览"></div>');
                 }
             })
             .open();

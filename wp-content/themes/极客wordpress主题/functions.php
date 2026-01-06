@@ -67,13 +67,5 @@ function geek_theme_admin_init()
 }
 add_action('after_setup_theme', 'geek_theme_admin_init');
 
-/**
- * 注册自定义菜单位置
- */
-function custom_theme_setup() {
-    register_nav_menus( array(
-        'header-menu' => __( 'Header Menu', 'your-theme' ),
-        'footer-menu' => __( 'Footer Menu', 'your-theme' ),
-    ) );
-}
-add_action( 'after_setup_theme', 'custom_theme_setup' );
+// 引入导航菜单功能
+require_once get_template_directory() . '/inc/nav-menu.php';

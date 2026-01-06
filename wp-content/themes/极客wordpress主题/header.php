@@ -12,6 +12,16 @@
 $geek_settings = get_option('geek_theme_general');
 $site_name = isset($geek_settings['site_name']) ? $geek_settings['site_name'] : get_bloginfo('name');
 $logo_url = isset($geek_settings['logo']) ? $geek_settings['logo'] : '';
+$navbar_bg_color = isset($geek_settings['navbar_bg_color']) ? $geek_settings['navbar_bg_color'] : '#ffffff';
+$navbar_bg_image = isset($geek_settings['navbar_bg_image']) ? $geek_settings['navbar_bg_image'] : '';
+
+// 生成navbar样式
+$navbar_style = 'background-color: ' . $navbar_bg_color . ';';
+if (!empty($navbar_bg_image)) {
+    $navbar_style .= ' background-image: url(' . esc_url($navbar_bg_image) . ');';
+    $navbar_style .= ' background-size: cover;';
+    $navbar_style .= ' background-position: center;';
+}
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -27,7 +37,7 @@ $logo_url = isset($geek_settings['logo']) ? $geek_settings['logo'] : '';
 
     <!-- 头部 -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm" style="<?php echo esc_attr($navbar_style); ?>">
             <div class="container">
                 <!-- Logo -->
                 <a class="navbar-brand" href="<?php echo home_url(); ?>" title="<?php echo esc_attr($site_name); ?>">
@@ -45,59 +55,18 @@ $logo_url = isset($geek_settings['logo']) ? $geek_settings['logo'] : '';
 
                 <!-- 导航菜单 -->
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <!-- Home -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo home_url(); ?>" title="<?php echo esc_attr($site_name); ?>">
-                                Home
-                            </a>
-                        </li>
-
-                        <!-- About us -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo home_url('/about_us/'); ?>" title="About us">
-                                About us
-                            </a>
-                        </li>
-
-                        <!-- Solutions -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo home_url('/solutions/'); ?>" title="Solutions">
-                                Solutions
-                            </a>
-                        </li>
-
-                        <!-- Support -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo home_url('/support/'); ?>" title="Support">
-                                Support
-                            </a>
-                        </li>
-
-                        <!-- Products - 下拉菜单 -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="<?php echo home_url('/products/'); ?>" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Products">
-                                Products
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="<?php echo home_url('/products/automatic_boom_gates/'); ?>" title="Automatic boom gates">Automatic boom gates</a></li>
-                                <li><a class="dropdown-item" href="<?php echo home_url('/products/license_plate_recognition/'); ?>" title="License plate recognition">License plate recognition</a></li>
-                                <li><a class="dropdown-item" href="<?php echo home_url('/products/pedestrian_access_gates/'); ?>" title="Pedestrian access gates">Pedestrian access gates</a></li>
-                                <li><a class="dropdown-item" href="<?php echo home_url('/products/ev_charger/'); ?>" title="EV Charger">EV Charger</a></li>
-                                <li><a class="dropdown-item" href="<?php echo home_url('/products/access_equipment/'); ?>" title="Access equipment">Access equipment</a></li>
-                                <li><a class="dropdown-item" href="<?php echo home_url('/products/swing_gate_operators/'); ?>" title="Swing gate operators">Swing gate operators</a></li>
-                                <li><a class="dropdown-item" href="<?php echo home_url('/products/sliding_gate_operators/'); ?>" title="Sliding gate operators">Sliding gate operators</a></li>
-                                <li><a class="dropdown-item" href="<?php echo home_url('/products/industrial_sectional_door_operator/'); ?>" title="Industrial sectional door operator">Industrial sectional door operator</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- Contact us -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo home_url('/contact_us/'); ?>" title="Contact us">
-                                Contact us
-                            </a>
-                        </li>
-                    </ul>
+                    <?php
+                    // 调用导航菜单
+                    wp_nav_menu( array(
+                        'theme_location'    => 'header-menu',  // 菜单位置，对应functions.php中注册的位置
+                        'depth'             => 2,             // 菜单深度，支持二级菜单
+                        'container'         => false,         // 不输出外层容器
+                        'menu_class'        => 'navbar-nav',  // 主菜单ul的CSS类
+                        'fallback_cb'       => '__return_false', // 没有菜单时不显示默认内容
+                        'add_li_class'      => 'nav-item',    // 为每个菜单项li添加的类
+                        'link_class'        => 'nav-link'     // 为每个菜单项链接a添加的类
+                    ) );
+                    ?>
                 </div>
 
                 <!-- 右侧功能区 -->

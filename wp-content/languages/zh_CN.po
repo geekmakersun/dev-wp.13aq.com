@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.9.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-12-03 08:19:35+0000\n"
+"PO-Revision-Date: 2026-01-06 02:02:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -627,12 +627,12 @@ msgstr "文章 ID 必须大于 0。"
 #. translators: Note notification email subject. 1: Site title, 2: Post title.
 #: wp-includes/pluggable.php:1910
 msgid "[%1$s] Note: \"%2$s\""
-msgstr "[%1$s] 批注：「%2$s」"
+msgstr "[%1$s] 批注：“%2$s”"
 
 #. translators: %s: Note text.
 #: wp-includes/pluggable.php:1907
 msgid "resolved/reopened"
-msgstr "已解决/重新开放"
+msgstr "已解决/已重新开启"
 
 #. translators: %s: Note text.
 #. translators: %s: note excerpt
@@ -3528,19 +3528,19 @@ msgstr "请检查 PHP 扩展 %s 已安装并启用。"
 msgid "When using the %1$s constant, make sure to set these globals to an array: %2$s."
 msgstr "使用 %1$s 常量时，请确保将这些全局变量设置为数组：%2$s。"
 
-#: wp-includes/html-api/class-wp-html-tag-processor.php:4343
+#: wp-includes/html-api/class-wp-html-tag-processor.php:4345
 msgid "The query argument must be an array or a tag name."
 msgstr "查询参数必须是数组或标签名称。"
 
-#: wp-includes/html-api/class-wp-html-tag-processor.php:3961
+#: wp-includes/html-api/class-wp-html-tag-processor.php:3963
 msgid "Invalid attribute name."
 msgstr "属性名称无效。"
 
-#: wp-includes/html-api/class-wp-html-tag-processor.php:2629
+#: wp-includes/html-api/class-wp-html-tag-processor.php:2631
 msgid "Too many calls to seek() - this can lead to performance issues."
 msgstr "seek() 调用过多 - 这可能导致性能问题。"
 
-#: wp-includes/html-api/class-wp-html-tag-processor.php:2611
+#: wp-includes/html-api/class-wp-html-tag-processor.php:2613
 msgid "Unknown bookmark name."
 msgstr "未知书签名称。"
 
@@ -7665,7 +7665,7 @@ msgstr "此主题未适配您当前的 WordPress 版本。"
 #: wp-admin/includes/class-wp-plugins-list-table.php:1457
 #: wp-admin/includes/plugin.php:1153 wp-admin/includes/theme.php:928
 #: wp-admin/includes/theme.php:959 wp-admin/includes/theme.php:1005
-#: wp-admin/includes/theme.php:1028 wp-admin/includes/update-core.php:1152
+#: wp-admin/includes/theme.php:1028 wp-admin/includes/update-core.php:1153
 #: wp-admin/includes/update.php:786 wp-admin/includes/update.php:813
 #: wp-admin/install.php:248 wp-admin/theme-install.php:358
 #: wp-admin/theme-install.php:381 wp-admin/theme-install.php:563
@@ -11173,7 +11173,7 @@ msgstr "%s："
 #: wp-includes/pluggable.php:1903 wp-includes/pluggable.php:1917
 #: wp-includes/pluggable.php:2104
 msgid "Author: %1$s (IP address: %2$s, %3$s)"
-msgstr "评论者：%1$s（IP 地址：%2$s，%3$s）"
+msgstr "作者：%1$s（IP 地址：%2$s，%3$s）"
 
 #. translators: 1: Trackback/pingback website name, 2: Website IP address, 3:
 #. Website hostname.
@@ -14601,7 +14601,7 @@ msgstr "任务完成。信息 %s 已删除。"
 msgid "Posted title:"
 msgstr "文章标题："
 
-#: wp-mail.php:256 wp-admin/includes/plugin-install.php:660
+#: wp-mail.php:256 wp-admin/includes/plugin-install.php:658
 msgid "Author:"
 msgstr "作者："
 
@@ -20267,7 +20267,7 @@ msgstr "[%1$s] 评论：「%2$s」"
 
 #: wp-includes/pluggable.php:1908
 msgid "You can see all notes on this post here:"
-msgstr "您可在这里查看这篇文章的所有批注："
+msgstr "您可在此处查看此文章的所有批注："
 
 #: wp-includes/ms-load.php:502
 msgid "If you are still stuck with this message, then check that your database contains the following tables:"
@@ -22622,7 +22622,7 @@ msgstr "「%s」的搜索结果"
 #: wp-admin/includes/class-wp-media-list-table.php:554
 #: wp-admin/includes/class-wp-plugin-install-list-table.php:710
 #: wp-admin/includes/class-wp-privacy-requests-table.php:487
-#: wp-admin/includes/plugin-install.php:665 wp-admin/includes/revision.php:254
+#: wp-admin/includes/plugin-install.php:663 wp-admin/includes/revision.php:254
 #: wp-admin/includes/revision.php:297
 msgid "%s ago"
 msgstr "%s 前"
