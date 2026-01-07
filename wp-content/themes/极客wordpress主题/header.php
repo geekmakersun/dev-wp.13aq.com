@@ -36,8 +36,8 @@ if (!empty($navbar_bg_image)) {
 <body <?php body_class(); ?>>
 
     <!-- 头部 -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light sticky-top shadow-sm" style="<?php echo esc_attr($navbar_style); ?>">
+    <header id="mainHeader" class="mainHeader position-relative">
+        <nav class="position-fixed navbar navbar-expand-lg navbar-light w-100 shadow-sm" style="<?php echo esc_attr($navbar_style); ?>">
             <div class="container">
                 <!-- Logo -->
                 <a class="navbar-brand" href="<?php echo home_url(); ?>" title="<?php echo esc_attr($site_name); ?>">
@@ -49,12 +49,12 @@ if (!empty($navbar_bg_image)) {
                 </a>
 
                 <!-- 移动端菜单按钮 -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerMenu" aria-controls="mainNavbarMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <!-- 导航菜单 -->
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+                <div class="collapse navbar-collapse justify-content-center" id="headerMenu">
                     <?php
                     // 调用导航菜单
                     wp_nav_menu( array(
@@ -72,11 +72,9 @@ if (!empty($navbar_bg_image)) {
                 <!-- 右侧功能区 -->
                 <div class="d-flex align-items-center gap-3">
                     <!-- 搜索按钮 -->
-                    <button type="button" data-modal-target="mainSearch" data-modal-toggle="mainSearch" class="btn btn-outline-secondary rounded-circle p-2">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                    </button>
+                    <div  data-modal-target="mainSearch" data-modal-toggle="mainSearch" class="">
+                       <i class="bi bi-search"></i>
+                    </div>
 
                     <!-- 语言切换 -->
                     <a href="http://www.ZhiShengsa.com/" class="d-flex align-items-center">

@@ -1,0 +1,48 @@
+.mainHeader {
+  height: 80px;
+  transition: all 0.5s ease;
+  z-index: 9999;
+  .navbar-brand img {
+    width: 150px;
+    transition: all 0.5s ease;
+  }
+  .nav-item .nav-link {
+    position: relative;
+    color: #000;
+    font-size: 1.2vw;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+  }
+  .current-menu-item .nav-link {
+    position: relative;
+    color: #e60000;
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      width: 20%;
+      height: 2px;
+      bottom: 0;
+      background-color: #e60000;
+    }
+    &::before {
+      left: 50%;
+    }
+    &::after {
+      right: 50%;
+    }
+  }
+}
+
+.fixed-mainHeader {
+  height: 60px;
+  transition: all 0.5s ease;
+  .navbar-brand img {
+    width: 120px;
+    transition: all 0.5s ease;
+  }
+  .nav-item .nav-link {
+    font-size: 1vw;
+    transition: all 0.5s ease;
+  }
+}

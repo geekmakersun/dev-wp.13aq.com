@@ -1,6 +1,7 @@
 <?php
 get_header();
 ?>
+<?php geek_render_carousel(); ?>
 
 <!-- 英雄区域 -->
 <section class="py-16 py-md-24">
