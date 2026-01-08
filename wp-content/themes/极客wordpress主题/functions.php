@@ -47,3 +47,13 @@ require_once get_template_directory() . '/inc/main-carousel.php';
  */
 require_once get_template_directory() . '/inc/product-post-type.php';
 
+/**
+ * 引入第三方图片下载功能
+ */
+require_once get_template_directory() . '/inc/third-party-image-download.php';
+
+/**
+ * 引入图片尺寸管理功能
+ */
+require_once get_template_directory() . '/inc/disable-image-sizes.php';
+
