@@ -23,6 +23,23 @@ function geek_theme_scripts()
         'all' // 适配所有设备
     );
 
+    // 加载main.min.css
+    wp_enqueue_style(
+        'geek-main-style',
+        get_template_directory_uri() . '/assets/css/main.min.css',
+        array('bootstrap-css'),
+        '1.0.0',
+        'all'
+    );
+
+/*     // 加载main.min.js
+    wp_enqueue_script(
+        'geek-main-script',
+        get_template_directory_uri() . '/assets/js/main.js',
+        array('jquery'),
+        '1.0.0',
+        true
+    ); */
     // 从vendor目录加载Bootstrap JS
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js', array('jquery'), '5.3.0', true);
 

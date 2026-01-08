@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 主轮播图功能
  *
@@ -14,10 +15,11 @@
  *
  * @return array 轮播图数据数组
  */
-function geek_get_carousel_data() {
+function geek_get_carousel_data()
+{
     // 获取主题选项中的轮播图数据
     $carousel_data = get_option('geek_carousel_data', array());
-    
+
     // 如果没有轮播图数据，返回默认数据
     if (empty($carousel_data)) {
         return array(
@@ -37,7 +39,7 @@ function geek_get_carousel_data() {
             )
         );
     }
-    
+
     return $carousel_data;
 }
 
@@ -48,49 +50,47 @@ function geek_get_carousel_data() {
  *
  * @return void
  */
-function geek_render_carousel() {
+function geek_render_carousel()
+{
     // 获取轮播图数据
     $carousel_items = geek_get_carousel_data();
-    
+
     // 如果没有轮播图数据，不渲染
     if (empty($carousel_items)) {
         return;
     }
-    
-    ?>    
+
+?>
     <!-- 主轮播图 -->
     <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
         <!-- 指示器 -->
         <div class="carousel-indicators">
             <?php foreach ($carousel_items as $index => $item) : ?>
-                <button 
-                    type="button" 
-                    data-bs-target="#mainCarousel" 
-                    data-bs-slide-to="<?php echo esc_attr($index); ?>" 
+                <button
+                    type="button"
+                    data-bs-target="#mainCarousel"
+                    data-bs-slide-to="<?php echo esc_attr($index); ?>"
                     <?php echo $index === 0 ? 'class="active" aria-current="true"' : ''; ?>
-                    aria-label="Slide <?php echo esc_attr($index + 1); ?>"
-                ></button>
+                    aria-label="Slide <?php echo esc_attr($index + 1); ?>"></button>
             <?php endforeach; ?>
         </div>
-        
+
         <!-- 轮播内容 -->
         <div class="carousel-inner">
             <?php foreach ($carousel_items as $index => $item) : ?>
                 <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
-                    <img 
-                        src="<?php echo esc_url($item['image_url']); ?>" 
-                        class="d-block w-100" 
+                    <img
+                        src="<?php echo esc_url($item['image_url']); ?>"
+                        class="d-block w-100"
                         alt="<?php echo esc_attr($item['title']); ?>"
-                        style="height: 500px; object-fit: cover;"
-                    >
+                        style="height: 500px; object-fit: cover;">
                     <div class="carousel-caption d-none d-md-block text-start">
                         <h3 class="display-5 fw-bold text-white mb-4"><?php echo esc_html($item['title']); ?></h3>
                         <p class="lead text-white mb-6"><?php echo esc_html($item['description']); ?></p>
                         <?php if (!empty($item['button_text']) && !empty($item['button_link'])) : ?>
-                            <a 
-                                href="<?php echo esc_url($item['button_link']); ?>" 
-                                class="btn btn-primary btn-lg"
-                            >
+                            <a
+                                href="<?php echo esc_url($item['button_link']); ?>"
+                                class="btn btn-primary btn-lg">
                                 <?php echo esc_html($item['button_text']); ?>
                             </a>
                         <?php endif; ?>
@@ -98,28 +98,26 @@ function geek_render_carousel() {
                 </div>
             <?php endforeach; ?>
         </div>
-        
+
         <!-- 控制按钮 -->
-        <button 
-            class="carousel-control-prev" 
-            type="button" 
-            data-bs-target="#mainCarousel" 
-            data-bs-slide="prev"
-        >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#mainCarousel"
+            data-bs-slide="prev">
+            <i class="fs-1 bi bi-arrow-left-circle text-primary"></i>
             <span class="visually-hidden">上一张</span>
         </button>
-        <button 
-            class="carousel-control-next" 
-            type="button" 
-            data-bs-target="#mainCarousel" 
-            data-bs-slide="next"
-        >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#mainCarousel"
+            data-bs-slide="next">
+            <i class="fs-1 bi bi-arrow-right-circle text-primary"></i>
             <span class="visually-hidden">下一张</span>
         </button>
     </div>
-    <?php
+<?php
 }
 
 /**
@@ -129,11 +127,11 @@ function geek_render_carousel() {
  *
  * @return void
  */
-function geek_carousel_init() {
+function geek_carousel_init()
+{
     // 注册轮播图功能
     // 可以在这里添加更多初始化逻辑
 }
 
 // 初始化轮播图功能
 add_action('init', 'geek_carousel_init');
-
