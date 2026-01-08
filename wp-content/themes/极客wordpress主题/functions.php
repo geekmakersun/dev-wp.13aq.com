@@ -42,3 +42,8 @@ require_once get_template_directory() . '/inc/nav-menu.php';
  */
 require_once get_template_directory() . '/inc/main-carousel.php';
 
+/**
+ * 引入产品自定义文章类型和分类法
+ */
+require_once get_template_directory() . '/inc/product-post-type.php';
+
