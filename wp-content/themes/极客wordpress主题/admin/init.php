@@ -11,6 +11,7 @@
 require_once __DIR__ . '/inc/menus.php';
 require_once __DIR__ . '/inc/settings.php';
 require_once __DIR__ . '/inc/sanitize.php';
+require_once __DIR__ . '/inc/batch-categories.php';
 
 /**
  * 加载后台样式和脚本
