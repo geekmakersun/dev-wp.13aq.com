@@ -114,3 +114,108 @@ function geek_register_product_taxonomy()
     register_taxonomy('product_category', array('product'), $args);
 }
 add_action('init', 'geek_register_product_taxonomy', 0);
+
+/**
+ * 获取产品列表
+ *
+ * @param int $count 产品数量
+ * @return WP_Query 产品查询对象
+ */
+function geek_get_products($count = 4) {
+    $args = array(
+        'post_type' => 'product',
+        'posts_per_page' => $count,
+        'orderby' => 'date',
+        'order' => 'DESC'
+    );
+    return new WP_Query($args);
+}
+
+/**
+ * 渲染产品列表
+ *
+ * @param array $args 产品展示参数
+ * @return void
+ */
+function geek_render_products($args = array()) {
+    // 默认参数
+    $defaults = array(
+        'count' => 4, // 产品数量
+        'title' => '产品展示', // 标题
+        'subtitle' => '我们的精选产品', // 副标题
+        'columns' => 'col-md-6 col-lg-3', // 列数类
+        'image_size' => 'medium', // 图片尺寸
+        'image_height' => '200px', // 图片高度
+        'show_excerpt' => true, // 是否显示摘要
+        'show_view_more' => true, // 是否显示查看全部按钮
+        'section_class' => 'products-section py-5 bg-light', // 区域类
+        'container_class' => 'container', // 容器类
+    );
+    
+    // 合并参数
+    $args = wp_parse_args($args, $defaults);
+    
+    $products = geek_get_products($args['count']);
+    
+    if (!$products->have_posts()) {
+        return;
+    }
+    ?>
+    <!-- 产品列表 -->
+    <section class="<?php echo esc_attr($args['section_class']); ?>">
+        <div class="<?php echo esc_attr($args['container_class']); ?>">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="display-6 fw-bold"><?php echo esc_html($args['title']); ?></h2>
+                    <?php if (!empty($args['subtitle'])) : ?>
+                        <p class="lead text-muted"><?php echo esc_html($args['subtitle']); ?></p>
+                    <?php endif; ?>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <?php while ($products->have_posts()) : $products->the_post(); ?>
+                    <div class="<?php echo esc_attr($args['columns']); ?>">
+                        <div class="card h-100 shadow-sm transition-all duration-300 hover:shadow-lg">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <div class="card-img-top overflow-hidden" style="height: <?php echo esc_attr($args['image_height']); ?>">
+                                    <a href="<?php the_permalink(); ?>" class="d-block h-100">
+                                        <?php the_post_thumbnail($args['image_size'], array('class' => 'w-100 h-100 object-cover transition-transform duration-500 hover:scale-105')); ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <div class="card-body">
+                                <h3 class="card-title h5 mb-2">
+                                    <a href="<?php the_permalink(); ?>" class="text-dark text-decoration-none hover:text-primary transition-colors">
+                                        <?php the_title(); ?>
+                                    </a>
+                                </h3>
+                                <?php if ($args['show_excerpt']) : ?>
+                                    <div class="card-text text-muted mb-3">
+                                        <?php the_excerpt(); ?>
+                                    </div>
+                                <?php endif; ?>
+                                <a href="<?php the_permalink(); ?>" class="btn btn-primary btn-sm">
+                                    查看详情
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+            </div>
+            
+            <?php if ($args['show_view_more']) : ?>
+                <div class="row mt-5 text-center">
+                    <div class="col-12">
+                        <a href="<?php echo esc_url(get_post_type_archive_link('product')); ?>" class="btn btn-outline-primary btn-lg">
+                            查看全部产品
+                        </a>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </section>
+    <?php
+}

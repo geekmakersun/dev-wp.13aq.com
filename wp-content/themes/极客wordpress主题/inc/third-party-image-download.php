@@ -140,6 +140,18 @@ function geek_third_party_image_metabox_callback($post) {
                 success: function(response) {
                     if (response.success) {
                         statusDiv.html('<span style="color: green;">' + response.data.message + '</span>');
+                        
+                        // 如果自动设置了特色图片，更新特色图片区域
+                        if (response.data.featured_image_set && response.data.thumbnail_html) {
+                            var thumbnailDiv = $('#set-post-thumbnail-drag-drop, #set-post-thumbnail');
+                            if (thumbnailDiv.length) {
+                                // 更新特色图片预览
+                                thumbnailDiv.parent().find('.attachment-thumbnail').remove();
+                                thumbnailDiv.parent().find('.howto').remove();
+                                thumbnailDiv.before(response.data.thumbnail_html);
+                            }
+                        }
+                        
                         // 重新加载编辑器内容
                         if (typeof tinyMCE !== 'undefined' && tinyMCE.activeEditor) {
                             tinyMCE.activeEditor.execCommand('mceSave');
@@ -233,6 +245,7 @@ function geek_download_content_images() {
     // 下载图片并替换URL
     $replaced_count = 0;
     $failed_count = 0;
+    $first_image_attachment_id = null; // 存储第一张成功下载的图片ID
     
     foreach ($image_urls as $image_url) {
         // 跳过本地图片
@@ -251,6 +264,11 @@ function geek_download_content_images() {
                 // 替换内容中的图片URL
                 $content = str_replace($image_url, $local_image_url, $content);
                 $replaced_count++;
+                
+                // 保存第一张成功下载的图片ID
+                if (!$first_image_attachment_id) {
+                    $first_image_attachment_id = $attachment_id;
+                }
             }
         } else {
             $failed_count++;
@@ -263,10 +281,30 @@ function geek_download_content_images() {
             'ID' => $post_id,
             'post_content' => $content
         ));
+        
+        // 如果成功下载了图片，且当前产品没有特色图片，自动将第一张图片设置为特色图片
+        if ($first_image_attachment_id && !has_post_thumbnail($post_id)) {
+            set_post_thumbnail($post_id, $first_image_attachment_id);
+        }
+    }
+    
+    // 检查是否自动设置了特色图片
+    $featured_image_set = false;
+    if ($first_image_attachment_id && !has_post_thumbnail($post_id)) {
+        set_post_thumbnail($post_id, $first_image_attachment_id);
+        $featured_image_set = true;
+    }
+    
+    // 获取当前特色图片HTML（用于前端更新）
+    $thumbnail_html = '';
+    if (has_post_thumbnail($post_id)) {
+        $thumbnail_html = get_the_post_thumbnail($post_id, 'thumbnail');
     }
     
     wp_send_json_success(array(
-        'message' => sprintf(__('处理完成：成功替换 %d 张图片，失败 %d 张', 'geek-theme'), $replaced_count, $failed_count)
+        'message' => sprintf(__('处理完成：成功替换 %d 张图片，失败 %d 张', 'geek-theme'), $replaced_count, $failed_count),
+        'featured_image_set' => $featured_image_set,
+        'thumbnail_html' => $thumbnail_html
     ));
 }
 add_action('wp_ajax_geek_download_content_images', 'geek_download_content_images');
@@ -277,8 +315,13 @@ add_action('wp_ajax_geek_download_content_images', 'geek_download_content_images
 function geek_extract_image_urls_from_content($content) {
     $image_urls = array();
     
-    // 使用正则表达式提取img标签的src属性
-    preg_match_all('/<img[^>]+src=["\']([^"\']+)["\'][^>]*>/i', $content, $matches);
+    // 改进的正则表达式，支持多种src属性格式：
+    // 1. <img src="url">
+    // 2. <img src='url'>
+    // 3. <img src=url>
+    // 4. 支持单引号、双引号或无引号
+    // 5. 支持各种属性顺序
+    preg_match_all('/<img[^>]+src=(?:["\']?)([^"\'>]+)(?:["\']?)[^>]*>/i', $content, $matches);
     
     if (isset($matches[1]) && !empty($matches[1])) {
         $image_urls = $matches[1];
@@ -293,17 +336,17 @@ function geek_extract_image_urls_from_content($content) {
  * 检查图片是否为本地图片
  */
 function geek_is_local_image($image_url) {
+    // 检查是否为相对路径（不包含http/https协议）
+    if (stripos($image_url, 'http') !== 0) {
+        return true;
+    }
+    
     // 获取站点URL
     $site_url = home_url();
     $upload_base_url = wp_upload_dir()['baseurl'];
     
     // 检查是否包含站点URL或上传目录URL
     if (strpos($image_url, $site_url) !== false || strpos($image_url, $upload_base_url) !== false) {
-        return true;
-    }
-    
-    // 检查是否为相对路径
-    if (strpos($image_url, 'http') !== 0) {
         return true;
     }
     
