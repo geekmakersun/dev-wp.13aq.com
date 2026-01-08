@@ -64,8 +64,8 @@ if (!empty($navbar_bg_image)) {
                 <!-- 右侧功能区 -->
                 <div class="d-flex align-items-center gap-3">
                     <!-- 搜索按钮 -->
-                    <div  data-modal-target="mainSearch" data-modal-toggle="mainSearch" class="">
-                       <i class="bi bi-search"></i>
+                    <div data-modal-target="mainSearch" data-modal-toggle="mainSearch" class="">
+                        <i class="bi bi-search"></i>
                     </div>
 
                     <!-- 语言切换 -->
