@@ -27,8 +27,6 @@
     </div>
 </section>
 
-<!-- 特性介绍 -->
-<section id="features" class="py-12">
     <div class="container px-4 mx-auto">
         <div class="row g-4 g-md-8">
             <div class="col-12 col-md-4">
@@ -74,6 +72,4 @@
     </div>
 
 
-<?php
-get_footer();
-?>
+<?php get_footer();?>
