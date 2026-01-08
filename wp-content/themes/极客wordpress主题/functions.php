@@ -33,9 +33,9 @@ require_once get_template_directory() . '/inc/wordpress_function_modification.ph
 require_once get_template_directory() . '/inc/theme-scripts.php';
 
 /**
- * 引入导航菜单功能
+ * 引入头部菜单功能
  */
-require_once get_template_directory() . '/inc/nav-menu.php';
+require_once get_template_directory() . '/inc/header-menu.php';
 
 /**
  * 引入主轮播图功能

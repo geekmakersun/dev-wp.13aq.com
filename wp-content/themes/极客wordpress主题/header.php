@@ -57,15 +57,7 @@ if (!empty($navbar_bg_image)) {
                 <div class="collapse navbar-collapse justify-content-center" id="headerMenu">
                     <?php
                     // 调用导航菜单
-                    wp_nav_menu( array(
-                        'theme_location'    => 'header-menu',  // 菜单位置，对应functions.php中注册的位置
-                        'depth'             => 2,             // 菜单深度，支持二级菜单
-                        'container'         => false,         // 不输出外层容器
-                        'menu_class'        => 'navbar-nav',  // 主菜单ul的CSS类
-                        'fallback_cb'       => '__return_false', // 没有菜单时不显示默认内容
-                        'add_li_class'      => 'nav-item',    // 为每个菜单项li添加的类
-                        'link_class'        => 'nav-link'     // 为每个菜单项链接a添加的类
-                    ) );
+                    geek_theme_output_header_menu();
                     ?>
                 </div>
 
