@@ -67,6 +67,55 @@ function geek_theme_add_link_class( $atts, $item, $args ) {
 add_filter( 'nav_menu_link_attributes', 'geek_theme_add_link_class', 10, 3 );
 
 /**
+ * 为子菜单添加自定义类
+ *
+ * @param string $classes 子菜单当前类
+ * @param object $args 菜单参数
+ * @param int $depth 菜单深度
+ * @return string 更新后的子菜单类
+ */
+function geek_theme_add_submenu_class( $classes, $args, $depth ) {
+    // 为子菜单添加 Bootstrap 5 的 dropdown-menu 类
+    $classes[] = 'dropdown-menu';
+    return $classes;
+}
+add_filter( 'nav_menu_submenu_css_class', 'geek_theme_add_submenu_class', 10, 3 );
+
+/**
+ * 更新菜单项链接类，根据深度添加正确的类
+ *
+ * @param array $atts 链接属性数组
+ * @param object $item 菜单项对象
+ * @param array $args 菜单参数
+ * @param int $depth 菜单深度
+ * @return array 更新后的链接属性数组
+ */
+function geek_theme_update_link_class( $atts, $item, $args, $depth ) {
+    // 重置类属性
+    $atts['class'] = '';
+    
+    // 根据深度设置不同的类
+    if ( $depth === 0 ) {
+        if ( in_array( 'menu-item-has-children', $item->classes ) ) {
+            $atts['class'] = 'nav-link dropdown-toggle';
+            $atts['role'] = 'button';
+            $atts['data-bs-toggle'] = 'dropdown';
+            $atts['aria-expanded'] = 'false';
+        } else {
+            $atts['class'] = 'nav-link';
+        }
+    } else {
+        $atts['class'] = 'dropdown-item';
+    }
+    
+    return $atts;
+}
+// 移除旧的过滤器
+remove_filter( 'nav_menu_link_attributes', 'geek_theme_add_link_class', 10 );
+// 添加新的过滤器，使用4个参数
+add_filter( 'nav_menu_link_attributes', 'geek_theme_update_link_class', 10, 4 );
+
+/**
  * 输出头部菜单
  *
  * @param array $args 菜单参数
