@@ -57,3 +57,8 @@ require_once get_template_directory() . '/inc/third-party-image-download.php';
  */
 require_once get_template_directory() . '/inc/disable-image-sizes.php';
 
+/**
+ * 引入FAQ自定义文章类型和分类法
+ */
+require_once get_template_directory() . '/inc/faq-post-type.php';
+
