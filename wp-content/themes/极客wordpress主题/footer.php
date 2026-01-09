@@ -20,12 +20,12 @@
                 <div class="row justify-content-between">
                     <div class="col-md-5 col-lg-3">
                         <div class="widget footer-widget">
-                            <h3 class="widget_title">Contact Us</h3>
+                            <h3 class="widget_title">联系我们</h3>
                             <div class="vs-widget-about">
                                 <form action="#" class="footer-newsletter">
-                                    <p class="form-text">Get on the list so we can stay in touch</p>
+                                    <p class="form-text">加入我们的列表，以便我们保持联系</p>
                                     <div class="form-group">
-                                        <input type="email" id="newsletteremail" name="newsletteremail" placeholder="Your email address">
+                                        <input type="email" id="newsletteremail" name="newsletteremail" placeholder="您的电子邮件地址">
                                         <i class="fas fa-envelope"></i>
                                     </div>
                                 </form>
@@ -36,21 +36,21 @@
                     </div>
                     <div class="col-auto col-md-6 col-lg-auto offset-xl-1">
                         <div class="widget widget_nav_menu  footer-widget">
-                            <h3 class="widget_title">Services</h3>
+                            <h3 class="widget_title">服务</h3>
                             <div class="menu-all-pages-container">
                                 <ul class="menu">
-                                    <li><a href="#">Track My Order</a></li>
-                                    <li><a href="#">Returns</a></li>
-                                    <li><a href="#">Shipping Terms</a></li>
-                                    <li><a href="#">Payment Policy</a></li>
-                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">追踪我的订单</a></li>
+                                    <li><a href="#">退货</a></li>
+                                    <li><a href="#">配送条款</a></li>
+                                    <li><a href="#">支付政策</a></li>
+                                    <li><a href="#">常见问题</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-auto col-md-6 col-lg-auto">
                         <div class="widget widget_nav_menu  footer-widget">
-                            <h3 class="widget_title">Follow Us On</h3>
+                            <h3 class="widget_title">关注我们</h3>
                             <div class="menu-all-pages-container">
                                 <ul class="menu">
                                     <li><a href="#"><i class="fab fa-facebook-f"></i>Facebook</a></li>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="col-md-6 col-lg-auto">
                         <div class="widget footer-widget">
-                            <h3 class="widget_title">Shop Address</h3>
+                            <h3 class="widget_title">店铺地址</h3>
                             <div class="footer-map">
                                 <div style="width: 400px; height: 135px; background-color: #f0f0f0; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #666;">
                                     地图占位区域
@@ -83,16 +83,16 @@
 
 
     <!--********************************
-                        Code End  Here 
+                        代码结束 
         ******************************** -->
 
 
-    <!-- Scroll To Top -->
+    <!-- 返回顶部 -->
     <a href="#" class="scrollToTop scroll-btn"><i class="far fa-arrow-up"></i></a>
 
 
     <!--==============================
-        All Js File
+        所有JS文件
     ============================== -->
     <!-- Jquery -->
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/vendor/jquery-3.6.0.min.js"></script>
