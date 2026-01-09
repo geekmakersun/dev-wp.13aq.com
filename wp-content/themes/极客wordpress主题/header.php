@@ -32,23 +32,10 @@ if ( ! defined( 'ABSPATH' ) ) {
     <?php wp_site_icon(); ?>
 
     <!--==============================
-	    All CSS File
-	============================== -->
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="assets/css/app.min.css"> -->
-    <!-- Fontawesome Icon -->
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/fontawesome.min.css">
-    <!-- Layerslider -->
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/layerslider.min.css">
+	 All CSS File
+============================== -->
     <!-- Layerslider皮肤CSS重定向 -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/layerslider/skins/v6/skin.css">
-    <!-- Magnific Popup -->
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/magnific-popup.min.css">
-    <!-- Slick Slider -->
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/slick.min.css">
-    <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
 
     <?php wp_head(); ?>
 </head>

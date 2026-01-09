@@ -177,12 +177,13 @@ function geek_render_faq_accordion($args = array()) {
         <div class="vs-accordion accordion" id="<?php echo esc_attr($args['accordion_id']); ?>">
             <?php $i = 1; while ($faqs->have_posts()) : $faqs->the_post(); ?>
                 <div class="accordion-item">
-                    <div class="accordion-header" id="accordion<?php echo $i; ?>">
+                    <div class="accordion-header" id="accordion<?php echo $i; ?>" style="padding: 0 20px; box-sizing: border-box;">
                         <button class="accordion-button <?php echo $i > 1 ? 'collapsed' : ''; ?>" type="button" 
                                 data-bs-toggle="collapse" 
                                 data-bs-target="#collapse<?php echo $i; ?>" 
                                 aria-expanded="<?php echo $i === 1 ? 'true' : 'false'; ?>" 
-                                aria-controls="collapse<?php echo $i; ?>">
+                                aria-controls="collapse<?php echo $i; ?>"
+                                style="padding: 30px 20px; margin: 0 -20px; width: calc(100% + 40px); box-sizing: border-box;">
                             <?php the_title(); ?>
                         </button>
                     </div>

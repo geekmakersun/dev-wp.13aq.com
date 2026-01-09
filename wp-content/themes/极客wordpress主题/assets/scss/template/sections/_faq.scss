@@ -1,0 +1,150 @@
+.vs-accordion {
+  .accordion-item {
+    margin-bottom: 45px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+
+  .accordion-body {
+    padding: 25px 30px 30px;
+    border: none;
+    line-height: 1.8;
+    color: $text-color;
+
+    p {
+      margin-bottom: 15px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .accordion-collapse {
+    border: none;
+  }
+
+  .accordion-header {
+    padding: 0 30px;
+  }
+
+  .accordion-button {
+    border: none;
+    padding: 30px 20px;
+    line-height: 1.5;
+    font-size: 22px;
+    font-weight: 500;
+    color: $title-color;
+    border-bottom: none;
+    text-align: left;
+    background: transparent;
+    box-shadow: none;
+    margin: 0 -20px;
+    width: calc(100% + 40px);
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    &:after {
+      content: '\f067';
+      font-family: $icon-font;
+      width: auto;
+      height: auto;
+      background-image: none;
+      font-weight: 300;
+      transform: none;
+      color: $title-color;
+      margin-left: 20px;
+    }
+
+    &:not(.collapsed) {
+      background-color: transparent;
+      outline: none;
+      color: $title-color;
+      box-shadow: none;
+
+      &:after {
+        content: '\f068';
+      }
+    }
+  }
+}
+
+
+@include lg {
+  .vs-accordion {
+    .accordion-button {
+      font-size: 18px;
+      padding: 25px 20px;
+    }
+
+    .accordion-body {
+      padding: 20px 25px 25px;
+    }
+
+    .accordion-header {
+      padding: 0 25px;
+    }
+  }
+}
+
+@include lg {
+  .vs-accordion {
+    .accordion-button {
+      line-height: 1.6;
+      padding: 25px 20px;
+      font-size: 18px;
+    }
+
+    .accordion-item {
+      margin-bottom: 35px;
+    }
+  }
+}
+
+@include md {
+  .vs-accordion {
+    .accordion-item {
+      margin-bottom: 30px;
+    }
+
+    .accordion-button {
+      font-size: 18px;
+      padding: 22px 18px;
+    }
+
+    .accordion-body {
+      padding: 18px 20px 22px;
+    }
+
+    .accordion-header {
+      padding: 0 20px;
+    }
+  }
+}
+
+@include sm {
+  .vs-accordion {
+    .accordion-item {
+      margin-bottom: 25px;
+    }
+
+    .accordion-button {
+      font-size: 16px;
+      padding: 20px 15px;
+    }
+
+    .accordion-body {
+      padding: 15px 18px 20px;
+    }
+
+    .accordion-header {
+      padding: 0 18px;
+    }
+  }
+}

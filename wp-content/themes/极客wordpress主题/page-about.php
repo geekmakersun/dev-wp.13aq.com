@@ -65,7 +65,7 @@ get_header();
 <!-- 开始 视频 区域 -->
 <div class="position-relative">
     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/about/video-3-1.jpg" alt="视频图片">
-    <a href="<?php echo get_template_directory_uri(); ?>/assets/video/将画面制作成视频.mp4" class="play-btn style2 popup-video overlay-center"><i class="fas fa-play"></i></a>
+    <a href="<?php echo get_template_directory_uri(); ?>/assets/video/关于我们.mp4" class="play-btn style2 popup-video overlay-center"><i class="fas fa-play"></i></a>
 </div>
 <!-- 结束 视频 区域 -->
 

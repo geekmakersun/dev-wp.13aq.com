@@ -1,4 +1,4 @@
-/*-- margin Left And Right --*/
+/*-- 左右外边距 --*/
 @for $i from 1 through $space-count {
   .mx-#{5 * $i} {
     margin-right: 5px *$i;
@@ -6,7 +6,7 @@
   }
 }
 
-/*-- margin Top And Bottom --*/
+/*-- 上下外边距 --*/
 @for $i from 1 through $space-count {
   .my-#{5 * $i} {
     margin-top: 5px *$i;
@@ -14,28 +14,28 @@
   }
 }
 
-/*-- margin Top --*/
+/*-- 上外边距 --*/
 @for $i from 1 through $space-count {
   .mt-#{5 * $i} {
     margin-top: 5px *$i;
   }
 }
 
-/*-- margin Bottom --*/
+/*-- 下外边距 --*/
 @for $i from 1 through $space-count {
   .mb-#{5 * $i} {
     margin-bottom: 5px *$i;
   }
 }
 
-/*-- margin Left --*/
+/*-- 左外边距 --*/
 @for $i from 1 through $space-count {
   .ml-#{5 * $i} {
     margin-left: 5px *$i;
   }
 }
 
-/*-- margin Right --*/
+/*-- 右外边距 --*/
 @for $i from 1 through $space-count {
   .mr-#{5 * $i} {
     margin-right: 5px *$i;

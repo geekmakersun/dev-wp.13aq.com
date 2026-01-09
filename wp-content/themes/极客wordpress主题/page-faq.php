@@ -19,14 +19,14 @@ get_header();
             <div class="col-lg-6 mb-30">
                 <div class="video-box">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/about/about-2-1.jpg" alt="ABout Image" class="w-100">
-                    <a href="#" class="play-btn style3 popup-video"><i class="fas fa-play"></i></a>
+                    <a href="<?php echo get_template_directory_uri(); ?>/assets/video/了解我们公司的一切.mp4" class="play-btn style3 popup-video overlay-center"><i class="fas fa-play"></i></a>
                 </div>
             </div>
             <div class="col-lg-6 mb-30">
                 <div class="about-content">
                     <h2 class="sec-title-style3 fw-medium pe-xl-4">了解我们公司的一切</h2>
                     <p class="fw-light mt-4 pt-1 mb-4 pb-xl-3">专业地通过基于多媒体的战略主题领域促进有影响力的协同作用。协作实现基于绩效的内部或"有机"来源和技术上合理的场景。无缝促进增值内部或"有机"来源符合标准的平台。</p>
-                    <a href="#" class="line-btn style2 popup-video">播放视频了解更多详情</a>
+                    <a href="<?php echo get_template_directory_uri(); ?>/assets/video/了解我们公司的一切.mp4" class="line-btn style2 popup-video">播放视频了解更多详情</a>
                 </div>
             </div>
         </div>

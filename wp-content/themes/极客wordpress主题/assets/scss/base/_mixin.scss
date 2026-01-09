@@ -96,7 +96,7 @@
 		line-height: $item-size;
 		margin: -($item-size * 0.5);
 
-		$angle: math.div($angleCount, $item-count);
+		$angle: $angleCount / $item-count;
 		$rot: $rotCount;
 
 		@for $i from 1 through $item-count {
@@ -128,7 +128,7 @@
 // Responsive Query
 @mixin hd {
 
-	/* Hight Resoulation devices */
+	/* 高分辨率设备 */
 	@media (min-width: #{$hd + 1}) {
 		@content;
 	}
@@ -136,7 +136,7 @@
 
 @mixin xl {
 	
-	/* Extra large devices */
+	/* 超大设备 */
 	@media (max-width: #{$xl}) {
 		@content;
 	}
@@ -144,7 +144,7 @@
 
 @mixin ml {
 
-	/* Medium Large devices */
+	/* 中大型设备 */
 	@media (max-width: #{$ml}) {
 		@content;
 	}
@@ -152,7 +152,7 @@
 
 @mixin lg {
 
-	/* Large devices */
+	/* 大型设备 */
 	@media (max-width: #{$lg}) {
 		@content;
 	}
@@ -160,7 +160,7 @@
 
 @mixin md {
 
-	/* Medium devices */
+	/* 中型设备 */
 	@media (max-width: #{$md}) {
 		@content;
 	}
@@ -168,7 +168,7 @@
 
 @mixin sm {
 
-	/* Small devices */
+	/* 小型设备 */
 	@media (max-width: #{$sm}) {
 		@content;
 	}
@@ -176,7 +176,7 @@
 
 @mixin xs {
 
-	/* Extra small devices */
+	/* 超小设备 */
 	@media (max-width: #{$xs}) {
 		@content;
 	}

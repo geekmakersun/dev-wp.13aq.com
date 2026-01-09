@@ -26,7 +26,7 @@ function geek_theme_scripts()
     // 从HTML模板加载主题自定义CSS
     wp_enqueue_style(
         'geek-main-style',
-        get_template_directory_uri() . '/assets/css/style.css',
+        get_template_directory_uri() . '/assets/css/main.min.css',
         array('bootstrap-css'),
         '1.0.0',
         'all'

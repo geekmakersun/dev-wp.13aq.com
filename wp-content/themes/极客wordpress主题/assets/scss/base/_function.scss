@@ -1,5 +1,5 @@
 
-// Function For Letter Spacing
+// 字母间距函数
 @function letter-spacing($psValue, $return: 'em', $fSize: '16') {
   @if $return=='em' {
     @return ($psValue) * 0.001 + em;
@@ -15,7 +15,7 @@
 }
 
 
-// Convert a hex value to comma-delimited rgb values
+// 将十六进制值转换为逗号分隔的RGB值
 @function convert-rgb($hex) {
   @return red($hex),
   green($hex),

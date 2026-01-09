@@ -21,10 +21,12 @@
   --section-space-mobile: 80px;
   --section-title-space : 60px;
   --ripple-ani-duration : 5s;
+  --bs-primary-rgb: 230, 0, 0;
+  --text-color: var(--body-color);
 }
 
 
-// Color Variation
+// 颜色变化
 $theme-color          : var(--theme-color);
 $title-color          : var(--title-color);
 $body-color           : var(--body-color);
@@ -37,11 +39,12 @@ $yellow-color         : var(--yellow-color);
 $success-color        : var(--success-color);
 $error-color          : var(--error-color);
 $border-color         : var(--border-color);
+$text-color           : var(--text-color);
 
-// Font Variation
+// 字体变化
 $icon-font   : var(--icon-font);
 
-// Typography
+// 排版
 $title-font      : var(--title-font);
 $body-font       : var(--body-font);
 $body-font-size  : 16px;
@@ -50,29 +53,29 @@ $body-font-weight: 400;
 $p-line-Height   : 1.65;
 
 
-// Device Variation
-$hd: 1921px; // Large Device Than 1920
-$xl: 1500px; // Extra large Device
-$ml: 1399px; // Medium Large Device
-$lg: 1199px; // Large Device (Laptop)
-$md: 991px; // Medium Device (Tablet)
-$sm: 767px; // Small Device
-$xs: 575px; // Extra Small Device
+// 设备变化
+$hd: 1921px; // 大于1920的设备
+$xl: 1500px; // 超大设备
+$ml: 1399px; // 中大型设备
+$lg: 1199px; // 大型设备（笔记本）
+$md: 991px; // 中型设备（平板）
+$sm: 767px; // 小型设备
+$xs: 575px; // 超小设备
 
 
-// Spacing Count with 5x
+// 5倍间距计数
 $space-count: 7;
 
-// Section Space  For large Device
+// 大型设备的区块间距
 $space         : var(--section-space);
 $space-extra: calc(var(--section-space) - 30px);
 
-// Section Space On small Device
+// 小型设备的区块间距
 $space-mobile         : var(--section-space-mobile);
 $space-mobile-extra: calc(var(--section-space-mobile) - 30px);
 
 
-// BG Color Mapping 
+// 背景颜色映射
 $bgcolorMap  : ();
 $bgcolorMap  : map-merge((
   "theme"    : $theme-color,
@@ -84,7 +87,7 @@ $bgcolorMap  : map-merge((
 ), $bgcolorMap);
 
 
-// Overlay Color Mapping 
+// 遮罩层颜色映射
 $overlaycolorMap : ();
 $overlaycolorMap : map-merge((
   "theme"        : $theme-color,
@@ -94,7 +97,7 @@ $overlaycolorMap : map-merge((
 ), $overlaycolorMap);
 
 
-// Text Color Mapping 
+// 文字颜色映射
 $textColorsMap : ();
 $textColorsMap : map-merge((
   "theme"      : $theme-color,
@@ -108,7 +111,7 @@ $textColorsMap : map-merge((
 $textColorsMap);
 
 
-// Font Mapping 
+// 字体映射
 $fontsMap    : ();
 $fontsMap    : map-merge((
   "icon"     : $icon-font,
@@ -121,7 +124,7 @@ $fontsMap    : map-merge((
 
 
 
-// Pages Colors
+// 页面颜色
 .home-3 {
   --theme-color: #ffa800;
 }

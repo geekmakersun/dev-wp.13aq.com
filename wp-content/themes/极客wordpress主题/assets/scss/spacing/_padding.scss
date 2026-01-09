@@ -1,4 +1,4 @@
-/*-- Padding Left And Right --*/
+/*-- 左右内边距 --*/
 @for $i from 1 through $space-count {
   .px-#{5 * $i} {
     padding-right: 5px *$i;
@@ -6,7 +6,7 @@
   }
 }
 
-/*-- Padding Top And Bottom --*/
+/*-- 上下内边距 --*/
 @for $i from 1 through $space-count {
   .py-#{5 * $i} {
     padding-top: 5px *$i;
@@ -14,28 +14,28 @@
   }
 }
 
-/*-- Padding Top --*/
+/*-- 上内边距 --*/
 @for $i from 1 through $space-count {
   .pt-#{5 * $i} {
     padding-top: 5px *$i;
   }
 }
 
-/*-- Padding Bottom --*/
+/*-- 下内边距 --*/
 @for $i from 1 through $space-count {
   .pb-#{5 * $i} {
     padding-bottom: 5px *$i;
   }
 }
 
-/*-- Padding Left --*/
+/*-- 左内边距 --*/
 @for $i from 1 through $space-count {
   .pl-#{5 * $i} {
     padding-left: 5px *$i;
   }
 }
 
-/*-- Padding Right --*/
+/*-- 右内边距 --*/
 @for $i from 1 through $space-count {
   .pr-#{5 * $i} {
     padding-right: 5px *$i;
