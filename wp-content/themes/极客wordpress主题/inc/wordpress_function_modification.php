@@ -62,3 +62,38 @@ function geek_render_newsletter_popup() {
     </div>
     <?php
 }
+
+/**
+ * 生成面包屑导航
+ *
+ * @return string 面包屑HTML
+ */
+function geek_get_breadcrumb() {
+    $html = '';
+    
+    // 开始面包屑容器
+    $html .= '<div class="breadcumb-wrapper" data-bg-src="' . get_template_directory_uri() . '/assets/img/breadcumb/bredcumb-1.png">';
+    $html .= '<div class="container z-index-common">';
+    
+    // 页面标题
+    $html .= '<div class="breadcumb-content">';
+    $html .= '<h1 class="breadcumb-title">' . get_the_title() . '</h1>';
+    $html .= '</div>';
+    
+    // 面包屑导航链接
+    $html .= '<div class="breadcumb-menu-wrap">';
+    $html .= '<ul class="breadcumb-menu">';
+    
+    // 首页链接
+    $html .= '<li><a href="' . home_url() . '">首页</a></li>';
+    
+    // 当前页面链接
+    $html .= '<li class="active">' . get_the_title() . '</li>';
+    
+    $html .= '</ul>';
+    $html .= '</div>';
+    $html .= '</div>';
+    $html .= '</div>';
+    
+    return $html;
+}

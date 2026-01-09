@@ -48,6 +48,8 @@ function geek_sanitize_general_settings($input) {
         // 当取消勾选时，明确保存为0或不保存，以表示关闭状态
         $sanitized['newsletter_popup'] = '0';
     }
+    
+
 
     return $sanitized;
 }
