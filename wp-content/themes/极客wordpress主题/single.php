@@ -10,15 +10,9 @@
 get_header();
 ?>
 
-<div class="container main-content">
-    <div id="primary" class="content-area">
-        <main id="main" class="site-main">
-            <?php get_template_part( 'templates/single' ); ?>
-        </main>
-    </div>
-    
-    <?php get_sidebar(); ?>
-</div>
+<main id="main" class="site-main">
+    <?php get_template_part( 'templates/single' ); ?>
+</main>
 
 <?php
 get_footer();
