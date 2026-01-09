@@ -96,46 +96,18 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-mobile.png" alt="<?php bloginfo('name'); ?>"></a>
             </div>
             <div class="mobile-menu">
-                <ul>
-                    <li class="menu-item-has-children">
-                        <a href="<?php echo home_url(); ?>">首页</a>
-                        <ul class="sub-menu">
-                            <li><a href="<?php echo home_url(); ?>">首页1 - 电子产品 <span class="new-tag">新品</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="<?php echo home_url(); ?>/about">关于我们</a>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="<?php echo home_url(); ?>/blog">博客</a>
-                        <ul class="sub-menu">
-                            <li><a href="<?php echo home_url(); ?>/blog">博客</a></li>
-                            <li><a href="<?php echo home_url(); ?>/blog-details">博客详情</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="<?php echo home_url(); ?>/shop">商店</a>
-                        <ul class="sub-menu">
-                            <li><a href="<?php echo home_url(); ?>/shop">商店</a></li>
-                            <li><a href="<?php echo home_url(); ?>/shop-details">商品详情</a></li>
-                            <li><a href="<?php echo home_url(); ?>/cart">购物车</a></li>
-                            <li><a href="<?php echo home_url(); ?>/checkout">结账</a></li>
-                            <li><a href="<?php echo home_url(); ?>/login">登录页面</a></li>
-                            <li><a href="<?php echo home_url(); ?>/signup">注册页面</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="#">页面</a>
-                        <ul class="sub-menu">
-                            <li><a href="<?php echo home_url(); ?>/faq">常见问题</a></li>
-                            <li><a href="<?php echo home_url(); ?>/error">错误页面</a></li>
-                            <li><a href="<?php echo home_url(); ?>/coming-soon">即将上线</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="<?php echo home_url(); ?>/contact">联系我们</a>
-                    </li>
-                </ul>
+                <?php
+                    $mobile_menu_args = array(
+                        'theme_location'    => 'header-menu',
+                        'depth'             => 2,
+                        'container'         => false,
+                        'menu_class'        => '',
+                        'fallback_cb'       => '__return_false',
+                        'add_li_class'      => '',
+                        'link_class'        => ''
+                    );
+                    wp_nav_menu($mobile_menu_args);
+                ?>
             </div>
         </div>
     </div>
@@ -233,62 +205,18 @@ if ( ! defined( 'ABSPATH' ) ) {
                         </div>
                         <div class="col-auto ms-md-auto ms-lg-0">
                             <nav class="main-menu menu-style2 d-none d-lg-block">
-                                <ul>
-                                    <li class="menu-item-has-children">
-                                        <a href="<?php echo home_url(); ?>">首页</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="<?php echo home_url(); ?>">首页1 - 电子产品 <span class="new-tag">新品</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="<?php echo home_url(); ?>/about">关于</a>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="<?php echo home_url(); ?>/blog">博客</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="<?php echo home_url(); ?>/blog">博客</a></li>
-                                            <li><a href="<?php echo home_url(); ?>/blog-details">博客详情</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children mega-menu-wrap">
-                                        <a href="#">页面</a>
-                                        <ul class="mega-menu">
-                                            <li><a href="<?php echo home_url(); ?>/shop">页面列表1</a>
-                                                <ul>
-                                                    <li><a href="<?php echo home_url(); ?>">首页1 - 电子产品 <span class="new-tag">新品</span></a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">页面列表2</a>
-                                                <ul>
-                                                    <li><a href="<?php echo home_url(); ?>/about">关于我们</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">页面列表3</a>
-                                                <ul>
-                                                    <li><a href="<?php echo home_url(); ?>/shop">商店</a></li>
-                                                    <li><a href="<?php echo home_url(); ?>/shop-details">商品详情</a></li>
-                                                    <li><a href="<?php echo home_url(); ?>/cart">购物车</a></li>
-                                                    <li><a href="<?php echo home_url(); ?>/checkout">结账</a></li>
-                                                    <li><a href="<?php echo home_url(); ?>/login">登录页面</a></li>
-                                                    <li><a href="<?php echo home_url(); ?>/signup">注册页面</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">页面列表4</a>
-                                                <ul>
-                                                    <li><a href="<?php echo home_url(); ?>/faq">常见问题</a></li>
-                                                    <li><a href="<?php echo home_url(); ?>/blog">博客</a></li>
-                                                    <li><a href="<?php echo home_url(); ?>/blog-details">博客详情</a></li>
-                                                    <li><a href="<?php echo home_url(); ?>/contact">联系我们</a></li>
-                                                    <li><a href="<?php echo home_url(); ?>/error">错误页面</a></li>
-                                                    <li><a href="<?php echo home_url(); ?>/coming-soon">即将上线</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="<?php echo home_url(); ?>/contact">联系</a>
-                                    </li>
-                                </ul>
+                                <?php
+                                    $menu_args = array(
+                                        'theme_location'    => 'header-menu',
+                                        'depth'             => 2,
+                                        'container'         => false,
+                                        'menu_class'        => '',
+                                        'fallback_cb'       => '__return_false',
+                                        'add_li_class'      => '',
+                                        'link_class'        => ''
+                                    );
+                                    wp_nav_menu($menu_args);
+                                ?>
                             </nav>
                         </div>
                         <div class="col-auto">
