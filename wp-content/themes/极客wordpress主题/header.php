@@ -8,75 +8,350 @@
  * @package 极客wordpress主题
  */
 
-// 获取主题设置
-$geek_settings = get_option('geek_theme_general');
-$site_name = isset($geek_settings['site_name']) ? $geek_settings['site_name'] : get_bloginfo('name');
-$logo_url = isset($geek_settings['logo']) ? $geek_settings['logo'] : '';
-$navbar_bg_color = isset($geek_settings['navbar_bg_color']) ? $geek_settings['navbar_bg_color'] : '#ffffff';
-$navbar_bg_image = isset($geek_settings['navbar_bg_image']) ? $geek_settings['navbar_bg_image'] : '';
-
-// 生成navbar样式
-$navbar_style = 'background-color: ' . $navbar_bg_color . ';';
-if (!empty($navbar_bg_image)) {
-    $navbar_style .= ' background-image: url(' . esc_url($navbar_bg_image) . ');';
-    $navbar_style .= ' background-size: cover;';
-    $navbar_style .= ' background-position: center;';
+// 防止直接访问该文件（安全规范）
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // 退出程序
 }
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="no-js">
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo esc_html($site_name); ?> - <?php bloginfo('description'); ?></title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title><?php wp_title(' - ', true, 'right'); ?><?php bloginfo('name'); ?></title>
+    <meta name="author" content="<?php bloginfo('name'); ?>">
+    <meta name="description" content="<?php bloginfo('description'); ?>">
+    <meta name="keywords" content="<?php bloginfo('name'); ?>" />
+    <meta name="robots" content="INDEX,FOLLOW">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicons - Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/assets/img/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--==============================
+	    All CSS File
+	============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/app.min.css"> -->
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/fontawesome.min.css">
+    <!-- Layerslider -->
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/layerslider.min.css">
+    <!-- Layerslider皮肤CSS重定向 -->
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/layerslider/skins/v6/skin.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/magnific-popup.min.css">
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/slick.min.css">
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
+
     <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 
-    <!-- 头部 -->
-    <header id="mainHeader" class="mainHeader position-relative">
-        <nav class="position-fixed navbar navbar-expand-lg navbar-light w-100 shadow-sm" style="<?php echo esc_attr($navbar_style); ?>">
-            <div class="container">
-                <!-- Logo -->
-                <a class="navbar-brand" href="<?php echo home_url(); ?>" title="<?php echo esc_attr($site_name); ?>">
-                    <?php if (!empty($logo_url)) : ?>
-                        <img alt="<?php echo esc_attr($site_name); ?>" class="h-10" src="<?php echo esc_url($logo_url); ?>" title="<?php echo esc_attr($site_name); ?>">
-                    <?php else : ?>
-                        <span><?php echo esc_html($site_name); ?></span>
-                    <?php endif; ?>
-                </a>
+    <!--[if lte IE 9]>
+    	<p class="browserupgrade">您正在使用一个 <strong>过时</strong> 的浏览器。请 <a href="https://browsehappy.com/">升级您的浏览器</a> 以提高您的体验和安全性。</p>
+  <![endif]-->
 
-                <!-- 移动端菜单按钮 -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerMenu" aria-controls="mainNavbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- 导航菜单 -->
-                <div class="collapse navbar-collapse justify-content-center" id="headerMenu">
-                    <?php
-                    // 调用导航菜单
-                    geek_theme_output_header_menu();
-                    ?>
-                </div>
-
-                <!-- 右侧功能区 -->
-                <div class="d-flex align-items-center gap-3">
-                    <!-- 搜索按钮 -->
-                    <div data-modal-target="mainSearch" data-modal-toggle="mainSearch" class="">
-                        <i class="bi bi-search"></i>
+    <!--==============================
+     预加载器
+  ==============================-->
+    <div class="preloader  ">
+        <button class="vs-btn preloaderCls">取消预加载 </button>
+        <div class="preloader-inner">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php bloginfo('name'); ?>">
+            <span class="loader"></span>
+        </div>
+    </div>
+    <?php geek_render_newsletter_popup(); ?>
+    <!--==============================
+    Mobile Menu
+  ============================== -->
+    <div class="vs-menu-wrapper">
+        <div class="vs-menu-area text-center">
+            <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
+            <div class="mobile-logo">
+                <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-mobile.png" alt="<?php bloginfo('name'); ?>"></a>
+            </div>
+            <div class="mobile-menu">
+                <ul>
+                    <li class="menu-item-has-children">
+                        <a href="<?php echo home_url(); ?>">首页</a>
+                        <ul class="sub-menu">
+                            <li><a href="<?php echo home_url(); ?>">首页1 - 电子产品 <span class="new-tag">新品</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="<?php echo home_url(); ?>/about">关于我们</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="<?php echo home_url(); ?>/blog">博客</a>
+                        <ul class="sub-menu">
+                            <li><a href="<?php echo home_url(); ?>/blog">博客</a></li>
+                            <li><a href="<?php echo home_url(); ?>/blog-details">博客详情</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="<?php echo home_url(); ?>/shop">商店</a>
+                        <ul class="sub-menu">
+                            <li><a href="<?php echo home_url(); ?>/shop">商店</a></li>
+                            <li><a href="<?php echo home_url(); ?>/shop-details">商品详情</a></li>
+                            <li><a href="<?php echo home_url(); ?>/cart">购物车</a></li>
+                            <li><a href="<?php echo home_url(); ?>/checkout">结账</a></li>
+                            <li><a href="<?php echo home_url(); ?>/login">登录页面</a></li>
+                            <li><a href="<?php echo home_url(); ?>/signup">注册页面</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">页面</a>
+                        <ul class="sub-menu">
+                            <li><a href="<?php echo home_url(); ?>/faq">常见问题</a></li>
+                            <li><a href="<?php echo home_url(); ?>/error">错误页面</a></li>
+                            <li><a href="<?php echo home_url(); ?>/coming-soon">即将上线</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="<?php echo home_url(); ?>/contact">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+        Header Area
+    ==============================-->
+    <header class="vs-header header-layout2">
+        <div class="header-top-notice">今日特惠 <b>7折</b>。结束于
+            <div class="notice-counter d-inline-block" data-offer-date="12/08/2023">
+                <b><span class="day"></span>天 :</b>
+                <b><span class="hour"></span>时 :</b>
+                <b><span class="minute"></span>分 :</b>
+                <b><span class="seconds"></span>秒</b>
+            </div>
+            赶快行动 <i class="far fa-long-arrow-alt-right"></i>
+        </div>
+        <div class="container">
+            <div class="menu-top">
+                <div class="row align-items-center justify-content-center justify-content-md-between gx-80">
+                    <div class="col-auto">
+                        <div class="row gx-50">
+                            <div class="col-auto">
+                                <div class="header-info">
+                                    <div class="header-info_icon">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/call-icon.png" alt="图标">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="header-info_link"><a href="tel:+1234567890" class="text-inherit">+123 456789 0</a></div>
+                                        <span class="header-info_label">免费致电我们</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="header-info">
+                                    <div class="header-info_icon">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/mail-icon.png" alt="图标">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="header-info_link">免费配送</div>
+                                        <span class="header-info_label">订单满$300.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- 语言切换 -->
-                    <a href="http://www.ZhiShengsa.com/" class="d-flex align-items-center">
-                        <img alt="网站语言按钮" src="http://www.startgate.com.cn/static/zhisheng/icon/网站语言按钮.png?v1" class="h-6">
-                    </a>
+                    <div class="col-sm mt-20 mt-md-0">
+                        <form action="#" class="header-form">
+                            <input type="text" placeholder="产品搜索">
+                            <button type="button">搜索</button>
+                            <i class="far fa-search"></i>
+                        </form>
+                    </div>
+                    <div class="col-auto  d-none d-lg-block">
+                        <div class="header-top-links">
+                            <ul>
+                                <li>
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">语言</a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                                        <li>
+                                            <a href="#">德语</a>
+                                            <a href="#">法语</a>
+                                            <a href="#">意大利语</a>
+                                            <a href="#">拉脱维亚语</a>
+                                            <a href="#">西班牙语</a>
+                                            <a href="#">希腊语</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">货币</a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                                        <li><a href="#">阿联酋迪拉姆</a></li>
+                                        <li><a href="#">孟加拉塔卡</a></li>
+                                        <li><a href="#">厄立特里亚纳克法</a></li>
+                                        <li><a href="#">埃及镑</a></li>
+                                        <li><a href="#">欧元</a></li>
+                                        <li><a href="#">英镑</a></li>
+                                        <li><a href="#">美元</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </div>
+        <div class="sticky-wrapper">
+            <div class="sticky-active">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-4 col-sm-auto">
+                            <div class="header-logo py-4 py-lg-0">
+                                <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php bloginfo('name'); ?>"></a>
+                            </div>
+                        </div>
+                        <div class="col-auto ms-md-auto ms-lg-0">
+                            <nav class="main-menu menu-style2 d-none d-lg-block">
+                                <ul>
+                                    <li class="menu-item-has-children">
+                                        <a href="<?php echo home_url(); ?>">首页</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="<?php echo home_url(); ?>">首页1 - 电子产品 <span class="new-tag">新品</span></a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo home_url(); ?>/about">关于</a>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a href="<?php echo home_url(); ?>/blog">博客</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="<?php echo home_url(); ?>/blog">博客</a></li>
+                                            <li><a href="<?php echo home_url(); ?>/blog-details">博客详情</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children mega-menu-wrap">
+                                        <a href="#">页面</a>
+                                        <ul class="mega-menu">
+                                            <li><a href="<?php echo home_url(); ?>/shop">页面列表1</a>
+                                                <ul>
+                                                    <li><a href="<?php echo home_url(); ?>">首页1 - 电子产品 <span class="new-tag">新品</span></a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">页面列表2</a>
+                                                <ul>
+                                                    <li><a href="<?php echo home_url(); ?>/about">关于我们</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">页面列表3</a>
+                                                <ul>
+                                                    <li><a href="<?php echo home_url(); ?>/shop">商店</a></li>
+                                                    <li><a href="<?php echo home_url(); ?>/shop-details">商品详情</a></li>
+                                                    <li><a href="<?php echo home_url(); ?>/cart">购物车</a></li>
+                                                    <li><a href="<?php echo home_url(); ?>/checkout">结账</a></li>
+                                                    <li><a href="<?php echo home_url(); ?>/login">登录页面</a></li>
+                                                    <li><a href="<?php echo home_url(); ?>/signup">注册页面</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">页面列表4</a>
+                                                <ul>
+                                                    <li><a href="<?php echo home_url(); ?>/faq">常见问题</a></li>
+                                                    <li><a href="<?php echo home_url(); ?>/blog">博客</a></li>
+                                                    <li><a href="<?php echo home_url(); ?>/blog-details">博客详情</a></li>
+                                                    <li><a href="<?php echo home_url(); ?>/contact">联系我们</a></li>
+                                                    <li><a href="<?php echo home_url(); ?>/error">错误页面</a></li>
+                                                    <li><a href="<?php echo home_url(); ?>/coming-soon">即将上线</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo home_url(); ?>/contact">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-auto">
+                            <div class="header-buttons">
+                                <a href="<?php echo home_url(); ?>/login"><i class="fal fa-user"></i></a>
+                                <a href="#" class="has-badge"><i class="fal fa-heart"></i><span class="badge">0</span></a>
+                                <div class="header-cart">
+                                    <a href="<?php echo home_url(); ?>/cart" class="has-badge"><i class="fal fa-shopping-bag"></i><span class="badge">0</span></a>
+                                    <div class="woocommerce widget_shopping_cart">
+                                        <div class="widget_shopping_cart_content">
+                                            <ul class="cart_list">
+                                                <li class="mini_cart_item">
+                                                    <a href="#" class="remove"><i class="far fa-times"></i></a>
+                                                    <a href="<?php echo home_url(); ?>/shop-details" class="img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/cart/cat-img-1.jpg" alt="购物车图片"></a>
+                                                    <a href="<?php echo home_url(); ?>/shop-details" class="product-title">智能手表</a>
+                                                    <span class="amount">$99.00</span>
+                                                    <div class="quantity">
+                                                        <button class="quantity-minus qut-btn"><i class="far fa-minus"></i></button>
+                                                        <input type="number" class="qty-input" value="1" min="1" max="99">
+                                                        <button class="quantity-plus qut-btn"><i class="far fa-plus"></i></button>
+                                                    </div>
+                                                    <div class="subtotal">
+                                                        <span>小计:</span>
+                                                        <span class="amount">$99.00</span>
+                                                    </div>
+                                                </li>
+                                                <li class="mini_cart_item">
+                                                    <a href="#" class="remove"><i class="far fa-times"></i></a>
+                                                    <a href="<?php echo home_url(); ?>/shop-details" class="img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/cart/cat-img-2.jpg" alt="购物车图片"></a>
+                                                    <a href="<?php echo home_url(); ?>/shop-details" class="product-title">老板椅</a>
+                                                    <span class="amount">$80.00</span>
+                                                    <div class="quantity">
+                                                        <button class="quantity-minus qut-btn"><i class="far fa-minus"></i></button>
+                                                        <input type="number" class="qty-input" value="2" min="1" max="99">
+                                                        <button class="quantity-plus qut-btn"><i class="far fa-plus"></i></button>
+                                                    </div>
+                                                    <div class="subtotal">
+                                                        <span>小计:</span>
+                                                        <span class="amount">$160.00</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <p class="total">
+                                                <strong>小计:</strong>
+                                                <span class="amount">$259.00</span>
+                                            </p>
+                                            <p class="buttons">
+                                                <a href="<?php echo home_url(); ?>/cart" class="vs-btn">查看购物车</a>
+                                                <a href="<?php echo home_url(); ?>/checkout" class="vs-btn checkout">结账</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto d-block d-lg-none">
+                            <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="fal fa-bars"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
-
 
     <!-- 主要内容容器 -->
     <div id="content" class="site-content">

@@ -41,5 +41,13 @@ function geek_sanitize_general_settings($input) {
         $sanitized['navbar_bg_image'] = esc_url_raw($input['navbar_bg_image']);
     }
 
+    // 订阅弹窗开关 - 复选框验证
+    if (isset($input['newsletter_popup'])) {
+        $sanitized['newsletter_popup'] = sanitize_text_field($input['newsletter_popup']);
+    } else {
+        // 当取消勾选时，明确保存为0或不保存，以表示关闭状态
+        $sanitized['newsletter_popup'] = '0';
+    }
+
     return $sanitized;
 }

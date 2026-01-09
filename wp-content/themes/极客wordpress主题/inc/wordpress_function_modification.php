@@ -27,3 +27,38 @@ add_action('after_setup_theme', 'optimize_media_upload_path');
 
 // 启用特色图片（文章/页面的缩略图功能）
 add_theme_support('post-thumbnails');
+
+/**
+ * 渲染订阅弹窗
+ *
+ * 根据后台设置决定是否显示订阅弹窗
+ */
+function geek_render_newsletter_popup() {
+    // 获取主题设置
+    $geek_settings = get_option('geek_theme_general');
+    $is_enabled = isset($geek_settings['newsletter_popup']) ? $geek_settings['newsletter_popup'] : '1';
+    
+    // 如果禁用了订阅弹窗，则不渲染
+    if ($is_enabled !== '1') {
+        return;
+    }
+    
+    // 渲染订阅弹窗HTML
+    ?>
+    <div class="popup-newsletter-active popup-newsletter-wrap show"> 
+        <div class="popup-newsletter"> 
+            <button class="popup-newsletter-closer"><i class="fal fa-times"></i></button> 
+            <div class="newsletter-img"> 
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner/popup-banner-1.jpg" alt="横幅"> 
+            </div> 
+            <div class="newsletter-content"> 
+                <span class="newsletter-subtitle">新闻订阅</span> 
+                <h2 class="newsletter-title h3">率先了解</h2> 
+                <p class="newsletter-text">注册邮箱获取我们的最新更新</p> 
+                <input type="text" class="form-control" placeholder="您的邮箱地址"> 
+                <button class="vs-btn style7">立即订阅</button> 
+            </div> 
+        </div> 
+    </div>
+    <?php
+}

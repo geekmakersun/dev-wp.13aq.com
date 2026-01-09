@@ -63,6 +63,15 @@ function geek_admin_settings_init() {
         'geek_general_section'   // 部分
     );
     
+    // 订阅弹窗开关
+    add_settings_field(
+        'geek_newsletter_popup', // 字段ID
+        '邮箱订阅弹窗',        // 标题
+        'geek_newsletter_popup_callback', // 回调
+        'geek-theme-options',    // 页面
+        'geek_general_section'   // 部分
+    );
+    
     // --- 轮播图设置部分 ---  
     // 注册轮播图设置选项
     register_setting(
@@ -421,4 +430,16 @@ function geek_navbar_bg_image_callback() {
     });
     </script>
     <?php
+}
+
+/**
+ * 订阅弹窗开关字段回调
+ */
+function geek_newsletter_popup_callback() {
+    $options = get_option('geek_theme_general');
+    $is_enabled = isset($options['newsletter_popup']) ? $options['newsletter_popup'] : '1';
+    
+    echo '<input type="checkbox" id="geek_newsletter_popup" name="geek_theme_general[newsletter_popup]" value="1" ' . checked(1, $is_enabled, false) . '>';
+    echo '<label for="geek_newsletter_popup" class="ml-2">启用邮箱订阅弹窗</label>';
+    echo '<p class="description">勾选此项以在网站上显示邮箱订阅弹窗。</p>';
 }
