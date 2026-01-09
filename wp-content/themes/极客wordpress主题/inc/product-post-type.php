@@ -219,3 +219,63 @@ function geek_render_products($args = array()) {
     </section>
     <?php
 }
+
+/**
+ * 在产品列表中添加缩略图列
+ *
+ * @param array $columns 现有列
+ * @return array 更新后的列
+ */
+function geek_add_product_thumbnail_column($columns) {
+    // 在标题前添加缩略图列
+    $new_columns = array();
+    foreach ($columns as $key => $value) {
+        if ($key === 'title') {
+            $new_columns['thumbnail'] = __('产品图片', 'geek-theme');
+        }
+        $new_columns[$key] = $value;
+    }
+    return $new_columns;
+}
+add_filter('manage_product_posts_columns', 'geek_add_product_thumbnail_column');
+
+/**
+ * 显示产品缩略图列内容
+ *
+ * @param string $column 列名
+ * @param int $post_id 产品ID
+ */
+function geek_display_product_thumbnail_column($column, $post_id) {
+    if ($column === 'thumbnail') {
+        if (has_post_thumbnail($post_id)) {
+            echo get_the_post_thumbnail($post_id, 'thumbnail', array('style' => 'max-width: 60px; height: auto;'));
+        } else {
+            echo '<span class="dashicons dashicons-format-image" style="color: #ccc;"></span>';
+        }
+    }
+}
+add_action('manage_product_posts_custom_column', 'geek_display_product_thumbnail_column', 10, 2);
+
+/**
+ * 允许产品缩略图列排序
+ *
+ * @param array $columns 列
+ * @return array 更新后的列
+ */
+function geek_make_product_thumbnail_column_sortable($columns) {
+    $columns['thumbnail'] = 'thumbnail';
+    return $columns;
+}
+add_filter('manage_edit-product_sortable_columns', 'geek_make_product_thumbnail_column_sortable');
+
+/**
+ * 设置产品列表列宽
+ */
+function geek_set_product_list_column_widths() {
+    echo '<style type="text/css">
+        .column-thumbnail { width: 80px; text-align: center; }
+        .column-thumbnail img { border: 1px solid #eee; }
+    </style>';
+}
+add_action('admin_head-edit.php', 'geek_set_product_list_column_widths');
+add_action('admin_head-edit-tags.php', 'geek_set_product_list_column_widths');
