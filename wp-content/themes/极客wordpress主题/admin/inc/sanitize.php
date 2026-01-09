@@ -21,9 +21,27 @@ function geek_sanitize_general_settings($input) {
         $sanitized['site_name'] = sanitize_text_field($input['site_name']);
     }
 
-    // LOGO - URL验证
-    if (isset($input['logo'])) {
-        $sanitized['logo'] = esc_url_raw($input['logo']);
+    // LOGO - URL验证和大小限制
+    if (isset($input['logo']) && !empty($input['logo'])) {
+        // 获取附件ID
+        $logo_url = esc_url_raw($input['logo']);
+        $attachment_id = attachment_url_to_postid($logo_url);
+        
+        // 如果是有效的附件
+        if ($attachment_id) {
+            // 获取附件元数据
+            $metadata = wp_get_attachment_metadata($attachment_id);
+            $file_path = get_attached_file($attachment_id);
+            
+            // 检查文件大小（限制为2MB）
+            $max_size = 2 * 1024 * 1024; // 2MB
+            if (file_exists($file_path) && filesize($file_path) <= $max_size) {
+                $sanitized['logo'] = $logo_url;
+            }
+        } else {
+            // 外部URL或无效附件，只验证URL格式
+            $sanitized['logo'] = $logo_url;
+        }
     }
 
     // Navbar背景颜色 - 颜色值验证

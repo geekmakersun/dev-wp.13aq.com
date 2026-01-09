@@ -28,6 +28,15 @@ add_action('after_setup_theme', 'optimize_media_upload_path');
 // 启用特色图片（文章/页面的缩略图功能）
 add_theme_support('post-thumbnails');
 
+// 启用自定义Logo支持
+add_theme_support('custom-logo', array(
+    'height'      => 100,
+    'width'       => 200,
+    'flex-height' => true,
+    'flex-width'  => true,
+    'header-text' => array('site-title', 'site-description'),
+));
+
 /**
  * 渲染订阅弹窗
  *

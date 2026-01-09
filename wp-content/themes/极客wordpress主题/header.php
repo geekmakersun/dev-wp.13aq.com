@@ -65,7 +65,15 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="preloader  ">
         <button class="vs-btn preloaderCls">取消预加载 </button>
         <div class="preloader-inner">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php bloginfo('name'); ?>">
+            <?php $geek_settings = get_option('geek_theme_general'); ?>
+            <?php $logo_url = isset($geek_settings['logo']) ? $geek_settings['logo'] : get_template_directory_uri() . '/assets/img/logo.png'; ?>
+            <?php $attachment_id = attachment_url_to_postid($logo_url); ?>
+            <?php if ($attachment_id) : ?>
+                <?php $logo_data = wp_get_attachment_image_src($attachment_id, array(200, 100)); // 限制尺寸为200x100 ?>
+                <img src="<?php echo esc_url($logo_data[0]); ?>" alt="<?php bloginfo('name'); ?>" width="<?php echo $logo_data[1]; ?>" height="<?php echo $logo_data[2]; ?>">
+            <?php else : ?>
+                <img src="<?php echo esc_url($logo_url); ?>" alt="<?php bloginfo('name'); ?>" style="max-width: 200px; max-height: 100px;">
+            <?php endif; ?>
             <span class="loader"></span>
         </div>
     </div>
@@ -77,7 +85,17 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="vs-menu-area text-center">
             <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
             <div class="mobile-logo">
-                <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-mobile.png" alt="<?php bloginfo('name'); ?>"></a>
+                <a href="<?php echo home_url(); ?>">
+                    <?php $geek_settings = get_option('geek_theme_general'); ?>
+                    <?php $logo_url = isset($geek_settings['logo']) ? $geek_settings['logo'] : get_template_directory_uri() . '/assets/img/logo-mobile.png'; ?>
+                    <?php $attachment_id = attachment_url_to_postid($logo_url); ?>
+                    <?php if ($attachment_id) : ?>
+                        <?php $logo_data = wp_get_attachment_image_src($attachment_id, array(150, 75)); // 限制尺寸为150x75 ?>
+                        <img src="<?php echo esc_url($logo_data[0]); ?>" alt="<?php bloginfo('name'); ?>" width="<?php echo $logo_data[1]; ?>" height="<?php echo $logo_data[2]; ?>">
+                    <?php else : ?>
+                        <img src="<?php echo esc_url($logo_url); ?>" alt="<?php bloginfo('name'); ?>" style="max-width: 150px; max-height: 75px;">
+                    <?php endif; ?>
+                </a>
             </div>
             <div class="mobile-menu">
                 <?php
@@ -184,7 +202,17 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="row justify-content-between align-items-center">
                         <div class="col-4 col-sm-auto">
                             <div class="header-logo py-4 py-lg-0">
-                                <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php bloginfo('name'); ?>"></a>
+                                <a href="<?php echo home_url(); ?>">
+                                    <?php $geek_settings = get_option('geek_theme_general'); ?>
+                                    <?php $logo_url = isset($geek_settings['logo']) ? $geek_settings['logo'] : get_template_directory_uri() . '/assets/img/logo.png'; ?>
+                                    <?php $attachment_id = attachment_url_to_postid($logo_url); ?>
+                                    <?php if ($attachment_id) : ?>
+                                        <?php $logo_data = wp_get_attachment_image_src($attachment_id, array(200, 100)); // 限制尺寸为200x100 ?>
+                                        <img src="<?php echo esc_url($logo_data[0]); ?>" alt="<?php bloginfo('name'); ?>" width="<?php echo $logo_data[1]; ?>" height="<?php echo $logo_data[2]; ?>">
+                                    <?php else : ?>
+                                        <img src="<?php echo esc_url($logo_url); ?>" alt="<?php bloginfo('name'); ?>" style="max-width: 200px; max-height: 100px;">
+                                    <?php endif; ?>
+                                </a>
                             </div>
                         </div>
                         <div class="col-auto ms-md-auto ms-lg-0">

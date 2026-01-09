@@ -139,7 +139,12 @@ function geek_logo_callback() {
                 button: {
                     text: '使用此图片'
                 },
-                multiple: false
+                multiple: false,
+                library: {
+                    type: 'image',
+                    // 设置文件大小限制为2MB
+                    uploadedTo: wp.media.view.settings.post.id
+                }
             })
             .on('select', function() {
                 var attachment = custom_uploader.state().get('selection').first().toJSON();
