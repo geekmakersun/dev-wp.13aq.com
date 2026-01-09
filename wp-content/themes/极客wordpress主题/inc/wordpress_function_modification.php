@@ -106,3 +106,23 @@ function geek_get_breadcrumb() {
     
     return $html;
 }
+
+/**
+ * 自定义文章摘要省略号
+ *
+ * 将默认的[...]替换为更美观的...
+ */
+function geek_custom_excerpt_more($more) {
+    return '...';
+}
+add_filter('excerpt_more', 'geek_custom_excerpt_more');
+
+/**
+ * 自定义文章摘要长度
+ *
+ * 控制摘要显示的字符数
+ */
+function geek_custom_excerpt_length($length) {
+    return 150; // 可根据需要调整长度
+}
+add_filter('excerpt_length', 'geek_custom_excerpt_length');

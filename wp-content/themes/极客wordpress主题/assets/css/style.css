@@ -11,6 +11,28 @@ Version: 1.0.0
     CSS Index Here
 ==================================*/
 /*
+自定义博客样式
+*/
+.vs-blog.blog-card .blog-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 2.5em;
+    line-height: 1.25;
+    height: 2.5em;
+}
+
+.vs-blog.blog-card .blog-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*
 
 01. Theme Base
     1.1. Mixin
