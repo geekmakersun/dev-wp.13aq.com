@@ -18,28 +18,17 @@
             <!-- Slide 1 -->
             <div class="carousel-item active">
                 <img data-src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/hero-slide-11-1.jpg" class="d-block w-100 hero-bg lazy" alt="hero slide 1">
-                <div class="carousel-caption hero-content">
-                    <!-- 桌面显示 -->
-                    <div class="d-none d-lg-block">
-                        <p class="hero-subtitle animate__animated animate__fadeInLeft">夏季特惠</p>
-                        <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.2s">最高优惠10%</h1>
-                        <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.3s">音箱</h1>
-                        <p class="hero-text animate__animated animate__fadeInLeft animate__delay-0.5s">标准Lorem ipsum段落的创建时间各不相同，有些人引用15世纪</p>
-                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn animate__animated animate__fadeInUp animate__delay-0.8s">探索商店</a>
-                    </div>
-                    <!-- 平板显示 -->
-                    <div class="d-none d-md-block d-lg-none">
-                        <p class="hero-subtitle-tablet animate__animated animate__fadeInLeft">夏季特惠</p>
-                        <h1 class="hero-title-tablet animate__animated animate__fadeInLeft animate__delay-0.2s">最高优惠10%</h1>
-                        <h1 class="hero-title-tablet animate__animated animate__fadeInLeft animate__delay-0.3s">音箱</h1>
-                        <p class="hero-text-tablet animate__animated animate__fadeInLeft animate__delay-0.5s">标准Lorem ipsum段落的创建时间各不相同，有些人引用15世纪</p>
-                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn-tablet animate__animated animate__fadeInUp animate__delay-0.8s">探索商店</a>
-                    </div>
-                    <!-- 手机显示 -->
-                    <div class="d-block d-md-none">
-                        <h1 class="hero-title-mobile animate__animated animate__fadeInLeft">最高优惠10%</h1>
-                        <h1 class="hero-title-mobile animate__animated animate__fadeInLeft animate__delay-0.2s">音箱</h1>
-                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn-mobile animate__animated animate__fadeInUp animate__delay-0.5s">探索商店</a>
+                <div class="carousel-caption hero-content d-flex align-items-center justify-content-start h-100">
+                    <div class="container px-4 px-md-5">
+                        <div class="row">
+                            <div class="col-12 col-md-8">
+                                <p class="hero-subtitle animate__animated animate__fadeInLeft display-6">夏季特惠</p>
+                                <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.2s display-2">最高优惠10%</h1>
+                                <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.3s display-2">音箱</h1>
+                                <p class="hero-text animate__animated animate__fadeInLeft animate__delay-0.5s lead">标准Lorem ipsum段落的创建时间各不相同，有些人引用15世纪</p>
+                                <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn animate__animated animate__fadeInUp animate__delay-0.8s btn-lg">探索商店</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -47,28 +36,17 @@
             <!-- Slide 2 -->
             <div class="carousel-item">
                 <img data-src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/hero-slide-11-2.jpg" class="d-block w-100 hero-bg lazy" alt="hero slide 2">
-                <div class="carousel-caption hero-content">
-                    <!-- 桌面显示 -->
-                    <div class="d-none d-lg-block">
-                        <p class="hero-subtitle animate__animated animate__fadeInLeft">夏季特惠</p>
-                        <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.2s">家庭套餐</h1>
-                        <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.3s">限时抢购</h1>
-                        <p class="hero-text animate__animated animate__fadeInLeft animate__delay-0.5s">Creation timelines for the standard lorem ipsum passage vary with some citing the 15th century</p>
-                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn animate__animated animate__fadeInUp animate__delay-0.8s">探索商店</a>
-                    </div>
-                    <!-- 平板显示 -->
-                    <div class="d-none d-md-block d-lg-none">
-                        <p class="hero-subtitle-tablet animate__animated animate__fadeInLeft">夏季特惠</p>
-                        <h1 class="hero-title-tablet animate__animated animate__fadeInLeft animate__delay-0.2s">家庭套餐</h1>
-                        <h1 class="hero-title-tablet animate__animated animate__fadeInLeft animate__delay-0.3s">限时抢购</h1>
-                        <p class="hero-text-tablet animate__animated animate__fadeInLeft animate__delay-0.5s">Creation timelines for the standard lorem ipsum passage vary with some citing the 15th century</p>
-                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn-tablet animate__animated animate__fadeInUp animate__delay-0.8s">探索商店</a>
-                    </div>
-                    <!-- 手机显示 -->
-                    <div class="d-block d-md-none">
-                        <h1 class="hero-title-mobile animate__animated animate__fadeInLeft">家庭套餐</h1>
-                        <h1 class="hero-title-mobile animate__animated animate__fadeInLeft animate__delay-0.2s">限时抢购</h1>
-                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn-mobile animate__animated animate__fadeInUp animate__delay-0.5s">探索商店</a>
+                <div class="carousel-caption hero-content d-flex align-items-center justify-content-start h-100">
+                    <div class="container px-4 px-md-5">
+                        <div class="row">
+                            <div class="col-12 col-md-8">
+                                <p class="hero-subtitle animate__animated animate__fadeInLeft display-6">夏季特惠</p>
+                                <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.2s display-2">家庭套餐</h1>
+                                <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.3s display-2">限时抢购</h1>
+                                <p class="hero-text animate__animated animate__fadeInLeft animate__delay-0.5s lead">Creation timelines for the standard lorem ipsum passage vary with some citing the 15th century</p>
+                                <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn animate__animated animate__fadeInUp animate__delay-0.8s btn-lg">探索商店</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -76,28 +54,17 @@
             <!-- Slide 3 -->
             <div class="carousel-item">
                 <img data-src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/hero-slide-11-3.jpg" class="d-block w-100 hero-bg lazy" alt="hero slide 3">
-                <div class="carousel-caption hero-content">
-                    <!-- 桌面显示 -->
-                    <div class="d-none d-lg-block">
-                        <p class="hero-subtitle animate__animated animate__fadeInLeft">值得信赖的市场</p>
-                        <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.2s">Vendora 在线</h1>
-                        <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.3s">智能商店</h1>
-                        <p class="hero-text animate__animated animate__fadeInLeft animate__delay-0.5s">Creation timelines for the standard lorem ipsum passage vary with some citing the 15th century</p>
-                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn animate__animated animate__fadeInUp animate__delay-0.8s">探索商店</a>
-                    </div>
-                    <!-- 平板显示 -->
-                    <div class="d-none d-md-block d-lg-none">
-                        <p class="hero-subtitle-tablet animate__animated animate__fadeInLeft">值得信赖的市场</p>
-                        <h1 class="hero-title-tablet animate__animated animate__fadeInLeft animate__delay-0.2s">Vendora 在线</h1>
-                        <h1 class="hero-title-tablet animate__animated animate__fadeInLeft animate__delay-0.3s">智能商店</h1>
-                        <p class="hero-text-tablet animate__animated animate__fadeInLeft animate__delay-0.5s">Creation timelines for the standard lorem ipsum passage vary with some citing the 15th century</p>
-                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn-tablet animate__animated animate__fadeInUp animate__delay-0.8s">探索商店</a>
-                    </div>
-                    <!-- 手机显示 -->
-                    <div class="d-block d-md-none">
-                        <h1 class="hero-title-mobile animate__animated animate__fadeInLeft">Vendora 在线</h1>
-                        <h1 class="hero-title-mobile animate__animated animate__fadeInLeft animate__delay-0.2s">智能商店</h1>
-                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn-mobile animate__animated animate__fadeInUp animate__delay-0.5s">探索商店</a>
+                <div class="carousel-caption hero-content d-flex align-items-center justify-content-start h-100">
+                    <div class="container px-4 px-md-5">
+                        <div class="row">
+                            <div class="col-12 col-md-8">
+                                <p class="hero-subtitle animate__animated animate__fadeInLeft display-6">值得信赖的市场</p>
+                                <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.2s display-2">Vendora 在线</h1>
+                                <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.3s display-2">智能商店</h1>
+                                <p class="hero-text animate__animated animate__fadeInLeft animate__delay-0.5s lead">Creation timelines for the standard lorem ipsum passage vary with some citing the 15th century</p>
+                                <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn animate__animated animate__fadeInUp animate__delay-0.8s btn-lg">探索商店</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

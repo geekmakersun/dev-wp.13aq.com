@@ -297,62 +297,38 @@ a.ls-gui-element.ls-nav-next {
 }
 
 .hero-content {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
   text-align: left;
   padding: 0;
 }
 
-/* 桌面样式 */
+/* 基础样式 */
 .hero-subtitle {
-  position: absolute;
-  left: 255px;
-  top: 204px;
-  font-size: 20px;
   font-family: "Jost", sans-serif;
   font-weight: 400;
   letter-spacing: 3.5px;
   color: #ffffff;
-  margin: 0;
+  margin: 0 0 1rem;
 }
 
 .hero-title {
-  position: absolute;
-  left: 255px;
-  top: 251px;
-  font-size: 60px;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.2;
-  margin: 0;
-}
-
-.hero-title + .hero-title {
-  top: 322px;
+  margin: 0 0 1rem;
 }
 
 .hero-text {
-  position: absolute;
-  left: 255px;
-  top: 414px;
-  font-size: 16px;
   font-family: "Jost", sans-serif;
   font-weight: 400;
   color: #ffffff;
-  line-height: 26px;
-  margin: 0;
-  max-width: 400px;
+  line-height: 1.8;
+  margin: 1.5rem 0 2rem;
+  max-width: 600px;
 }
 
 .hero-btn {
-  position: absolute;
-  left: 255px;
-  top: 509px;
-  font-size: 24px;
+  font-size: 1.1rem;
   padding: 15px 30px;
   background-color: #2c2c2c;
   border: none;
@@ -373,64 +349,23 @@ a.ls-gui-element.ls-nav-next {
     padding: 0;
   }
 
-  .hero-subtitle-tablet {
-    position: absolute;
-    left: 180px;
-    top: 122px;
-    font-size: 28px;
-    font-family: "Jost", sans-serif;
-    font-weight: 400;
-    letter-spacing: 3.5px;
-    color: #ffffff;
-    margin: 0;
-  }
-
-  .hero-title-tablet {
-    position: absolute;
-    left: 180px;
-    top: 193px;
-    font-size: 76px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    color: #ffffff;
-    line-height: 1.2;
-    margin: 0;
-  }
-
-  .hero-title-tablet + .hero-title-tablet {
-    top: 295px;
-  }
-
-  .hero-text-tablet {
-    position: absolute;
-    left: 180px;
-    top: 418px;
-    font-size: 26px;
-    font-family: "Jost", sans-serif;
-    font-weight: 400;
-    color: #ffffff;
-    line-height: 40px;
-    margin: 0;
-    max-width: 700px;
-  }
-
-  .hero-btn-tablet {
-    position: absolute;
-    left: 180px;
-    top: 555px;
+  .hero-subtitle {
     font-size: 24px;
-    padding: 15px 30px;
-    background-color: #2c2c2c;
-    border: none;
-    color: #ffffff;
-    text-transform: uppercase;
-    font-weight: 700;
-    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
   }
 
-  .hero-btn-tablet:hover {
-    background-color: #e1aa5e;
-    color: #ffffff;
+  .hero-title {
+    font-size: 60px;
+  }
+
+  .hero-text {
+    font-size: 20px;
+    margin: 1rem 0 1.5rem;
+  }
+
+  .hero-btn {
+    font-size: 18px;
+    padding: 12px 24px;
   }
 }
 
@@ -445,43 +380,25 @@ a.ls-gui-element.ls-nav-next {
   }
 
   .hero-content {
-    padding: 0;
+    padding: 0 1rem;
   }
 
-  .hero-title-mobile {
-    position: absolute;
-    left: 150px;
-    top: 114px;
-    font-size: 120px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    color: #ffffff;
-    line-height: 1.2;
-    margin: 0;
+  .hero-subtitle,
+  .hero-text,
+  .hero-btn {
+    display: none;
   }
 
-  .hero-title-mobile + .hero-title-mobile {
-    top: 269px;
-  }
-
-  .hero-btn-mobile {
-    position: absolute;
-    left: 150px;
-    top: 513px;
+  .hero-title {
     font-size: 24px;
-    padding: 15px 30px;
-    background-color: #2c2c2c;
-    border: none;
-    color: #ffffff;
-    text-transform: uppercase;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    margin: 0;
+    margin-bottom: 0.5rem;
   }
+}
 
-  .hero-btn-mobile:hover {
-    background-color: #e1aa5e;
-    color: #ffffff;
+/* 更小手机屏幕优化 */
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 24px;
   }
 }
 
