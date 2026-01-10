@@ -321,8 +321,8 @@
 
 
 
-  /*----------- 07. Hero Slider Active ----------*/
-  $('.vs-hero-carousel').each(function () {
+  /*----------- 07. 头部轮播图激活 ----------*/
+  $('.geek-head-carousel').each(function () {
     var vsHslide = $(this);
 
     // Get Data From Dom

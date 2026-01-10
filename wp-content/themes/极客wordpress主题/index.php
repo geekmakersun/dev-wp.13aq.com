@@ -1,108 +1,49 @@
 <?php get_header(); ?>
 
 <!--==============================
-      Hero Area
+      头部轮播区
     ==============================-->
-<section class="vs-hero-wrapper position-relative  ">
-    <div class="vs-hero-carousel hero-layout11" data-height="800" data-container="1900" data-navprevnext="true">
+<section class="geek-head-carousel-wrapper position-relative  ">
+    <div class="geek-head-carousel hero-layout11" data-height="800" data-container="1900" data-navprevnext="true">
 
-        <!-- Slide 1-->
+        <?php
+        // 获取轮播图数据
+        $carousel_items = geek_get_carousel_data();
+        
+        // 遍历轮播图数据
+        foreach ($carousel_items as $index => $item) :
+        ?>
+        <!-- 幻灯片 <?php echo $index + 1; ?>-->
         <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnsscale:1.1;">
-            <img width="1920" height="800" src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/hero-slide-11-1.jpg" class="ls-bg" alt="hero bg" />
-            <p style="text-align:left; font-style:normal; text-decoration:none; font-weight:400; letter-spacing:3.5px; background-position:0% 0%; background-repeat:no-repeat; left:255px; top:204px; color:#ffffff; font-family:Jost; font-size:20px;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; bgcolorin:transparent; colorin:transparent; offsetxout:-100; durationout:1500; easingout:easeOutQuint; bgcolorout:transparent; colorout:transparent;">夏季特惠</p>
+            <img width="1920" height="800" src="<?php echo esc_url($item['image_url']); ?>" class="ls-bg" alt="轮播图 <?php echo $index + 1; ?>" />
             <h1 style="top:251px; left:255px; font-weight:700; background-size:inherit; background-position:inherit; font-size:60px; font-family:Roboto; color:#ffffff;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                最高优惠10%
+                <?php echo esc_html($item['title']); ?>
             </h1>
-            <h1 style="top:322px; left:255px; font-weight:700; background-size:inherit; background-position:inherit; font-size:60px; font-family:Roboto; color:#ffffff;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                音箱
-            </h1>
-            <div style="top:509px; left:255px; background-size:inherit; background-position:inherit; font-size:24px;" class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer" data-ls="offsetyin:50; durationin:1500; delayin:600; easingin:easeOutQuint; offsetyout:50; durationout:1500; easingout:easeOutQuint; position:relative;"><a href="<?php echo home_url(); ?>/shop" class="vs-btn ls-hero-btn">探索商店</a></div>
-            <p style="text-align:left; font-style:normal; text-decoration:none; font-weight:400; letter-spacing:3.5px; background-position:0% 0%; background-repeat:no-repeat; left:180px; top:122px; color:#ffffff; font-family:Jost; font-size:28px;" class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; bgcolorin:transparent; colorin:transparent; offsetxout:-100; durationout:1500; easingout:easeOutQuint; bgcolorout:transparent; colorout:transparent;">夏季特惠</p>
-            <h1 style="top:193px; left:180px; font-weight:700; background-size:inherit; background-position:inherit; font-size:76px; font-family:Roboto; color:#ffffff;" class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                最高优惠10%
-            </h1>
-            <h1 style="top:295px; left:180px; font-weight:700; background-size:inherit; background-position:inherit; font-size:76px; font-family:Roboto; color:#ffffff; text-transform:none; background-color:transparent; background-repeat:no-repeat; cursor:auto;" class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint;">
-                音箱
-            </h1>
-            <p style="font-size:26px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:180px; width:700px; top:418px; color:#ffffff; line-height:40px; font-family:Jost; white-space:normal;" class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint;">标准Lorem ipsum段落的创建时间各不相同，有些人引用15世纪</p>
-            <div style="top:555px; left:180px; background-size:inherit; background-position:inherit; font-size:24px;" class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer" data-ls="offsetyin:50; durationin:1500; delayin:600; easingin:easeOutQuint; offsetyout:50; durationout:1500; easingout:easeOutQuint; position:relative;"><a href="<?php echo home_url(); ?>/shop" class="vs-btn ls-hero-btn">探索商店</a></div>
-            <h1 style="top:114px; left:150px; font-weight:700; background-size:inherit; background-position:inherit; font-size:120px; font-family:Roboto; color:#ffffff;" class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                最高优惠10%
-            </h1>
-            <h1 style="top:269px; left:150px; font-weight:700; background-size:inherit; background-position:inherit; font-size:120px; font-family:Roboto; color:#ffffff; text-transform:none; background-color:transparent; background-repeat:no-repeat; cursor:auto;" class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint;">
-                音箱
-            </h1>
-            <div style="top:513px; left:150px; background-size:inherit; background-position:inherit; font-size:24px;" class="ls-l ls-hide-desktop ls-hide-tablet ls-html-layer" data-ls="offsetyin:50; durationin:1500; delayin:600; easingin:easeOutQuint; offsetyout:50; durationout:1500; easingout:easeOutQuint; position:relative;"><a href="<?php echo home_url(); ?>/shop" class="vs-btn ls-hero-btn">探索商店</a></div>
             <ls-layer style="font-size:16px; color:#ffffff; text-align:left; font-style:normal; text-decoration:none; text-transform:none; border-style:solid; border-color:#000; background-position:0% 0%; background-repeat:no-repeat; width:400px; line-height:26px; font-family:Jost; background-color:transparent; cursor:auto; left:255px; top:414px; white-space:normal;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; fadein:false; bgcolorin:transparent; colorin:transparent; offsetxout:-100; durationout:1500; easingout:easeOutQuint; fadeout:false; bgcolorout:transparent; colorout:transparent;">
-                标准Lorem ipsum段落的创建时间各不相同，有些人引用15世纪
+                <?php echo esc_html($item['description']); ?>
             </ls-layer>
-        </div>
-
-
-        <!-- Slide 2-->
-        <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnsscale:1.1;">
-            <img width="1920" height="800" src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/hero-slide-11-2.jpg" class="ls-bg" alt="hero bg" />
-            <p style="text-align:left; font-style:normal; text-decoration:none; font-weight:400; letter-spacing:3.5px; background-position:0% 0%; background-repeat:no-repeat; left:255px; top:204px; color:#ffffff; font-family:Jost; font-size:20px;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; bgcolorin:transparent; colorin:transparent; offsetxout:-100; durationout:1500; easingout:easeOutQuint; bgcolorout:transparent; colorout:transparent;">夏季特惠</p>
-            <h1 style="top:251px; left:255px; font-weight:700; background-size:inherit; background-position:inherit; font-size:60px; font-family:Roboto; color:#ffffff;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                家庭套餐
-            </h1>
-            <h1 style="top:322px; left:255px; font-weight:700; background-size:inherit; background-position:inherit; font-size:60px; font-family:Roboto; color:#ffffff;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                限时抢购
-            </h1>
-            <div style="top:509px; left:255px; background-size:inherit; background-position:inherit; font-size:24px;" class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer" data-ls="offsetyin:50; durationin:1500; delayin:600; easingin:easeOutQuint; offsetyout:50; durationout:1500; easingout:easeOutQuint; position:relative;"><a href="<?php echo home_url(); ?>/shop" class="vs-btn ls-hero-btn">探索商店</a></div>
-            <p style="text-align:left; font-style:normal; text-decoration:none; font-weight:400; letter-spacing:3.5px; background-position:0% 0%; background-repeat:no-repeat; left:180px; top:122px; color:#ffffff; font-family:Jost; font-size:28px;" class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; bgcolorin:transparent; colorin:transparent; offsetxout:-100; durationout:1500; easingout:easeOutQuint; bgcolorout:transparent; colorout:transparent;">夏季特惠</p>
+            <?php if (!empty($item['button_text']) && !empty($item['button_link'])) : ?>
+            <div style="top:509px; left:255px; background-size:inherit; background-position:inherit; font-size:24px;" class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer" data-ls="offsetyin:50; durationin:1500; delayin:600; easingin:easeOutQuint; offsetyout:50; durationout:1500; easingout:easeOutQuint; position:relative;"><a href="<?php echo esc_url($item['button_link']); ?>" class="vs-btn ls-hero-btn"><?php echo esc_html($item['button_text']); ?></a></div>
+            <?php endif; ?>
+            
+            <!-- 平板设备显示 -->
             <h1 style="top:193px; left:180px; font-weight:700; background-size:inherit; background-position:inherit; font-size:76px; font-family:Roboto; color:#ffffff;" class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                家庭套餐
+                <?php echo esc_html($item['title']); ?>
             </h1>
-            <h1 style="top:295px; left:180px; font-weight:700; background-size:inherit; background-position:inherit; font-size:76px; font-family:Roboto; color:#ffffff; text-transform:none; background-color:transparent; background-repeat:no-repeat; cursor:auto;" class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint;">
-                限时抢购
-            </h1>
-            <p style="font-size:26px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:180px; width:700px; top:418px; color:#ffffff; line-height:40px; font-family:Jost; white-space:normal;" class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint;">标准Lorem ipsum段落的创建时间各不相同，有些人引用15世纪</p>
-            <div style="top:555px; left:180px; background-size:inherit; background-position:inherit; font-size:24px;" class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer" data-ls="offsetyin:50; durationin:1500; delayin:600; easingin:easeOutQuint; offsetyout:50; durationout:1500; easingout:easeOutQuint; position:relative;"><a href="<?php echo home_url(); ?>/shop" class="vs-btn ls-hero-btn">探索商店</a></div>
+            <p style="font-size:26px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:180px; width:700px; top:418px; color:#ffffff; line-height:40px; font-family:Jost; white-space:normal;" class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint;"><?php echo esc_html($item['description']); ?></p>
+            <?php if (!empty($item['button_text']) && !empty($item['button_link'])) : ?>
+            <div style="top:555px; left:180px; background-size:inherit; background-position:inherit; font-size:24px;" class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer" data-ls="offsetyin:50; durationin:1500; delayin:600; easingin:easeOutQuint; offsetyout:50; durationout:1500; easingout:easeOutQuint; position:relative;"><a href="<?php echo esc_url($item['button_link']); ?>" class="vs-btn ls-hero-btn"><?php echo esc_html($item['button_text']); ?></a></div>
+            <?php endif; ?>
+            
+            <!-- 手机设备显示 -->
             <h1 style="top:114px; left:150px; font-weight:700; background-size:inherit; background-position:inherit; font-size:120px; font-family:Roboto; color:#ffffff;" class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                家庭套餐
+                <?php echo esc_html($item['title']); ?>
             </h1>
-            <h1 style="top:269px; left:150px; font-weight:700; background-size:inherit; background-position:inherit; font-size:120px; font-family:Roboto; color:#ffffff; text-transform:none; background-color:transparent; background-repeat:no-repeat; cursor:auto;" class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint;">
-                限时抢购
-            </h1>
-            <div style="top:513px; left:150px; background-size:inherit; background-position:inherit; font-size:24px;" class="ls-l ls-hide-desktop ls-hide-tablet ls-html-layer" data-ls="offsetyin:50; durationin:1500; delayin:600; easingin:easeOutQuint; offsetyout:50; durationout:1500; easingout:easeOutQuint; position:relative;"><a href="<?php echo home_url(); ?>/shop" class="vs-btn ls-hero-btn">探索商店</a></div>
-            <ls-layer style="font-size:16px; color:#ffffff; text-align:left; font-style:normal; text-decoration:none; text-transform:none; border-style:solid; border-color:#000; background-position:0% 0%; background-repeat:no-repeat; width:400px; line-height:26px; font-family:Jost; background-color:transparent; cursor:auto; left:255px; top:414px; white-space:normal;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; fadein:false; bgcolorin:transparent; colorin:transparent; offsetxout:-100; durationout:1500; easingout:easeOutQuint; fadeout:false; bgcolorout:transparent; colorout:transparent;">
-                Creation timelines for the standard lorem ipsum passage vary with some citing the 15th century
-            </ls-layer>
+            <?php if (!empty($item['button_text']) && !empty($item['button_link'])) : ?>
+            <div style="top:513px; left:150px; background-size:inherit; background-position:inherit; font-size:24px;" class="ls-l ls-hide-desktop ls-hide-tablet ls-html-layer" data-ls="offsetyin:50; durationin:1500; delayin:600; easingin:easeOutQuint; offsetyout:50; durationout:1500; easingout:easeOutQuint; position:relative;"><a href="<?php echo esc_url($item['button_link']); ?>" class="vs-btn ls-hero-btn"><?php echo esc_html($item['button_text']); ?></a></div>
+            <?php endif; ?>
         </div>
-
-
-        <!-- Slide 3-->
-        <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnsscale:1.1;">
-            <img width="1920" height="800" src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/hero-slide-11-3.jpg" class="ls-bg" alt="" />
-            <p style="text-align:left; font-style:normal; text-decoration:none; font-weight:400; letter-spacing:3.5px; background-position:0% 0%; background-repeat:no-repeat; left:255px; top:204px; color:#ffffff; font-family:Jost; font-size:20px;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; bgcolorin:transparent; colorin:transparent; offsetxout:-100; durationout:1500; easingout:easeOutQuint; bgcolorout:transparent; colorout:transparent;">值得信赖的市场</p>
-            <h1 style="top:251px; left:255px; font-weight:700; background-size:inherit; background-position:inherit; font-size:60px; font-family:Roboto; color:#ffffff;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                Vendora 在线
-            </h1>
-            <h1 style="top:322px; left:255px; font-weight:700; background-size:inherit; background-position:inherit; font-size:60px; font-family:Roboto; color:#ffffff;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                智能商店
-            </h1>
-            <div style="top:509px; left:255px; background-size:inherit; background-position:inherit; font-size:24px;" class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer" data-ls="offsetyin:50; durationin:1500; delayin:600; easingin:easeOutQuint; offsetyout:50; durationout:1500; easingout:easeOutQuint; position:relative;"><a href="<?php echo home_url(); ?>/shop" class="vs-btn ls-hero-btn">探索商店</a></div>
-            <p style="text-align:left; font-style:normal; text-decoration:none; font-weight:400; letter-spacing:3.5px; background-position:0% 0%; background-repeat:no-repeat; left:180px; top:122px; color:#ffffff; font-family:Jost; font-size:28px;" class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; bgcolorin:transparent; colorin:transparent; offsetxout:-100; durationout:1500; easingout:easeOutQuint; bgcolorout:transparent; colorout:transparent;">值得信赖的市场</p>
-            <h1 style="top:193px; left:180px; font-weight:700; background-size:inherit; background-position:inherit; font-size:76px; font-family:Roboto; color:#ffffff;" class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                Vendora 在线
-            </h1>
-            <h1 style="top:295px; left:180px; font-weight:700; background-size:inherit; background-position:inherit; font-size:76px; font-family:Roboto; color:#ffffff; text-transform:none; background-color:transparent; background-repeat:no-repeat; cursor:auto;" class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint;">
-                智能商店
-            </h1>
-            <p style="font-size:26px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:180px; width:700px; top:418px; color:#ffffff; line-height:40px; font-family:Jost; white-space:normal;" class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint;">标准Lorem ipsum段落的创建时间各不相同，有些人引用15世纪</p>
-            <div style="top:555px; left:180px; background-size:inherit; background-position:inherit; font-size:24px;" class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer" data-ls="offsetyin:50; durationin:1500; delayin:600; easingin:easeOutQuint; offsetyout:50; durationout:1500; easingout:easeOutQuint; position:relative;"><a href="<?php echo home_url(); ?>/shop" class="vs-btn ls-hero-btn">探索商店</a></div>
-            <h1 style="top:114px; left:150px; font-weight:700; background-size:inherit; background-position:inherit; font-size:120px; font-family:Roboto; color:#ffffff;" class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                Vendora 在线
-            </h1>
-            <h1 style="top:269px; left:150px; font-weight:700; background-size:inherit; background-position:inherit; font-size:120px; font-family:Roboto; color:#ffffff; text-transform:none; background-color:transparent; background-repeat:no-repeat; cursor:auto;" class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint;">
-                智能商店
-            </h1>
-            <div style="top:513px; left:150px; background-size:inherit; background-position:inherit; font-size:24px;" class="ls-l ls-hide-desktop ls-hide-tablet ls-html-layer" data-ls="offsetyin:50; durationin:1500; delayin:600; easingin:easeOutQuint; offsetyout:50; durationout:1500; easingout:easeOutQuint; position:relative;"><a href="<?php echo home_url(); ?>/shop" class="vs-btn ls-hero-btn">探索商店</a></div>
-            <ls-layer style="font-size:16px; color:#ffffff; text-align:left; font-style:normal; text-decoration:none; text-transform:none; border-style:solid; border-color:#000; background-position:0% 0%; background-repeat:no-repeat; width:400px; line-height:26px; font-family:Jost; background-color:transparent; cursor:auto; left:255px; top:414px; white-space:normal;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; fadein:false; bgcolorin:transparent; colorin:transparent; offsetxout:-100; durationout:1500; easingout:easeOutQuint; fadeout:false; bgcolorout:transparent; colorout:transparent;">
-                Creation timelines for the standard lorem ipsum passage vary with some citing the 15th century
-            </ls-layer>
-        </div>
+        <?php endforeach; ?>
 
     </div>
 </section>
