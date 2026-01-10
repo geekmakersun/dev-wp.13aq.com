@@ -1,4 +1,3 @@
-
 .ls-v6 .ls-bottom-nav-wrapper {
   position: absolute;
   left: 100px;
@@ -19,7 +18,7 @@
   &:first-child {
     margin-top: 0;
   }
-  
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -37,8 +36,7 @@ a.ls-gui-element.ls-nav-next {
   border: 2px solid $white-color !important;
   border-radius: 50%;
   left: var(--space-x, 130px);
-  
-  
+
   &:after {
     transform: none;
     width: auto;
@@ -52,9 +50,8 @@ a.ls-gui-element.ls-nav-next {
     border-bottom: 7px solid transparent;
   }
 
-
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     left: 50%;
     top: 50%;
@@ -111,8 +108,7 @@ a.ls-gui-element.ls-nav-next {
   .hero-layout7 {
     padding: 0 95px;
   }
-} 
-
+}
 
 @include lg {
   .ls-v6 .ls-bottom-nav-wrapper {
@@ -141,9 +137,6 @@ a.ls-gui-element.ls-nav-next {
   }
 }
 
-
-
-
 .ls-play-btn {
   width: 60px;
   height: 60px;
@@ -161,7 +154,6 @@ a.ls-gui-element.ls-nav-next {
   max-height: 100%;
 }
 
-
 @media (max-width: 1024px) {
   .ls-play-btn {
     font-size: 1.4em;
@@ -175,8 +167,6 @@ a.ls-gui-element.ls-nav-next {
     font-size: 13px;
   }
 }
-
-
 
 .hero-layout11 a.ls-gui-element.ls-nav-prev,
 .hero-layout11 a.ls-gui-element.ls-nav-next {
@@ -196,7 +186,7 @@ a.ls-gui-element.ls-nav-next {
 
 .hero-layout11 a.ls-gui-element.ls-nav-prev:before,
 .hero-layout11 a.ls-gui-element.ls-nav-next:before {
-  content: '\f104';
+  content: "\f104";
   border: none;
   color: var(--white-color);
   font-family: "font awesome 5 pro";
@@ -226,17 +216,65 @@ a.ls-gui-element.ls-nav-next {
 }
 
 .hero-layout11 a.ls-gui-element.ls-nav-next:before {
-  content: '\f105';
+  content: "\f105";
   padding-right: 3px;
 }
-
 
 .hero-layout11 a.ls-gui-element.ls-nav-prev:hover,
 .hero-layout11 a.ls-gui-element.ls-nav-next:hover {
   background-color: var(--theme-color);
 }
 
+/* 确保 Bootstrap 导航按钮样式正常工作 */
+.hero-layout11 a.ls-nav-prev,
+.hero-layout11 a.ls-nav-next {
+  /* 重置样式，确保 Bootstrap 样式优先 */
+  left: 0 !important;
+  right: auto !important;
+  margin: 0 !important;
+  padding: 0.5rem !important;
+  border-radius: 50% !important;
+  line-height: 1 !important;
+  width: auto !important;
+  height: auto !important;
+  border: none !important;
+  background-color: transparent !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
 
+.hero-layout11 a.ls-nav-next {
+  left: auto !important;
+  right: 0 !important;
+}
+
+/* 调整 Bootstrap 按钮在 LayerSlider 中的位置和大小 */
+.btn-layerslider {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-layerslider:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.btn-layerslider.prev {
+  left: 20px;
+}
+
+.btn-layerslider.next {
+  right: 20px;
+}
 
 @media (max-width: 992px) {
   .hero-layout11 .vs-btn.ls-hero-btn {
@@ -245,6 +283,240 @@ a.ls-gui-element.ls-nav-next {
   }
 }
 
+/*=================================\n    Bootstrap Hero Area Styles\n==================================*/
+.hero-area {
+  overflow: hidden;
+  height: 800px;
+  position: relative;
+}
+
+.hero-bg {
+  height: 800px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: left;
+  padding: 0;
+}
+
+/* 桌面样式 */
+.hero-subtitle {
+  position: absolute;
+  left: 255px;
+  top: 204px;
+  font-size: 20px;
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  letter-spacing: 3.5px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.hero-title {
+  position: absolute;
+  left: 255px;
+  top: 251px;
+  font-size: 60px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.hero-title + .hero-title {
+  top: 322px;
+}
+
+.hero-text {
+  position: absolute;
+  left: 255px;
+  top: 414px;
+  font-size: 16px;
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 26px;
+  margin: 0;
+  max-width: 400px;
+}
+
+.hero-btn {
+  position: absolute;
+  left: 255px;
+  top: 509px;
+  font-size: 24px;
+  padding: 15px 30px;
+  background-color: #2c2c2c;
+  border: none;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #e1aa5e;
+  color: #ffffff;
+}
+
+/* 平板样式 */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .hero-content {
+    padding: 0;
+  }
+
+  .hero-subtitle-tablet {
+    position: absolute;
+    left: 180px;
+    top: 122px;
+    font-size: 28px;
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    letter-spacing: 3.5px;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .hero-title-tablet {
+    position: absolute;
+    left: 180px;
+    top: 193px;
+    font-size: 76px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .hero-title-tablet + .hero-title-tablet {
+    top: 295px;
+  }
+
+  .hero-text-tablet {
+    position: absolute;
+    left: 180px;
+    top: 418px;
+    font-size: 26px;
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 40px;
+    margin: 0;
+    max-width: 700px;
+  }
+
+  .hero-btn-tablet {
+    position: absolute;
+    left: 180px;
+    top: 555px;
+    font-size: 24px;
+    padding: 15px 30px;
+    background-color: #2c2c2c;
+    border: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+
+  .hero-btn-tablet:hover {
+    background-color: #e1aa5e;
+    color: #ffffff;
+  }
+}
+
+/* 手机样式 */
+@media (max-width: 767px) {
+  .hero-area {
+    height: 600px;
+  }
+
+  .hero-bg {
+    height: 600px;
+  }
+
+  .hero-content {
+    padding: 0;
+  }
+
+  .hero-title-mobile {
+    position: absolute;
+    left: 150px;
+    top: 114px;
+    font-size: 120px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .hero-title-mobile + .hero-title-mobile {
+    top: 269px;
+  }
+
+  .hero-btn-mobile {
+    position: absolute;
+    left: 150px;
+    top: 513px;
+    font-size: 24px;
+    padding: 15px 30px;
+    background-color: #2c2c2c;
+    border: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    margin: 0;
+  }
+
+  .hero-btn-mobile:hover {
+    background-color: #e1aa5e;
+    color: #ffffff;
+  }
+}
+
+/* 轮播导航按钮样式 */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+  height: 50px;
+  background-color: #2c2c2c;
+  border-radius: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: #e1aa5e;
+  opacity: 1;
+}
+
+.carousel-control-prev {
+  left: 0;
+}
+
+.carousel-control-next {
+  right: 0;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 24px;
+  height: 24px;
+}
 
 @media (max-width: 767px) {
   .hero-layout11 .vs-btn.ls-hero-btn {

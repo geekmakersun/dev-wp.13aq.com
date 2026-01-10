@@ -94,28 +94,8 @@
     <!--==============================
         所有JS文件
     ============================== -->
-    <!-- Jquery -->
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/vendor/jquery-3.6.0.min.js"></script>
-    <!-- Slick Slider -->
-    <!-- <script src="assets/js/app.min.js"></script> -->
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/slick.min.js"></script>
-    <!-- Layerslider -->
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/layerslider.utils.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/layerslider.transitions.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/layerslider.kreaturamedia.jquery.js"></script>
-    <!-- Bootstrap -->
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/bootstrap.min.js"></script>
-    <!-- Magnific Popup -->
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.magnific-popup.min.js"></script>
-    <!-- Isotope Filter -->
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/imagesloaded.pkgd.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/isotope.pkgd.min.js"></script>
-    <!-- Custom Carousel -->
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/vscustom-carousel.min.js"></script>
     <!-- Form Js -->
     <script src="<?php echo get_template_directory_uri(); ?>/assets/js/ajax-mail.js"></script>
-    <!-- Main Js File -->
-    <script src="<?php echo get_template_directory_uri(); ?>/assets/js/main.js"></script>
 
 <?php wp_footer(); ?>
 

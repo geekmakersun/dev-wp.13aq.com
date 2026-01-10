@@ -322,62 +322,12 @@
 
 
   /*----------- 07. 头部轮播图激活 ----------*/
-  $('.geek-head-carousel').each(function () {
-    var vsHslide = $(this);
-
-    // Get Data From Dom
-    function d(data) {
-      return vsHslide.data(data)
-    }
-
-    // Custom Arrow 
-    vsHslide.find('[data-ls-go]').each(function () {
-      $(this).on('click', function (e) {
-        e.preventDefault();
-        var target = $(this).data('ls-go');
-        vsHslide.layerSlider(target)
-      });
-    });
-
-    vsHslide.layerSlider({
-      startInViewport: false,
-      allowRestartOnResize: true,
-      globalBGColor: (d('global-bg') ? d('global-bg') : false),
-      globalBGImage: (d('global-img') ? d('global-img') : false),
-      maxRatio: (d('maxratio') ? d('maxratio') : 1),
-      type: (d('slidertype') ? d('slidertype') : 'responsive'),
-      pauseOnHover: (d('pauseonhover') ? true : false),
-      navPrevNext: (d('navprevnext') ? true : false),
-      hoverPrevNext: (d('hoverprevnext') ? true : false),
-      hoverBottomNav: (d('hoverbottomnav') ? true : false),
-      navStartStop: (d('navstartstop') ? true : false),
-      navButtons: (d('navbuttons') ? true : false),
-      loop: ((d('loop') === false) ? false : true),
-      autostart: (d('autostart') ? true : false),
-      height: (d('height') ? d('height') : 1080),
-      responsiveUnder: (d('responsiveunder') ? d('responsiveunder') : 1220),
-      layersContainer: (d('container') ? d('container') : 1220),
-      showCircleTimer: (d('showcircletimer') ? true : false),
-      skinsPath: '/wp-content/themes/极客wordpress主题/layerslider/skins/',
-      thumbnailNavigation: ((d('thumbnailnavigation') === false) ? false : true)
-    });
-  });
+  // 使用Bootstrap Carousel，无需额外的初始化代码
 
 
-  $(".hero-carousel-style2").layerSlider({
-    createdWith: '6.11.8',
-    sliderVersion: '6.11.8',
-    startInViewport: false,
-    skin: 'v6',
-    globalBGColor: '#256bdb',
-    navPrevNext: false,
-    hoverPrevNext: false,
-    navStartStop: false,
-    navButtons: false,
-    showCircleTimer: false,
-    useSrcset: false,
-    skinsPath: '/wp-content/themes/极客wordpress主题/layerslider/skins/'
-  });
+
+
+
 
 
 

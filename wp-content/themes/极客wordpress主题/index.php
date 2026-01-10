@@ -1,50 +1,117 @@
 <?php get_header(); ?>
 
+
 <!--==============================
-      头部轮播区
+      Hero Area
     ==============================-->
-<section class="geek-head-carousel-wrapper position-relative  ">
-    <div class="geek-head-carousel hero-layout11" data-height="800" data-container="1900" data-navprevnext="true">
-
-        <?php
-        // 获取轮播图数据
-        $carousel_items = geek_get_carousel_data();
-        
-        // 遍历轮播图数据
-        foreach ($carousel_items as $index => $item) :
-        ?>
-        <!-- 幻灯片 <?php echo $index + 1; ?>-->
-        <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnsscale:1.1;">
-            <img width="1920" height="800" src="<?php echo esc_url($item['image_url']); ?>" class="ls-bg" alt="轮播图 <?php echo $index + 1; ?>" />
-            <h1 style="top:251px; left:255px; font-weight:700; background-size:inherit; background-position:inherit; font-size:60px; font-family:Roboto; color:#ffffff;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                <?php echo esc_html($item['title']); ?>
-            </h1>
-            <ls-layer style="font-size:16px; color:#ffffff; text-align:left; font-style:normal; text-decoration:none; text-transform:none; border-style:solid; border-color:#000; background-position:0% 0%; background-repeat:no-repeat; width:400px; line-height:26px; font-family:Jost; background-color:transparent; cursor:auto; left:255px; top:414px; white-space:normal;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; fadein:false; bgcolorin:transparent; colorin:transparent; offsetxout:-100; durationout:1500; easingout:easeOutQuint; fadeout:false; bgcolorout:transparent; colorout:transparent;">
-                <?php echo esc_html($item['description']); ?>
-            </ls-layer>
-            <?php if (!empty($item['button_text']) && !empty($item['button_link'])) : ?>
-            <div style="top:509px; left:255px; background-size:inherit; background-position:inherit; font-size:24px;" class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer" data-ls="offsetyin:50; durationin:1500; delayin:600; easingin:easeOutQuint; offsetyout:50; durationout:1500; easingout:easeOutQuint; position:relative;"><a href="<?php echo esc_url($item['button_link']); ?>" class="vs-btn ls-hero-btn"><?php echo esc_html($item['button_text']); ?></a></div>
-            <?php endif; ?>
-            
-            <!-- 平板设备显示 -->
-            <h1 style="top:193px; left:180px; font-weight:700; background-size:inherit; background-position:inherit; font-size:76px; font-family:Roboto; color:#ffffff;" class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                <?php echo esc_html($item['title']); ?>
-            </h1>
-            <p style="font-size:26px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:180px; width:700px; top:418px; color:#ffffff; line-height:40px; font-family:Jost; white-space:normal;" class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint;"><?php echo esc_html($item['description']); ?></p>
-            <?php if (!empty($item['button_text']) && !empty($item['button_link'])) : ?>
-            <div style="top:555px; left:180px; background-size:inherit; background-position:inherit; font-size:24px;" class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer" data-ls="offsetyin:50; durationin:1500; delayin:600; easingin:easeOutQuint; offsetyout:50; durationout:1500; easingout:easeOutQuint; position:relative;"><a href="<?php echo esc_url($item['button_link']); ?>" class="vs-btn ls-hero-btn"><?php echo esc_html($item['button_text']); ?></a></div>
-            <?php endif; ?>
-            
-            <!-- 手机设备显示 -->
-            <h1 style="top:114px; left:150px; font-weight:700; background-size:inherit; background-position:inherit; font-size:120px; font-family:Roboto; color:#ffffff;" class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer" data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                <?php echo esc_html($item['title']); ?>
-            </h1>
-            <?php if (!empty($item['button_text']) && !empty($item['button_link'])) : ?>
-            <div style="top:513px; left:150px; background-size:inherit; background-position:inherit; font-size:24px;" class="ls-l ls-hide-desktop ls-hide-tablet ls-html-layer" data-ls="offsetyin:50; durationin:1500; delayin:600; easingin:easeOutQuint; offsetyout:50; durationout:1500; easingout:easeOutQuint; position:relative;"><a href="<?php echo esc_url($item['button_link']); ?>" class="vs-btn ls-hero-btn"><?php echo esc_html($item['button_text']); ?></a></div>
-            <?php endif; ?>
+<section class="hero-area position-relative">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+        <!-- 指示器 -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <?php endforeach; ?>
 
+        <!-- 轮播内容 -->
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <img data-src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/hero-slide-11-1.jpg" class="d-block w-100 hero-bg lazy" alt="hero slide 1">
+                <div class="carousel-caption hero-content">
+                    <!-- 桌面显示 -->
+                    <div class="d-none d-lg-block">
+                        <p class="hero-subtitle animate__animated animate__fadeInLeft">夏季特惠</p>
+                        <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.2s">最高优惠10%</h1>
+                        <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.3s">音箱</h1>
+                        <p class="hero-text animate__animated animate__fadeInLeft animate__delay-0.5s">标准Lorem ipsum段落的创建时间各不相同，有些人引用15世纪</p>
+                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn animate__animated animate__fadeInUp animate__delay-0.8s">探索商店</a>
+                    </div>
+                    <!-- 平板显示 -->
+                    <div class="d-none d-md-block d-lg-none">
+                        <p class="hero-subtitle-tablet animate__animated animate__fadeInLeft">夏季特惠</p>
+                        <h1 class="hero-title-tablet animate__animated animate__fadeInLeft animate__delay-0.2s">最高优惠10%</h1>
+                        <h1 class="hero-title-tablet animate__animated animate__fadeInLeft animate__delay-0.3s">音箱</h1>
+                        <p class="hero-text-tablet animate__animated animate__fadeInLeft animate__delay-0.5s">标准Lorem ipsum段落的创建时间各不相同，有些人引用15世纪</p>
+                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn-tablet animate__animated animate__fadeInUp animate__delay-0.8s">探索商店</a>
+                    </div>
+                    <!-- 手机显示 -->
+                    <div class="d-block d-md-none">
+                        <h1 class="hero-title-mobile animate__animated animate__fadeInLeft">最高优惠10%</h1>
+                        <h1 class="hero-title-mobile animate__animated animate__fadeInLeft animate__delay-0.2s">音箱</h1>
+                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn-mobile animate__animated animate__fadeInUp animate__delay-0.5s">探索商店</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <img data-src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/hero-slide-11-2.jpg" class="d-block w-100 hero-bg lazy" alt="hero slide 2">
+                <div class="carousel-caption hero-content">
+                    <!-- 桌面显示 -->
+                    <div class="d-none d-lg-block">
+                        <p class="hero-subtitle animate__animated animate__fadeInLeft">夏季特惠</p>
+                        <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.2s">家庭套餐</h1>
+                        <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.3s">限时抢购</h1>
+                        <p class="hero-text animate__animated animate__fadeInLeft animate__delay-0.5s">Creation timelines for the standard lorem ipsum passage vary with some citing the 15th century</p>
+                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn animate__animated animate__fadeInUp animate__delay-0.8s">探索商店</a>
+                    </div>
+                    <!-- 平板显示 -->
+                    <div class="d-none d-md-block d-lg-none">
+                        <p class="hero-subtitle-tablet animate__animated animate__fadeInLeft">夏季特惠</p>
+                        <h1 class="hero-title-tablet animate__animated animate__fadeInLeft animate__delay-0.2s">家庭套餐</h1>
+                        <h1 class="hero-title-tablet animate__animated animate__fadeInLeft animate__delay-0.3s">限时抢购</h1>
+                        <p class="hero-text-tablet animate__animated animate__fadeInLeft animate__delay-0.5s">Creation timelines for the standard lorem ipsum passage vary with some citing the 15th century</p>
+                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn-tablet animate__animated animate__fadeInUp animate__delay-0.8s">探索商店</a>
+                    </div>
+                    <!-- 手机显示 -->
+                    <div class="d-block d-md-none">
+                        <h1 class="hero-title-mobile animate__animated animate__fadeInLeft">家庭套餐</h1>
+                        <h1 class="hero-title-mobile animate__animated animate__fadeInLeft animate__delay-0.2s">限时抢购</h1>
+                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn-mobile animate__animated animate__fadeInUp animate__delay-0.5s">探索商店</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <img data-src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/hero-slide-11-3.jpg" class="d-block w-100 hero-bg lazy" alt="hero slide 3">
+                <div class="carousel-caption hero-content">
+                    <!-- 桌面显示 -->
+                    <div class="d-none d-lg-block">
+                        <p class="hero-subtitle animate__animated animate__fadeInLeft">值得信赖的市场</p>
+                        <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.2s">Vendora 在线</h1>
+                        <h1 class="hero-title animate__animated animate__fadeInLeft animate__delay-0.3s">智能商店</h1>
+                        <p class="hero-text animate__animated animate__fadeInLeft animate__delay-0.5s">Creation timelines for the standard lorem ipsum passage vary with some citing the 15th century</p>
+                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn animate__animated animate__fadeInUp animate__delay-0.8s">探索商店</a>
+                    </div>
+                    <!-- 平板显示 -->
+                    <div class="d-none d-md-block d-lg-none">
+                        <p class="hero-subtitle-tablet animate__animated animate__fadeInLeft">值得信赖的市场</p>
+                        <h1 class="hero-title-tablet animate__animated animate__fadeInLeft animate__delay-0.2s">Vendora 在线</h1>
+                        <h1 class="hero-title-tablet animate__animated animate__fadeInLeft animate__delay-0.3s">智能商店</h1>
+                        <p class="hero-text-tablet animate__animated animate__fadeInLeft animate__delay-0.5s">Creation timelines for the standard lorem ipsum passage vary with some citing the 15th century</p>
+                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn-tablet animate__animated animate__fadeInUp animate__delay-0.8s">探索商店</a>
+                    </div>
+                    <!-- 手机显示 -->
+                    <div class="d-block d-md-none">
+                        <h1 class="hero-title-mobile animate__animated animate__fadeInLeft">Vendora 在线</h1>
+                        <h1 class="hero-title-mobile animate__animated animate__fadeInLeft animate__delay-0.2s">智能商店</h1>
+                        <a href="<?php echo home_url(); ?>/shop" class="btn btn-primary hero-btn-mobile animate__animated animate__fadeInUp animate__delay-0.5s">探索商店</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 导航按钮 -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">上一张</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">下一张</span>
+        </button>
     </div>
 </section>
 <!--==============================
