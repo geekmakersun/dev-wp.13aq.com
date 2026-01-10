@@ -14,13 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * 后台管理初始化
+ * 引入后台管理初始化
  */
-function geek_theme_admin_init()
-{
-    require_once get_template_directory() . '/admin/init.php';
-}
-add_action('after_setup_theme', 'geek_theme_admin_init');
+require_once get_template_directory() . '/inc/admin-init.php';
 
 /**
  * wordpress函数修改
@@ -62,3 +58,7 @@ require_once get_template_directory() . '/inc/disable-image-sizes.php';
  */
 require_once get_template_directory() . '/inc/faq-post-type.php';
 
+/**
+ * 引入媒体库图片显示名称功能
+ */
+require_once get_template_directory() . '/inc/media-library-show-image-names.php';
