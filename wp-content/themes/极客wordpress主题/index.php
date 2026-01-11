@@ -87,49 +87,46 @@
 <section class="pt-20">
     <div class="container-fluid">
         <div class="row gx-20 vs-carousel" data-slide-show="4">
-            <?php
-            // 获取产品分类（按排序值升序排列）
-            $product_categories = get_terms(array(
-                'taxonomy' => 'product_category',
-                'hide_empty' => false,
-                'number' => 10, // 最多显示10个分类
-                'meta_key' => 'taxonomy_order',
-                'orderby' => 'meta_value_num',
-                'order' => 'ASC'
-            ));
-            
-            // 循环显示分类
-            foreach ($product_categories as $category) {
-                // 获取分类图片
-                $category_image = geek_get_taxonomy_image($category, 'medium');
-                // 如果没有图片，使用默认图片
-                if (!$category_image) {
-                    $category_image = get_template_directory_uri() . '/assets/img/category/cat-6-1.jpg';
-                }
-                // 获取分类链接
-                $category_link = get_term_link($category, 'product_category');
-            ?>
-            <div class="col-md-3">
-                <div class="cat_card ">
-                    <div class="cat_card_img">
-                        <a href="<?php echo esc_url($category_link); ?>"><img src="<?php echo esc_url($category_image); ?>" alt="<?php echo esc_attr($category->name); ?>"></a>
-                    </div>
-                    <h3 class="cat_card_name--style2"><a href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category->name); ?></a></h3>
-                </div>
-            </div>
-            <?php }
-            // 如果没有分类，显示默认内容
-            if (empty($product_categories)) {
-            ?>
             <div class="col-md-3">
                 <div class="cat_card ">
                     <div class="cat_card_img">
                         <a href="<?php echo home_url(); ?>/shop"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/category/cat-6-1.jpg" alt="分类图片"></a>
                     </div>
-                    <h3 class="cat_card_name--style2"><a href="<?php echo home_url(); ?>/shop">暂无分类</a></h3>
+                    <h3 class="cat_card_name--style2"><a href="<?php echo home_url(); ?>/shop">手提包. 货源</a></h3>
                 </div>
             </div>
-            <?php } ?>
+            <div class="col-md-3">
+                <div class="cat_card ">
+                    <div class="cat_card_img">
+                        <a href="<?php echo home_url(); ?>/shop"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/category/cat-6-2.jpg" alt="分类图片"></a>
+                    </div>
+                    <h3 class="cat_card_name--style2"><a href="<?php echo home_url(); ?>/shop">手提包. 货源</a></h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="cat_card ">
+                    <div class="cat_card_img">
+                        <a href="<?php echo home_url(); ?>/shop"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/category/cat-6-3.jpg" alt="分类图片"></a>
+                    </div>
+                    <h3 class="cat_card_name--style2"><a href="<?php echo home_url(); ?>/shop">手提包. 货源</a></h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="cat_card ">
+                    <div class="cat_card_img">
+                        <a href="<?php echo home_url(); ?>/shop"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/category/cat-6-4.jpg" alt="分类图片"></a>
+                    </div>
+                    <h3 class="cat_card_name--style2"><a href="<?php echo home_url(); ?>/shop">手提包. 货源</a></h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="cat_card ">
+                    <div class="cat_card_img">
+                        <a href="<?php echo home_url(); ?>/shop"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/category/cat-6-5.jpg" alt="分类图片"></a>
+                    </div>
+                    <h3 class="cat_card_name--style2"><a href="<?php echo home_url(); ?>/shop">手提包. 货源</a></h3>
+                </div>
+            </div>
         </div>
     </div>
 </section>

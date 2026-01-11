@@ -13,6 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // 退出程序
 }
 
+// 移除了WooCommerce支持代码
+
+
 /**
  * 引入后台管理初始化
  */
@@ -39,16 +42,6 @@ require_once get_template_directory() . '/inc/header-menu.php';
 require_once get_template_directory() . '/inc/main-carousel.php';
 
 /**
- * 引入产品自定义文章类型和分类法
- */
-require_once get_template_directory() . '/inc/product-post-type.php';
-
-/**
- * 引入第三方图片下载功能
- */
-require_once get_template_directory() . '/inc/third-party-image-download.php';
-
-/**
  * 引入图片尺寸管理功能
  */
 require_once get_template_directory() . '/inc/disable-image-sizes.php';
@@ -63,12 +56,3 @@ require_once get_template_directory() . '/inc/faq-post-type.php';
  */
 require_once get_template_directory() . '/inc/media-library-show-image-names.php';
 
-/**
- * 引入分类法图片字段功能
- */
-require_once get_template_directory() . '/inc/taxonomy-image-field.php';
-
-/**
- * 引入分类法排序功能
- */
-require_once get_template_directory() . '/inc/taxonomy-order.php';
