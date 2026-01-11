@@ -286,7 +286,6 @@ a.ls-gui-element.ls-nav-next {
 /*=================================\n    Bootstrap Hero Area Styles\n==================================*/
 .hero-area {
   overflow: hidden;
-  height: 800px;
   position: relative;
 }
 
@@ -371,10 +370,6 @@ a.ls-gui-element.ls-nav-next {
 
 /* 手机样式 */
 @media (max-width: 767px) {
-  .hero-area {
-    height: 600px;
-  }
-
   .hero-bg {
     height: 600px;
   }
