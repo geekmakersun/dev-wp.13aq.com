@@ -5,7 +5,7 @@
       Hero Area
     ==============================-->
 <section class="hero-area position-relative">
-    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel0" data-bs-interval="3000">
         <!-- 指示器 -->
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

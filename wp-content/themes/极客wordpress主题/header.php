@@ -9,7 +9,7 @@
  */
 
 // 防止直接访问该文件（安全规范）
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
     exit; // 退出程序
 }
 ?>
@@ -56,7 +56,8 @@ if ( ! defined( 'ABSPATH' ) ) {
             <?php $logo_url = isset($geek_settings['logo']) ? $geek_settings['logo'] : get_template_directory_uri() . '/assets/img/logo.png'; ?>
             <?php $attachment_id = attachment_url_to_postid($logo_url); ?>
             <?php if ($attachment_id) : ?>
-                <?php $logo_data = wp_get_attachment_image_src($attachment_id, array(200, 100)); // 限制尺寸为200x100 ?>
+                <?php $logo_data = wp_get_attachment_image_src($attachment_id, array(200, 100)); // 限制尺寸为200x100 
+                ?>
                 <img src="<?php echo esc_url($logo_data[0]); ?>" alt="<?php bloginfo('name'); ?>" width="<?php echo $logo_data[1]; ?>" height="<?php echo $logo_data[2]; ?>">
             <?php else : ?>
                 <img src="<?php echo esc_url($logo_url); ?>" alt="<?php bloginfo('name'); ?>" style="max-width: 200px; max-height: 100px;">
@@ -77,7 +78,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <?php $logo_url = isset($geek_settings['logo']) ? $geek_settings['logo'] : get_template_directory_uri() . '/assets/img/logo-mobile.png'; ?>
                     <?php $attachment_id = attachment_url_to_postid($logo_url); ?>
                     <?php if ($attachment_id) : ?>
-                        <?php $logo_data = wp_get_attachment_image_src($attachment_id, array(150, 75)); // 限制尺寸为150x75 ?>
+                        <?php $logo_data = wp_get_attachment_image_src($attachment_id, array(150, 75)); // 限制尺寸为150x75 
+                        ?>
                         <img src="<?php echo esc_url($logo_data[0]); ?>" alt="<?php bloginfo('name'); ?>" width="<?php echo $logo_data[1]; ?>" height="<?php echo $logo_data[2]; ?>">
                     <?php else : ?>
                         <img src="<?php echo esc_url($logo_url); ?>" alt="<?php bloginfo('name'); ?>" style="max-width: 150px; max-height: 75px;">
@@ -86,16 +88,16 @@ if ( ! defined( 'ABSPATH' ) ) {
             </div>
             <div class="mobile-menu">
                 <?php
-                    $mobile_menu_args = array(
-                        'theme_location'    => 'header-menu',
-                        'depth'             => 2,
-                        'container'         => false,
-                        'menu_class'        => '',
-                        'fallback_cb'       => '__return_false',
-                        'add_li_class'      => '',
-                        'link_class'        => ''
-                    );
-                    wp_nav_menu($mobile_menu_args);
+                $mobile_menu_args = array(
+                    'theme_location'    => 'header-menu',
+                    'depth'             => 2,
+                    'container'         => false,
+                    'menu_class'        => '',
+                    'fallback_cb'       => '__return_false',
+                    'add_li_class'      => '',
+                    'link_class'        => ''
+                );
+                wp_nav_menu($mobile_menu_args);
                 ?>
             </div>
         </div>
@@ -126,17 +128,6 @@ if ( ! defined( 'ABSPATH' ) ) {
                                     <div class="media-body">
                                         <div class="header-info_link"><a href="tel:+1234567890" class="text-inherit">+123 456789 0</a></div>
                                         <span class="header-info_label">免费致电我们</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <div class="header-info">
-                                    <div class="header-info_icon">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/mail-icon.png" alt="图标">
-                                    </div>
-                                    <div class="media-body">
-                                        <div class="header-info_link">免费配送</div>
-                                        <span class="header-info_label">订单满$300.0</span>
                                     </div>
                                 </div>
                             </div>
@@ -194,7 +185,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                                     <?php $logo_url = isset($geek_settings['logo']) ? $geek_settings['logo'] : get_template_directory_uri() . '/assets/img/logo.png'; ?>
                                     <?php $attachment_id = attachment_url_to_postid($logo_url); ?>
                                     <?php if ($attachment_id) : ?>
-                                        <?php $logo_data = wp_get_attachment_image_src($attachment_id, array(200, 100)); // 限制尺寸为200x100 ?>
+                                        <?php $logo_data = wp_get_attachment_image_src($attachment_id, array(200, 100)); // 限制尺寸为200x100 
+                                        ?>
                                         <img src="<?php echo esc_url($logo_data[0]); ?>" alt="<?php bloginfo('name'); ?>" width="<?php echo $logo_data[1]; ?>" height="<?php echo $logo_data[2]; ?>">
                                     <?php else : ?>
                                         <img src="<?php echo esc_url($logo_url); ?>" alt="<?php bloginfo('name'); ?>" style="max-width: 200px; max-height: 100px;">
@@ -205,16 +197,16 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <div class="col-auto ms-md-auto ms-lg-0">
                             <nav class="main-menu menu-style2 d-none d-lg-block">
                                 <?php
-                                    $menu_args = array(
-                                        'theme_location'    => 'header-menu',
-                                        'depth'             => 2,
-                                        'container'         => false,
-                                        'menu_class'        => '',
-                                        'fallback_cb'       => '__return_false',
-                                        'add_li_class'      => '',
-                                        'link_class'        => ''
-                                    );
-                                    wp_nav_menu($menu_args);
+                                $menu_args = array(
+                                    'theme_location'    => 'header-menu',
+                                    'depth'             => 2,
+                                    'container'         => false,
+                                    'menu_class'        => '',
+                                    'fallback_cb'       => '__return_false',
+                                    'add_li_class'      => '',
+                                    'link_class'        => ''
+                                );
+                                wp_nav_menu($menu_args);
                                 ?>
                             </nav>
                         </div>
