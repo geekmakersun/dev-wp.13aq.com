@@ -62,3 +62,13 @@ require_once get_template_directory() . '/inc/faq-post-type.php';
  * 引入媒体库图片显示名称功能
  */
 require_once get_template_directory() . '/inc/media-library-show-image-names.php';
+
+/**
+ * 引入分类法图片字段功能
+ */
+require_once get_template_directory() . '/inc/taxonomy-image-field.php';
+
+/**
+ * 引入分类法排序功能
+ */
+require_once get_template_directory() . '/inc/taxonomy-order.php';
