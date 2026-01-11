@@ -12,7 +12,9 @@ function geek_theme_scripts()
     wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/assets/vendor/bootstrap/css/bootstrap.min.css', array(), '5.0.0');
 
     // 从HTML模板加载Fontawesome Icon CSS
-    wp_enqueue_style('fontawesome-css', get_template_directory_uri() . '/assets/vendor/fontawesome/css/all.min.css', array(), '6.0.0');
+    // wp_enqueue_style('fontawesome-css', get_template_directory_uri() . '/assets/vendor/fontawesome/css/all.min.css', array(), '6.0.0');
+    // 改用Font Awesome Pro 5.13.0
+    wp_enqueue_style('fontawesome-pro-css', get_template_directory_uri() . '/assets/css/fontawesome.min.css', array(), '5.13.0');
 
 
 
@@ -36,8 +38,6 @@ function geek_theme_scripts()
 
     // 从HTML模板加载Slick Slider JS
     wp_enqueue_script('slick-slider-js', get_template_directory_uri() . '/assets/vendor/slick-slider/js/slick.min.js', array('jquery'), '1.8.1', true);
-
-
 
     // 从HTML模板加载Bootstrap JS
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js', array('jquery'), '5.0.0', true);
