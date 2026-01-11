@@ -1,3 +1,8 @@
+/* ==========================================================================\n   Hero区域样式\n   ========================================================================== */
+
+/* =============================================\n   LayerSlider 导航样式\n   ============================================= */
+
+/* 底部导航容器 */
 .ls-v6 .ls-bottom-nav-wrapper {
   position: absolute;
   left: 100px;
@@ -7,6 +12,7 @@
   height: fit-content;
 }
 
+/* 底部导航按钮 */
 .ls-gui-element.ls-bottom-nav-wrapper a {
   display: block !important;
   background-color: $title-color;
@@ -23,12 +29,14 @@
     margin-bottom: 0;
   }
 
-  &.ls-nav-active:hover,
-  &.ls-nav-active {
+  /* 激活状态样式 */
+  &.ls-nav-active,
+  &.ls-nav-active:hover {
     background-color: $theme-color !important;
   }
 }
 
+/* 左右导航按钮 */
 a.ls-gui-element.ls-nav-prev,
 a.ls-gui-element.ls-nav-next {
   width: var(--icon-size, 60px);
@@ -36,8 +44,13 @@ a.ls-gui-element.ls-nav-next {
   border: 2px solid $white-color !important;
   border-radius: 50%;
   left: var(--space-x, 130px);
+  top: 50%;
+  transform: translateY(-50%);
 
+  /* 箭头样式 */
   &:after {
+    content: "";
+    position: absolute;
     transform: none;
     width: auto;
     height: auto;
@@ -50,6 +63,7 @@ a.ls-gui-element.ls-nav-next {
     border-bottom: 7px solid transparent;
   }
 
+  /* 箭头前的线条 */
   &:before {
     content: "";
     position: absolute;
@@ -63,8 +77,9 @@ a.ls-gui-element.ls-nav-next {
     transition: all ease 0.4s;
   }
 
+  /* 悬停效果 */
   &:hover {
-    transform: none;
+    transform: translateY(-50%);
 
     &:after {
       border-top-color: transparent !important;
@@ -77,6 +92,7 @@ a.ls-gui-element.ls-nav-next {
   }
 }
 
+/* 右侧导航按钮特殊样式 */
 a.ls-gui-element.ls-nav-next {
   left: auto;
   right: var(--space-x, 130px);
@@ -104,39 +120,7 @@ a.ls-gui-element.ls-nav-next {
   }
 }
 
-@media (min-width: $xl) {
-  .hero-layout7 {
-    padding: 0 95px;
-  }
-}
-
-@include lg {
-  .ls-v6 .ls-bottom-nav-wrapper {
-    display: none;
-  }
-
-  a.ls-gui-element.ls-nav-prev,
-  a.ls-gui-element.ls-nav-next {
-    display: none;
-  }
-}
-
-@include md {
-  .ls-v6.ls-container.ls-responsive {
-    clip-path: none !important;
-  }
-}
-
-@include xs {
-  .line-btn-mobile {
-    font-size: 10px;
-    color: $theme-color;
-    &.style-white {
-      color: $white-color;
-    }
-  }
-}
-
+/* 播放按钮样式 */
 .ls-play-btn {
   width: 60px;
   height: 60px;
@@ -154,6 +138,309 @@ a.ls-gui-element.ls-nav-next {
   max-height: 100%;
 }
 
+/* =============================================\n   布局样式\n   ============================================= */
+
+/* 布局7样式 */
+@media (min-width: $xl) {
+  .hero-layout7 {
+    padding: 0 95px;
+  }
+}
+
+/* 布局11样式 */
+.hero-layout11 {
+  /* 导航按钮 */
+  a.ls-gui-element.ls-nav-prev,
+  a.ls-gui-element.ls-nav-next {
+    left: 0;
+    right: auto;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    line-height: 40px !important;
+    width: 50px !important;
+    height: 50px !important;
+    border: none !important;
+    background-color: var(--title-color);
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+
+    /* 自定义箭头图标 */
+    &:before {
+      content: "\f104";
+      border: none;
+      color: var(--white-color);
+      font-family: "font awesome 5 pro";
+      font-size: 24px;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      line-height: 1;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0 !important;
+      display: block;
+    }
+
+    /* 隐藏默认箭头 */
+    &:after {
+      display: none;
+    }
+
+    /* 悬停效果 */
+    &:hover {
+      background-color: var(--theme-color);
+    }
+  }
+
+  /* 右侧导航按钮 */
+  a.ls-gui-element.ls-nav-next {
+    left: auto;
+    right: 0;
+
+    &:before {
+      content: "\f105";
+      padding-right: 3px;
+    }
+  }
+
+  /* Bootstrap导航按钮样式 */
+  a.ls-nav-prev,
+  a.ls-nav-next {
+    /* 重置样式，确保与Bootstrap兼容 */
+    left: 0 !important;
+    right: auto !important;
+    margin: 0 !important;
+    padding: 8px !important;
+    border-radius: 50% !important;
+    line-height: 1 !important;
+    width: auto !important;
+    height: auto !important;
+    border: none !important;
+    background-color: transparent !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  /* 右侧Bootstrap导航按钮 */
+  a.ls-nav-next {
+    left: auto !important;
+    right: 0 !important;
+  }
+
+  /* 按钮样式 */
+  .vs-btn.ls-hero-btn {
+    @media (max-width: 992px) {
+      font-size: 14px;
+      padding: 16px 24px;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 11px;
+      padding: 11px 14px;
+    }
+  }
+}
+
+/* =============================================\n   Bootstrap Hero区域基础样式\n   ============================================= */
+
+/* Hero容器 */
+.hero-area {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Hero背景图 */
+.hero-bg {
+  height: 800px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 内容容器 */
+.hero-content {
+  text-align: left;
+  padding: 0;
+}
+
+/* 小标题 */
+.hero-subtitle {
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  letter-spacing: 3.5px;
+  color: #ffffff;
+  margin: 0 0 16px;
+}
+
+/* 主标题 */
+.hero-title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+/* 描述文本 */
+.hero-text {
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.8;
+  margin: 24px 0 32px;
+  max-width: 600px;
+}
+
+/* 按钮 */
+.hero-btn {
+  font-size: 18px;
+  padding: 15px 30px;
+  background-color: #2c2c2c;
+  border: none;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all 0.3s ease;
+
+  /* 悬停效果 */
+  &:hover {
+    background-color: #e1aa5e;
+    color: #ffffff;
+  }
+}
+
+/* =============================================\n   响应式设计\n   ============================================= */
+
+/* 平板设备 (768px - 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .hero-content {
+    padding: 0;
+  }
+
+  .hero-subtitle {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .hero-title {
+    font-size: 40px;
+    margin-bottom: 5px;
+  }
+
+  .hero-text {
+        font-size: 15px;
+        margin: 10px 0 30px;
+  }
+
+  .hero-btn {
+    font-size: 18px;
+    padding: 12px 24px;
+  }
+}
+
+/* 手机设备 (小于768px) */
+@media (max-width: 767px) {
+  .hero-bg {
+    height: 600px;
+  }
+
+  .hero-content {
+    padding: 0 16px;
+  }
+
+  /* 简化手机端显示 */
+  .hero-subtitle,
+  .hero-text,
+  .hero-btn {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+}
+
+/* 小屏手机 (小于375px) */
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 24px;
+  }
+}
+
+/* =============================================\n   Bootstrap轮播导航样式\n   ============================================= */
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+  height: 50px;
+  background-color: #2c2c2c;
+  border-radius: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+  transition: all 0.3s ease;
+
+  /* 悬停效果 */
+  &:hover {
+    background-color: #e1aa5e;
+    opacity: 1;
+  }
+}
+
+/* 左侧导航按钮 */
+.carousel-control-prev {
+  left: 0;
+}
+
+/* 右侧导航按钮 */
+.carousel-control-next {
+  right: 0;
+}
+
+/* 导航图标 */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* =============================================\n   通用媒体查询\n   ============================================= */
+
+/* 大屏设备 (大于xl断点) */
+@include lg {
+  /* 隐藏部分导航元素 */
+  .ls-v6 .ls-bottom-nav-wrapper,
+  a.ls-gui-element.ls-nav-prev,
+  a.ls-gui-element.ls-nav-next {
+    display: none;
+  }
+}
+
+/* 中等屏幕 */
+@include md {
+  .ls-v6.ls-container.ls-responsive {
+    clip-path: none !important;
+  }
+}
+
+/* 小屏设备 */
+@include xs {
+  .line-btn-mobile {
+    font-size: 10px;
+    color: $theme-color;
+
+    &.style-white {
+      color: $white-color;
+    }
+  }
+}
+
+/* 播放按钮响应式 */
 @media (max-width: 1024px) {
   .ls-play-btn {
     font-size: 1.4em;
@@ -165,274 +452,5 @@ a.ls-gui-element.ls-nav-next {
     min-width: 30px;
     min-height: 30px;
     font-size: 13px;
-  }
-}
-
-.hero-layout11 a.ls-gui-element.ls-nav-prev,
-.hero-layout11 a.ls-gui-element.ls-nav-next {
-  left: 0;
-  right: auto;
-  margin: 0;
-  padding: 0;
-  border-radius: 0;
-  line-height: 40px !important;
-  width: 50px !important;
-  height: 50px !important;
-  border: none !important;
-  background-color: var(--title-color);
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-}
-
-.hero-layout11 a.ls-gui-element.ls-nav-prev:before,
-.hero-layout11 a.ls-gui-element.ls-nav-next:before {
-  content: "\f104";
-  border: none;
-  color: var(--white-color);
-  font-family: "font awesome 5 pro";
-  font-size: 24px;
-  width: auto;
-  height: auto;
-  background-color: transparent;
-  line-height: 1;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0 !important;
-  display: block;
-}
-
-.hero-layout11 a.ls-gui-element.ls-nav-prev:after,
-.hero-layout11 a.ls-gui-element.ls-nav-next:after {
-  display: none;
-}
-
-.hero-layout11 a.ls-gui-element.ls-nav-next {
-  left: auto;
-  right: 0;
-}
-
-.hero-layout11 a.ls-gui-element.ls-nav-next:before {
-  content: "\f105";
-  padding-right: 3px;
-}
-
-.hero-layout11 a.ls-gui-element.ls-nav-prev:hover,
-.hero-layout11 a.ls-gui-element.ls-nav-next:hover {
-  background-color: var(--theme-color);
-}
-
-/* 确保 Bootstrap 导航按钮样式正常工作 */
-.hero-layout11 a.ls-nav-prev,
-.hero-layout11 a.ls-nav-next {
-  /* 重置样式，确保 Bootstrap 样式优先 */
-  left: 0 !important;
-  right: auto !important;
-  margin: 0 !important;
-  padding: 0.5rem !important;
-  border-radius: 50% !important;
-  line-height: 1 !important;
-  width: auto !important;
-  height: auto !important;
-  border: none !important;
-  background-color: transparent !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-}
-
-.hero-layout11 a.ls-nav-next {
-  left: auto !important;
-  right: 0 !important;
-}
-
-/* 调整 Bootstrap 按钮在 LayerSlider 中的位置和大小 */
-.btn-layerslider {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1000;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-}
-
-.btn-layerslider:hover {
-  transform: translateY(-50%) scale(1.1);
-}
-
-.btn-layerslider.prev {
-  left: 20px;
-}
-
-.btn-layerslider.next {
-  right: 20px;
-}
-
-@media (max-width: 992px) {
-  .hero-layout11 .vs-btn.ls-hero-btn {
-    font-size: 14px;
-    padding: 16px 24px;
-  }
-}
-
-/*=================================\n    Bootstrap Hero Area Styles\n==================================*/
-.hero-area {
-  overflow: hidden;
-  position: relative;
-}
-
-.hero-bg {
-  height: 800px;
-  object-fit: cover;
-  object-position: center;
-}
-
-.hero-content {
-  text-align: left;
-  padding: 0;
-}
-
-/* 基础样式 */
-.hero-subtitle {
-  font-family: "Jost", sans-serif;
-  font-weight: 400;
-  letter-spacing: 3.5px;
-  color: #ffffff;
-  margin: 0 0 1rem;
-}
-
-.hero-title {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.2;
-  margin: 0 0 1rem;
-}
-
-.hero-text {
-  font-family: "Jost", sans-serif;
-  font-weight: 400;
-  color: #ffffff;
-  line-height: 1.8;
-  margin: 1.5rem 0 2rem;
-  max-width: 600px;
-}
-
-.hero-btn {
-  font-size: 1.1rem;
-  padding: 15px 30px;
-  background-color: #2c2c2c;
-  border: none;
-  color: #ffffff;
-  text-transform: uppercase;
-  font-weight: 700;
-  transition: all 0.3s ease;
-}
-
-.hero-btn:hover {
-  background-color: #e1aa5e;
-  color: #ffffff;
-}
-
-/* 平板样式 */
-@media (max-width: 1199px) and (min-width: 768px) {
-  .hero-content {
-    padding: 0;
-  }
-
-  .hero-subtitle {
-    font-size: 24px;
-    margin-bottom: 0.5rem;
-  }
-
-  .hero-title {
-    font-size: 60px;
-  }
-
-  .hero-text {
-    font-size: 20px;
-    margin: 1rem 0 1.5rem;
-  }
-
-  .hero-btn {
-    font-size: 18px;
-    padding: 12px 24px;
-  }
-}
-
-/* 手机样式 */
-@media (max-width: 767px) {
-  .hero-bg {
-    height: 600px;
-  }
-
-  .hero-content {
-    padding: 0 1rem;
-  }
-
-  .hero-subtitle,
-  .hero-text,
-  .hero-btn {
-    display: none;
-  }
-
-  .hero-title {
-    font-size: 24px;
-    margin-bottom: 0.5rem;
-  }
-}
-
-/* 更小手机屏幕优化 */
-@media (max-width: 375px) {
-  .hero-title {
-    font-size: 24px;
-  }
-}
-
-/* 轮播导航按钮样式 */
-.carousel-control-prev,
-.carousel-control-next {
-  width: 50px;
-  height: 50px;
-  background-color: #2c2c2c;
-  border-radius: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 1;
-  transition: all 0.3s ease;
-}
-
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-  background-color: #e1aa5e;
-  opacity: 1;
-}
-
-.carousel-control-prev {
-  left: 0;
-}
-
-.carousel-control-next {
-  right: 0;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  width: 24px;
-  height: 24px;
-}
-
-@media (max-width: 767px) {
-  .hero-layout11 .vs-btn.ls-hero-btn {
-    font-size: 11px;
-    padding: 11px 14px;
   }
 }
