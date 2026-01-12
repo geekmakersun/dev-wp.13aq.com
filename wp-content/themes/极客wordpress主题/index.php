@@ -95,7 +95,7 @@
                 'taxonomy'   => 'product_cat',
                 'hide_empty' => false,
                 'parent'     => 0,
-                'orderby'    => 'name',
+                'orderby'    => 'menu_order',
                 'order'      => 'ASC'
             );
             
