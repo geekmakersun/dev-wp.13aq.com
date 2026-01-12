@@ -81,66 +81,7 @@
         </button>
     </div>
 </section>
-<!--==============================
-    分类区域
-    ==============================-->
-<section class="pt-20">
-    <div class="container-fluid">
-        <div class="row gx-20">
-            <?php
-            // 使用现代WordPress和WooCommerce方法，不兼容旧版本
-            
-            // 基础分类查询参数
-            $args = array(
-                'taxonomy'   => 'product_cat',
-                'hide_empty' => false,
-                'parent'     => 0,
-                'orderby'    => 'menu_order',
-                'order'      => 'ASC'
-            );
-            
-            // 使用get_terms查询产品分类
-            $categories = get_terms($args);
-            
-            // 检查查询结果
-            if (!is_wp_error($categories) && !empty($categories)) {
-                foreach ($categories as $category) {
-                    // 获取分类信息
-                    $cat_link = get_term_link($category, 'product_cat');
-                    $cat_name = esc_html($category->name);
-                    
-                    // 获取WooCommerce分类缩略图
-                    $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
-                    if ($thumbnail_id) {
-                        // 如果有缩略图，使用它
-                        $cat_image = wp_get_attachment_image_url($thumbnail_id, 'medium');
-                    } else {
-                        // 如果没有，使用默认图片
-                        $cat_image = get_template_directory_uri() . '/assets/img/category/cat-6-1.jpg';
-                    }
-            ?>
-            <div class="col-md-3">
-                <div class="cat_card">
-                    <div class="cat_card_img">
-                        <a href="<?php echo esc_url($cat_link); ?>"><img src="<?php echo esc_url($cat_image); ?>" alt="<?php echo $cat_name; ?>"></a>
-                    </div>
-                    <h3 class="cat_card_name--style2"><a href="<?php echo esc_url($cat_link); ?>"><?php echo $cat_name; ?></a></h3>
-                </div>
-            </div>
-            <?php
-                    }
-                } else {
-                    // 没有分类时显示提示信息，不硬编码分类
-                    echo '<div class="col-md-12 text-center py-10">';
-                    echo '<p class="text-lg font-medium mb-2">暂无产品分类</p>';
-                    echo '<p class="text-sm text-gray-500">请在后台WooCommerce > 产品 > 分类中添加分类</p>';
-                    echo '</div>';
-                }
-            ?>
 
-        </div>
-    </div>
-</section>
 <!--==============================
     产品筛选区域
     ==============================-->
