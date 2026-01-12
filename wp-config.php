@@ -75,7 +75,7 @@ define( 'DISALLOW_FILE_EDIT', true );
  * 启用 WordPress 调试模式
  * 开发环境可设置为 true，生产环境建议设为 false
  */
-define('WP_DEBUG', true);
+define('WP_DEBUG', false);
 
 // =============================================================================
 // WordPress 核心文件路径 (请勿修改)
@@ -126,10 +126,11 @@ define( 'WP_CACHE', true );
 // 垃圾保留天数
 define( 'EMPTY_TRASH_DAYS', 7 );
 
-// 调试日志设置 (不向用户显示错误)
+// 调试日志设置 (记录错误但不向用户显示)
 define( 'WP_DEBUG_LOG', true );
-define( 'WP_DEBUG_DISPLAY', true );
-@ini_set( 'display_errors', 1 );
+define( 'WP_DEBUG_DISPLAY', false );
+@ini_set( 'display_errors', 0 );
+@ini_set( 'log_errors', 1 );
 
 
 /** 加载 WordPress 核心文件 */

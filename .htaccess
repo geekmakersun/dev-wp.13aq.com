@@ -1,0 +1,29 @@
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+# 安全设置：隐藏服务器信息和错误
+ServerSignature Off
+ServerTokens Prod
+
+# 防止显示目录列表
+Options -Indexes
+
+# 禁止访问敏感文件
+<FilesMatch "\.(htaccess|htpasswd|wp-config.php|php.ini|phpinfo.php|error_log)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# 防止PHP错误输出到浏览器
+php_flag display_errors off
+php_flag log_errors on
+php_value error_log /var/log/php-errors.log

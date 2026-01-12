@@ -1,18 +1,45 @@
 /*
-Theme Name: 极客wordpress主题
+Theme Name: 极客WordPress主题
 Theme URI: https://example.com
 Author: 极客团队
 Author URI: https://example.com
-Description: 一个极简的WordPress主题框架，便于二次开发
-Version: 1.0
+Description: 一个极简、可扩展的WordPress主题框架，采用模块化设计，便于二次开发和定制。
+Version: 1.0.0
+Requires at least: 5.9
+Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: geek-wp-theme
-Tags: responsive, simple, minimal
+Tags: responsive-layout, two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, translation-ready, block-patterns
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
-/* 主题样式已迁移到 assets/css/main.css */
-/* 此文件仅包含主题元信息，WordPress需要此文件来识别主题 */
+/*
+ * 主题核心样式文件已迁移到 assets/css/main.css
+ * 此文件仅包含主题元信息，WordPress需要此文件来识别和激活主题
+ *
+ * 主题开发规范：
+ * - 所有样式使用BEM命名规范
+ * - 使用CSS变量管理主题颜色和尺寸
+ * - 采用移动优先的响应式设计
+ * - 确保代码的可维护性和可扩展性
+ */
+
+/* WordPress核心所需的最小样式 */
+.wp-block-post-title {
+	margin: 0 0 1.5em;
+}
+
+/* 确保主题与块编辑器兼容 */
+:root {
+	--wp--preset--color--primary: #2271b1;
+	--wp--preset--color--secondary: #3858e9;
+	--wp--preset--color--background: #ffffff;
+	--wp--preset--color--text: #333333;
+	--wp--preset--font-size--small: 14px;
+	--wp--preset--font-size--normal: 16px;
+	--wp--preset--font-size--large: 24px;
+	--wp--preset--font-size--x-large: 32px;
+}
