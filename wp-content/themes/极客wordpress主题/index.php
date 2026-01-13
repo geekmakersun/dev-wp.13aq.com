@@ -95,170 +95,103 @@
         <div class="text-center">
             <div class="filter-menu style3 filter-menu-active">
                 <button data-filter="*" class="active">全部</button>
-                <button data-filter=".nike">耐克</button>
-                <button data-filter=".puma">彪马</button>
-                <button data-filter=".adidas">阿迪达斯</button>
-                <button data-filter=".bata">巴塔</button>
-                <button data-filter=".apex">艾佩克斯</button>
+                <?php
+                    // 获取所有产品分类
+                    $product_categories = get_terms(array(
+                        'taxonomy' => 'product_cat',
+                        'hide_empty' => true,
+                    ));
+                    
+                    // 生成分类筛选按钮
+                    foreach ($product_categories as $category) {
+                        $category_name = $category->name;
+                        echo '<button data-filter=".' . esc_attr($category_name) . '">' . esc_html($category_name) . '</button>';
+                    }
+                ?>
             </div>
         </div>
         <div class="row filter-active">
-            <div class="col-6 col-md-4 col-lg-4 col-xl-3 filter-item adidas nike">
-                <div class="vs-product product_layout4">
-                    <div class="product-img">
-                        <div class="product-label style2">已售</div>
-                        <a href="<?php echo home_url(); ?>/shop-details"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/featued/featued-3-1.jpg" alt="产品"></a>
-                        <div class="actions">
-                            <a href="<?php echo home_url(); ?>/cart" class="icon-btn style2"><i class="fal fa-shopping-bag"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-eye"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-heart"></i></a>
+            <?php
+                // 查询所有产品
+                $args = array(
+                    'post_type' => 'product',
+                    'posts_per_page' => 12,
+                );
+                
+                $products = new WP_Query($args);
+                
+                if ($products->have_posts()) {
+                    while ($products->have_posts()) {
+                        $products->the_post();
+                        global $product;
+                        
+                        // 获取产品分类
+                        $terms = get_the_terms(get_the_ID(), 'product_cat');
+                        $category_classes = '';
+                        
+                        if ($terms && !is_wp_error($terms)) {
+                            foreach ($terms as $term) {
+                                $category_classes .= ' ' . $term->name;
+                            }
+                        }
+                        
+                        // 获取产品图片
+                        $product_image = get_the_post_thumbnail_url(get_the_ID(), 'woocommerce_thumbnail');
+                        if (!$product_image) {
+                            $product_image = get_template_directory_uri() . '/assets/img/featued/featued-3-1.jpg'; // 默认图片
+                        }
+                        
+                        // 获取产品价格
+                        $product_price = $product->get_price_html();
+                        
+                        // 获取产品链接
+                        $product_link = get_permalink();
+                        
+                        // 获取产品标签
+                        $product_label = '';
+                        if ($product->is_on_sale()) {
+                            $product_label = '<div class="product-label style2">特价</div>';
+                        } elseif (!$product->is_in_stock()) {
+                            $product_label = '<div class="product-label style2">已售</div>';
+                        }
+                        
+                        // 获取产品分类链接
+                        $category_link = '';
+                        if ($terms && !is_wp_error($terms)) {
+                            $category_link = get_term_link($terms[0]);
+                        }
+                        
+                        // 获取产品分类名称
+                        $category_name = '';
+                        if ($terms && !is_wp_error($terms)) {
+                            $category_name = $terms[0]->name;
+                        }
+                    ?>
+                    <div class="col-6 col-md-4 col-lg-4 col-xl-3 filter-item<?php echo esc_attr($category_classes); ?>">
+                        <div class="vs-product product_layout4">
+                            <div class="product-img">
+                                <?php echo $product_label; ?>
+                                <a href="<?php echo esc_url($product_link); ?>"><img src="<?php echo esc_url($product_image); ?>" alt="<?php the_title(); ?>"></a>
+                                <div class="actions">
+                                    <a href="<?php echo esc_url($product->add_to_cart_url()); ?>" class="icon-btn style2" data-quantity="1" data-product_id="<?php echo get_the_ID(); ?>" data-product_sku="" aria-label="<?php echo esc_attr(sprintf(__('Add to cart: %s', 'woocommerce'), get_the_title())); ?>" rel="nofollow"><i class="fal fa-shopping-bag"></i></a>
+                                    <a href="<?php echo esc_url($product_link); ?>" class="icon-btn style2"><i class="fal fa-eye"></i></a>
+                                    <a href="#" class="icon-btn style2"><i class="fal fa-heart"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <div class="product-category">
+                                    <a href="<?php echo esc_url($category_link); ?>"><?php echo esc_html($category_name); ?></a>
+                                </div>
+                                <h3 class="product-title"><a href="<?php echo esc_url($product_link); ?>"><?php the_title(); ?></a></h3>
+                                <div class="product-price"><?php echo $product_price; ?></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="product-content">
-                        <div class="product-category">
-                            <a href="<?php echo home_url(); ?>/shop">男士鞋履</a>
-                        </div>
-                        <h3 class="product-title"><a href="<?php echo home_url(); ?>/shop-details">Wörishofer</a></h3>
-                        <div class="product-price">$159.00</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-4 col-xl-3 filter-item bata apex">
-                <div class="vs-product product_layout4">
-                    <div class="product-img">
-                        <a href="<?php echo home_url(); ?>/shop-details"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/featued/featued-3-2.jpg" alt="产品"></a>
-                        <div class="actions">
-                            <a href="<?php echo home_url(); ?>/cart" class="icon-btn style2"><i class="fal fa-shopping-bag"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-eye"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">
-                            <a href="<?php echo home_url(); ?>/shop">男士鞋履</a>
-                        </div>
-                        <h3 class="product-title"><a href="<?php echo home_url(); ?>/shop-details">惠灵顿靴</a></h3>
-                        <div class="product-price">$875.00</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-4 col-xl-3 filter-item puma adidas">
-                <div class="vs-product product_layout4">
-                    <div class="product-img">
-                        <div class="product-label ">新品</div>
-                        <a href="<?php echo home_url(); ?>/shop-details"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/featued/featued-3-3.jpg" alt="产品"></a>
-                        <div class="actions">
-                            <a href="<?php echo home_url(); ?>/cart" class="icon-btn style2"><i class="fal fa-shopping-bag"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-eye"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">
-                            <a href="<?php echo home_url(); ?>/shop">男士鞋履</a>
-                        </div>
-                        <h3 class="product-title"><a href="<?php echo home_url(); ?>/shop-details">惠灵顿靴</a></h3>
-                        <div class="product-price">$69.00</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-4 col-xl-3 filter-item bata apex">
-                <div class="vs-product product_layout4">
-                    <div class="product-img">
-                        <a href="<?php echo home_url(); ?>/shop-details"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/featued/featued-3-4.jpg" alt="产品"></a>
-                        <div class="actions">
-                            <a href="<?php echo home_url(); ?>/cart" class="icon-btn style2"><i class="fal fa-shopping-bag"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-eye"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">
-                            <a href="<?php echo home_url(); ?>/shop">男士鞋履</a>
-                        </div>
-                        <h3 class="product-title"><a href="<?php echo home_url(); ?>/shop-details">Wörishofer</a></h3>
-                        <div class="product-price">$159.00</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-4 col-xl-3 filter-item adidas nike">
-                <div class="vs-product product_layout4">
-                    <div class="product-img">
-                        <div class="product-label style2">已售</div>
-                        <a href="<?php echo home_url(); ?>/shop-details"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/featued/featued-3-5.jpg" alt="产品"></a>
-                        <div class="actions">
-                            <a href="<?php echo home_url(); ?>/cart" class="icon-btn style2"><i class="fal fa-shopping-bag"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-eye"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">
-                            <a href="<?php echo home_url(); ?>/shop">男士鞋履</a>
-                        </div>
-                        <h3 class="product-title"><a href="<?php echo home_url(); ?>/shop-details">Wörishofer</a></h3>
-                        <div class="product-price">$159.00</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-4 col-xl-3 filter-item bata apex">
-                <div class="vs-product product_layout4">
-                    <div class="product-img">
-                        <a href="<?php echo home_url(); ?>/shop-details"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/featued/featued-3-6.jpg" alt="产品"></a>
-                        <div class="actions">
-                            <a href="<?php echo home_url(); ?>/cart" class="icon-btn style2"><i class="fal fa-shopping-bag"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-eye"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">
-                            <a href="<?php echo home_url(); ?>/shop">男士鞋履</a>
-                        </div>
-                        <h3 class="product-title"><a href="<?php echo home_url(); ?>/shop-details">惠灵顿靴</a></h3>
-                        <div class="product-price">$875.00</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-4 col-xl-3 filter-item puma adidas">
-                <div class="vs-product product_layout4">
-                    <div class="product-img">
-                        <div class="product-label ">新品</div>
-                        <a href="<?php echo home_url(); ?>/shop-details"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/featued/featued-3-7.jpg" alt="产品"></a>
-                        <div class="actions">
-                            <a href="<?php echo home_url(); ?>/cart" class="icon-btn style2"><i class="fal fa-shopping-bag"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-eye"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">
-                            <a href="<?php echo home_url(); ?>/shop">男士鞋履</a>
-                        </div>
-                        <h3 class="product-title"><a href="<?php echo home_url(); ?>/shop-details">惠灵顿靴</a></h3>
-                        <div class="product-price">$69.00</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-4 col-xl-3 filter-item bata apex">
-                <div class="vs-product product_layout4">
-                    <div class="product-img">
-                        <a href="<?php echo home_url(); ?>/shop-details"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/featued/featued-3-8.jpg" alt="产品"></a>
-                        <div class="actions">
-                            <a href="<?php echo home_url(); ?>/cart" class="icon-btn style2"><i class="fal fa-shopping-bag"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-eye"></i></a>
-                            <a href="#" class="icon-btn style2"><i class="fal fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-category">
-                            <a href="<?php echo home_url(); ?>/shop">男士鞋履</a>
-                        </div>
-                        <h3 class="product-title"><a href="<?php echo home_url(); ?>/shop-details">Wörishofer</a></h3>
-                        <div class="product-price">$159.00</div>
-                    </div>
-                </div>
-            </div>
+                    <?php
+                    }
+                    wp_reset_postdata();
+                }
+            ?>
         </div>
     </div>
 </section>
