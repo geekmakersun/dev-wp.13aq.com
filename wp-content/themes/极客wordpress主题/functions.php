@@ -95,4 +95,10 @@ if ( file_exists( GEEK_THEME_INC_DIR . '/media-library-show-image-names.php' ) )
 	require_once GEEK_THEME_INC_DIR . '/media-library-show-image-names.php';
 }
 
+/**
+ * 覆盖版本控制检测，强制启用自动更新
+ * 解决 "此站点似乎受到版本控制功能管理。自动更新被禁用。" 问题
+ */
+add_filter( 'automatic_updates_is_vcs_checkout', '__return_false' );
+
 
