@@ -112,10 +112,17 @@
         </div>
         <div class="row filter-active">
             <?php
-                // 查询所有产品
+                // 查询所有WooCommerce精选产品
                 $args = array(
                     'post_type' => 'product',
                     'posts_per_page' => 12,
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'product_visibility',
+                            'field' => 'name',
+                            'terms' => 'featured',
+                        ),
+                    ),
                 );
                 
                 $products = new WP_Query($args);
