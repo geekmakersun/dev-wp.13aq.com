@@ -43,3 +43,20 @@ Use it to make something cool, have fun, and share what you've learned with othe
 	--wp--preset--font-size--large: 24px;
 	--wp--preset--font-size--x-large: 32px;
 }
+
+/* 产品筛选区域产品图片样式 */
+.vs-product.product_layout4 .product-img {
+    height: 300px !important;
+    background-color: #f3f3f3 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.vs-product.product_layout4 .product-img img {
+    width: auto !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+}
