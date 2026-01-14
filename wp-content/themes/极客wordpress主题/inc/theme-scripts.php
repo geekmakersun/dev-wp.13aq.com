@@ -19,6 +19,9 @@ function geek_theme_scripts() {
     // wp_enqueue_style('fontawesome-css', get_template_directory_uri() . '/assets/vendor/fontawesome/css/all.min.css', array(), '6.0.0');
     // 改用Font Awesome Pro 5.13.0
     wp_enqueue_style('fontawesome-pro-css', GEEK_THEME_ASSETS_URI . '/css/fontawesome.min.css', array(), '5.13.0');
+    
+    // 加载Bootstrap Icons CSS
+    wp_enqueue_style('bootstrap-icons-css', GEEK_THEME_ASSETS_URI . '/vendor/bootstrap-icons/bootstrap-icons.min.css', array(), '1.11.3');
 
     // 从HTML模板加载Magnific Popup CSS
     wp_enqueue_style('magnific-popup-css', GEEK_THEME_ASSETS_URI . '/vendor/magnific-popup/css/magnific-popup.min.css', array(), '1.1.0');

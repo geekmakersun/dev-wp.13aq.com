@@ -67,42 +67,6 @@ if (! defined('ABSPATH')) {
     </div>
     <?php geek_render_newsletter_popup(); ?>
     <!--==============================
-    Mobile Menu
-  ============================== -->
-    <div class="vs-menu-wrapper">
-        <div class="vs-menu-area text-center">
-            <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
-            <div class="mobile-logo">
-                <a href="<?php echo home_url(); ?>">
-                    <?php $geek_settings = get_option('geek_theme_general'); ?>
-                    <?php $logo_url = isset($geek_settings['logo']) ? $geek_settings['logo'] : get_template_directory_uri() . '/assets/img/logo-mobile.png'; ?>
-                    <?php $attachment_id = attachment_url_to_postid($logo_url); ?>
-                    <?php if ($attachment_id) : ?>
-                        <?php $logo_data = wp_get_attachment_image_src($attachment_id, array(150, 75)); // 限制尺寸为150x75 
-                        ?>
-                        <img src="<?php echo esc_url($logo_data[0]); ?>" alt="<?php bloginfo('name'); ?>" width="<?php echo $logo_data[1]; ?>" height="<?php echo $logo_data[2]; ?>">
-                    <?php else : ?>
-                        <img src="<?php echo esc_url($logo_url); ?>" alt="<?php bloginfo('name'); ?>" style="max-width: 150px; max-height: 75px;">
-                    <?php endif; ?>
-                </a>
-            </div>
-            <div class="mobile-menu">
-                <?php
-                $mobile_menu_args = array(
-                    'theme_location'    => 'header-menu',
-                    'depth'             => 2,
-                    'container'         => false,
-                    'menu_class'        => '',
-                    'fallback_cb'       => '__return_false',
-                    'add_li_class'      => '',
-                    'link_class'        => ''
-                );
-                wp_nav_menu($mobile_menu_args);
-                ?>
-            </div>
-        </div>
-    </div>
-    <!--==============================
         Header Area
     ==============================-->
     <header class="vs-header header-layout2">
@@ -195,13 +159,14 @@ if (! defined('ABSPATH')) {
                             </div>
                         </div>
                         <div class="col-auto ms-md-auto ms-lg-0">
+                            <!-- 电脑端菜单 - d-none d-lg-block表示仅在大屏幕设备显示 -->
                             <nav class="main-menu menu-style2 d-none d-lg-block">
                                 <?php
                                 $menu_args = array(
                                     'theme_location'    => 'header-menu',
                                     'depth'             => 2,
                                     'container'         => false,
-                                    'menu_class'        => '',
+                                    'menu_class'        => 'desktop-menu', // 电脑端菜单标识，用于区分移动端菜单
                                     'fallback_cb'       => '__return_false',
                                     'add_li_class'      => '',
                                     'link_class'        => ''
@@ -210,6 +175,48 @@ if (! defined('ABSPATH')) {
                                 ?>
                             </nav>
                         </div>
+                        
+                        <!--==============================
+                        Mobile Menu (仅在移动端显示)
+                        ============================== -->
+                        <!-- 移动端菜单容器 - 固定定位，全屏覆盖 -->
+                        <div class="vs-menu-wrapper">
+                            <div class="vs-menu-area text-center">
+                                <!-- 移动端菜单关闭按钮 - 显示为X图标 -->
+                                <button class="vs-menu-toggle"><i class="bi bi-x"></i></button>
+                                <!-- 移动端logo - 仅在移动端菜单中显示 -->
+                                <div class="mobile-logo">
+                                    <a href="<?php echo home_url(); ?>">
+                                        <?php $geek_settings = get_option('geek_theme_general'); ?>
+                                        <?php $logo_url = isset($geek_settings['logo']) ? $geek_settings['logo'] : get_template_directory_uri() . '/assets/img/logo-mobile.png'; ?>
+                                        <?php $attachment_id = attachment_url_to_postid($logo_url); ?>
+                                        <?php if ($attachment_id) : ?>
+                                            <?php $logo_data = wp_get_attachment_image_src($attachment_id, array(150, 75)); // 限制尺寸为150x75 
+                                            ?>
+                                            <img src="<?php echo esc_url($logo_data[0]); ?>" alt="<?php bloginfo('name'); ?>" width="<?php echo $logo_data[1]; ?>" height="<?php echo $logo_data[2]; ?>">
+                                        <?php else : ?>
+                                            <img src="<?php echo esc_url($logo_url); ?>" alt="<?php bloginfo('name'); ?>" style="max-width: 150px; max-height: 75px;">
+                                        <?php endif; ?>
+                                    </a>
+                                </div>
+                                <!-- 移动端菜单项列表 - 显示带图标的导航链接 -->
+                                <div class="vs-mobile-menu">
+                                    <?php
+                                    $mobile_menu_args = array(
+                                        'theme_location'    => 'header-menu',
+                                        'depth'             => 2,
+                                        'container'         => false,
+                                        'menu_class'        => '', // 移动端菜单标识，用于区分电脑端菜单
+                                        'fallback_cb'       => '__return_false',
+                                        'add_li_class'      => '',
+                                        'link_class'        => ''
+                                    );
+                                    wp_nav_menu($mobile_menu_args);
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="col-auto">
                             <div class="header-buttons">
                                 <a href="<?php echo home_url(); ?>/login"><i class="fal fa-user"></i></a>
@@ -263,8 +270,9 @@ if (! defined('ABSPATH')) {
                                 </div>
                             </div>
                         </div>
+                        <!-- 移动端菜单按钮 - d-block d-lg-none表示仅在小屏幕设备显示 -->
                         <div class="col-auto d-block d-lg-none">
-                            <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="fal fa-bars"></i></button>
+                            <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="bi bi-list"></i></button>
                         </div>
                     </div>
                 </div>

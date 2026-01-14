@@ -46,6 +46,9 @@ class Geek_Header_Menu {
 		
 		// 菜单项链接类
 		add_filter('nav_menu_link_attributes', array($this, 'update_link_attributes'), 10, 4);
+		
+		// 菜单项HTML输出过滤，添加vs-mean-expand元素
+		add_filter('walker_nav_menu_start_el', array($this, 'add_vs_mean_expand'), 10, 4);
 	}
 	
 	/**
@@ -75,6 +78,8 @@ class Geek_Header_Menu {
 		// 为有子菜单的项添加 dropdown 类
 		if (in_array('menu-item-has-children', $item->classes)) {
 			$classes[] = 'dropdown';
+			// 为移动菜单添加 vs-item-has-children 类
+			$classes[] = 'vs-item-has-children';
 		}
 
 		return $classes;
@@ -89,12 +94,21 @@ class Geek_Header_Menu {
 	 * @return string 更新后的子菜单类数组
 	 */
 	public function add_submenu_class($classes, $args, $depth) {
-		// 为子菜单添加 Bootstrap 5 的 dropdown-menu 类
-		$classes[] = 'dropdown-menu';
+		// 检查是否为移动菜单（根据调用上下文判断）
+		// 移动菜单在header.php中调用时，menu_class为空字符串
+		$is_mobile_menu = ($args->menu_class === '');
 		
-		// 根据深度添加不同的类
-		if ($depth === 0) {
-			$classes[] = 'dropdown-menu-end';
+		// 为所有菜单添加 vs-submenu 类，用于移动菜单样式
+		$classes[] = 'vs-submenu';
+		
+		// 仅为非移动菜单添加 Bootstrap 5 的 dropdown-menu 类
+		if (!$is_mobile_menu) {
+			$classes[] = 'dropdown-menu';
+			
+			// 根据深度添加不同的类
+			if ($depth === 0) {
+				$classes[] = 'dropdown-menu-end';
+			}
 		}
 		
 		return $classes;
@@ -110,30 +124,77 @@ class Geek_Header_Menu {
 	 * @return array 更新后的链接属性数组
 	 */
 	public function update_link_attributes($atts, $item, $args, $depth) {
-		// 重置类属性
-		$atts['class'] = '';
-
-		// 根据深度设置不同的类
-		if ($depth === 0) {
-			if (in_array('menu-item-has-children', $item->classes)) {
-				$atts['class'] = 'nav-link dropdown-toggle';
-				$atts['role'] = 'button';
-				$atts['data-bs-toggle'] = 'dropdown';
-				$atts['aria-expanded'] = 'false';
-			} else {
-				$atts['class'] = 'nav-link';
+		// 检查是否为移动菜单（根据调用上下文判断）
+		// 移动菜单在header.php中调用时，menu_class为空字符串
+		$is_mobile_menu = ($args->menu_class === '');
+		
+		// 如果是移动菜单，不应用桌面菜单的类
+		if ($is_mobile_menu) {
+			// 移除所有不必要的属性，只保留原始的class属性
+			$atts = array_intersect_key($atts, array('href' => 1, 'title' => 1, 'target' => 1, 'rel' => 1));
+			// 不添加额外的类，使用默认的nav-link
+			if (!isset($atts['class'])) {
+				$atts['class'] = '';
+			}
+			// 添加当前菜单项状态
+			if (in_array('current-menu-item', $item->classes)) {
+				$atts['class'] .= ' active';
+				$atts['aria-current'] = 'page';
 			}
 		} else {
-			$atts['class'] = 'dropdown-item';
-		}
-		
-		// 添加当前菜单项状态
-		if (in_array('current-menu-item', $item->classes)) {
-			$atts['class'] .= ' active';
-			$atts['aria-current'] = 'page';
+			// 重置类属性
+			$atts['class'] = '';
+
+			// 根据深度设置不同的类
+			if ($depth === 0) {
+				if (in_array('menu-item-has-children', $item->classes)) {
+					$atts['class'] = 'nav-link dropdown-toggle';
+					$atts['role'] = 'button';
+					$atts['data-bs-toggle'] = 'dropdown';
+					$atts['aria-expanded'] = 'false';
+				} else {
+					$atts['class'] = 'nav-link';
+				}
+			} else {
+				$atts['class'] = 'dropdown-item';
+			}
+			
+			// 添加当前菜单项状态
+			if (in_array('current-menu-item', $item->classes)) {
+				$atts['class'] .= ' active';
+				$atts['aria-current'] = 'page';
+			}
 		}
 
 		return $atts;
+	}
+	
+	/**
+	 * 为移动菜单添加图标和 vs-mean-expand 元素
+	 *
+	 * @param string $item_output 菜单项HTML输出
+	 * @param object $item        菜单项对象
+	 * @param int    $depth       菜单深度
+	 * @param array  $args        菜单参数
+	 * @return string 更新后的菜单项HTML输出
+	 */
+	public function add_vs_mean_expand($item_output, $item, $depth, $args) {
+		// 检查是否为移动菜单（根据调用上下文判断）
+		$is_mobile_menu = ($args->menu_class === '');
+		
+		if ($is_mobile_menu) {
+			// 仅处理有子菜单的项
+			if (in_array('menu-item-has-children', $item->classes)) {
+				// 为有子菜单的项添加箭头图标和 vs-mean-expand 元素
+				// 箭头图标使用span元素包裹，类似vs-mean-expand的实现方式
+				$item_output = preg_replace('/(<a\b[^>]*>)(.*?)(<\/a>)/i', '$1<span class="vs-menu-arrow"><i class="bi bi-chevron-right"></i></span> $2<span class="vs-mean-expand"><i class="bi bi-plus"></i></span></a>', $item_output);
+			} else {
+				// 为无子菜单的项仅添加箭头图标
+				$item_output = preg_replace('/(<a\b[^>]*>)(.*?)(<\/a>)/i', '$1<span class="vs-menu-arrow"><i class="bi bi-chevron-right"></i></span> $2</a>', $item_output);
+			}
+		}
+		
+		return $item_output;
 	}
 	
 	/**

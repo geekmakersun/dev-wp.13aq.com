@@ -10,8 +10,7 @@
   opacity: 0;
   visibility: hidden;
   transition: all ease 0.8s;
-  background-color: rgba(0, 0, 0, 0.60);
-
+  background-color: rgba(0, 0, 0, 0.6);
 
   // Mobile Menu Logo
   .mobile-logo {
@@ -19,7 +18,7 @@
     padding-top: 40px;
     display: block;
     text-align: center;
-    background-color: rgba(#1CB9C8, 0.1);
+    background-color: rgba(#1cb9c8, 0.1);
 
     svg {
       max-width: 185px;
@@ -76,7 +75,6 @@
   }
 }
 
-
 // Mobile Menu
 .vs-mobile-menu {
   overflow-y: scroll;
@@ -105,25 +103,12 @@
         font-size: 14px;
         text-transform: capitalize;
         color: $title-color;
-
-        &:before {
-          content: '\f105';
-          font-family: $icon-font;
-          position: relative;
-          left: 0;
-          top: 0;
-          margin-right: 10px;
-          display: inline-block;
-        }
+  
       }
 
       &.vs-active {
         >a {
           color: $theme-color;
-
-          &:before {
-            transform: rotate(90deg);
-          }
         }
       }
 
@@ -139,7 +124,7 @@
     }
 
     .vs-item-has-children {
-      >a {
+      > a {
         .vs-mean-expand {
           position: absolute;
           right: 0;
@@ -156,36 +141,26 @@
           color: $title-color;
           box-shadow: 0 0 20px -8px rgba(#ad8858, 0.5);
           border-radius: 50%;
-
-          &:before {
-            content: '\f067';
-            font-family: $icon-font;
-          }
         }
       }
 
       &.vs-active {
-        >a {
-          .vs-mean-expand:before {
-            content: '\f068';
-          }
+        > a {
         }
       }
     }
   }
 
-  >ul {
+  > ul {
     padding: 0 40px;
 
-    >li {
+    > li {
       &:last-child {
         border-bottom: none;
       }
     }
   }
 }
-
-
 
 .vs-menu-toggle {
   width: var(--icon-size, 40px);
@@ -199,14 +174,13 @@
   border-radius: 0;
 }
 
-
 @media (max-width: 400px) {
   .vs-menu-wrapper .vs-menu-area {
     width: 100%;
     max-width: 270px;
   }
 
-  .vs-mobile-menu>ul {
+  .vs-mobile-menu > ul {
     padding: 0 20px;
   }
 }

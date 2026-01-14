@@ -124,7 +124,7 @@
       subMenuParent: 'vs-item-has-children',
       subMenuParentToggle: 'vs-active',
       meanExpandClass: 'vs-mean-expand',
-      appendElement: '<span class="vs-mean-expand"></span>',
+      appendElement: '<span class="vs-mean-expand"><i class="bi bi-plus"></i></span>',
       subMenuToggleClass: 'vs-open',
       toggleSpeed: 400,
     }, options);
@@ -163,6 +163,20 @@
           $($element).parent().toggleClass(opt.subMenuParentToggle);
           $($element).next('ul').slideToggle(opt.toggleSpeed);
           $($element).next('ul').toggleClass(opt.subMenuToggleClass);
+          // 切换展开/收起按钮图标
+          var expandIcon = $($element).find('.vs-mean-expand i');
+          if (expandIcon.hasClass('bi-plus')) {
+            expandIcon.removeClass('bi-plus').addClass('bi-dash');
+          } else {
+            expandIcon.removeClass('bi-dash').addClass('bi-plus');
+          }
+          // 切换菜单项前的箭头图标（使用vs-menu-arrow元素）
+          var arrowIcon = $($element).find('.vs-menu-arrow i');
+          if (arrowIcon.hasClass('bi-chevron-right')) {
+            arrowIcon.removeClass('bi-chevron-right').addClass('bi-chevron-down');
+          } else {
+            arrowIcon.removeClass('bi-chevron-down').addClass('bi-chevron-right');
+          }
         } else if ($($element).prev('ul').length > 0) {
           $($element).parent().toggleClass(opt.subMenuParentToggle);
           $($element).prev('ul').slideToggle(opt.toggleSpeed);
