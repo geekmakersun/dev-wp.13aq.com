@@ -10,7 +10,7 @@ function geek_theme_scripts() {
     }
     
     // 从HTML模板加载jQuery
-    wp_enqueue_script('jquery', GEEK_THEME_ASSETS_URI . '/js/vendor/jquery-3.6.0.min.js', array(), '3.6.0', true);
+    wp_enqueue_script('jquery', GEEK_THEME_ASSETS_URI . '/vendor/jquery/jquery.min.js', array(), '3.6.0', true);
 
     // 从HTML模板加载Bootstrap CSS
     wp_enqueue_style('bootstrap-css', GEEK_THEME_ASSETS_URI . '/vendor/bootstrap/css/bootstrap.min.css', array(), '5.3.8');
