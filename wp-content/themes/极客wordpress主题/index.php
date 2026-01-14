@@ -82,6 +82,41 @@
     </div>
 </section>
 
+<!-- 开始 关于我们 区域 -->
+<section class="space-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-6 col-xl-7 mb-30">
+                <div class="img-box">
+                    <div class="img-1"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/about/about-1-1.jpg" alt="关于我们图片"></div>
+                    <div class="img-2"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/about/about-1-2.jpg" alt="关于我们图片"></div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xl-5 mb-30">
+                <div class="about-style1">
+                    <h2 class="about-title">更多关于我们的数字产品服务</h2>
+                    <div class="about-text">
+                        <?php
+                            $about_query = new WP_Query(array(
+                                'post_type' => 'page',
+                                'post_status' => 'publish',
+                                'title' => '关于我们',
+                                'posts_per_page' => 1
+                            ));
+                            if ($about_query->have_posts()) {
+                                $about_query->the_post();
+                                the_content();
+                                wp_reset_postdata();
+                            }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- 结束 关于我们 区域 -->
+
 <!--==============================
     产品筛选区域
     ==============================-->
