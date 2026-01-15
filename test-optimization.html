@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript优化测试页面</title>
+    <style>
+        /* 测试粘性菜单 */
+        .sticky-active {
+            position: sticky;
+            top: 0;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            z-index: 1000;
+        }
+        
+        /* 测试背景图片直接设置 */
+        .background-image {
+            background-image: url('wp-content/themes/极客wordpress主题/assets/images/test-bg.jpg');
+            background-size: cover;
+            height: 300px;
+            margin: 20px 0;
+        }
+        
+        /* 测试弹窗样式 */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: none;
+            z-index: 2000;
+        }
+        
+        .popup.show {
+            display: block;
+        }
+        
+        .popup-content {
+            background-color: white;
+            padding: 20px;
+            margin: 100px auto;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 5px;
+        }
+        
+        /* 回到顶部按钮样式 */
+        .scrollToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: none;
+        }
+        
+        .scrollToTop.show {
+            display: block;
+        }
+        
+        /* 测试内容区域 */
+        .test-content {
+            height: 2000px;
+            padding: 20px;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="wp-content/themes/极客wordpress主题/assets/js/main.js"></script>
+</head>
+<body>
+    <!-- 测试粘性菜单 -->
+    <div class="sticky-active">
+        <h1>测试粘性菜单</h1>
+        <button class="sideMenuToggler">打开侧边菜单</button>
+        <button class="searchBoxTggler">打开搜索框</button>
+        <button class="popupNewsletterToggler">打开订阅弹窗</button>
+    </div>
+    
+    <!-- 测试内容区域 -->
+    <div class="test-content">
+        <h2>JavaScript优化测试</h2>
+        
+        <!-- 测试HTML5原生懒加载 -->
+        <h3>测试图片懒加载</h3>
+        <img loading="lazy" src="https://via.placeholder.com/800x400?text=Image+1" alt="测试图片1">
+        <img loading="lazy" src="https://via.placeholder.com/800x400?text=Image+2" alt="测试图片2">
+        <img loading="lazy" src="https://via.placeholder.com/800x400?text=Image+3" alt="测试图片3">
+        <img loading="lazy" src="https://via.placeholder.com/800x400?text=Image+4" alt="测试图片4">
+        <img loading="lazy" src="https://via.placeholder.com/800x400?text=Image+5" alt="测试图片5">
+        
+        <!-- 测试直接设置的背景图片 -->
+        <h3>测试背景图片</h3>
+        <div class="background-image">
+            <h4>直接使用CSS设置的背景图片</h4>
+        </div>
+        
+        <!-- 测试弹窗功能 -->
+        <h3>测试弹窗功能</h3>
+        <p>点击顶部按钮测试各种弹窗功能。</p>
+    </div>
+    
+    <!-- 测试侧边菜单弹窗 -->
+    <div class="sidemenu-wrapper popup">
+        <div class="popup-content">
+            <h3>侧边菜单</h3>
+            <p>这是侧边菜单内容。</p>
+            <button class="sideMenuCls">关闭</button>
+        </div>
+    </div>
+    
+    <!-- 测试搜索框弹窗 -->
+    <div class="popup-search-box popup">
+        <div class="popup-content">
+            <h3>搜索框</h3>
+            <form>
+                <input type="text" placeholder="搜索...">
+                <button type="submit">搜索</button>
+            </form>
+            <button class="searchClose">关闭</button>
+        </div>
+    </div>
+    
+    <!-- 测试订阅弹窗 -->
+    <div class="popup-newsletter-active popup">
+        <div class="popup-content">
+            <h3>订阅新闻</h3>
+            <p>输入您的邮箱订阅最新消息。</p>
+            <input type="email" placeholder="您的邮箱">
+            <button type="submit">订阅</button>
+            <button class="popup-newsletter-closer">关闭</button>
+        </div>
+    </div>
+    
+    <!-- 测试回到顶部按钮 -->
+    <a href="#" class="scrollToTop">回到顶部</a>
+</body>
+</html>

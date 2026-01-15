@@ -5,7 +5,7 @@
       Hero Area
     ==============================-->
 <section class="hero-area position-relative">
-    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel0" data-bs-interval="3000">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
         <!-- 指示器 -->
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -17,7 +17,7 @@
         <div class="carousel-inner">
             <!-- Slide 1 -->
             <div class="carousel-item active">
-                <img data-src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/hero-slide-11-1.jpg" class="d-block w-100 hero-bg lazy" alt="hero slide 1">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/hero-slide-11-1.jpg" loading="lazy" class="d-block w-100 hero-bg" alt="hero slide 1">
                 <div class="carousel-caption hero-content d-flex align-items-center justify-content-start h-100">
                     <div class="container px-4 px-md-5">
                         <div class="row">
@@ -35,7 +35,7 @@
 
             <!-- Slide 2 -->
             <div class="carousel-item">
-                <img data-src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/hero-slide-11-2.jpg" class="d-block w-100 hero-bg lazy" alt="hero slide 2">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/hero-slide-11-2.jpg" loading="lazy" class="d-block w-100 hero-bg" alt="hero slide 2">
                 <div class="carousel-caption hero-content d-flex align-items-center justify-content-start h-100">
                     <div class="container px-4 px-md-5">
                         <div class="row">
@@ -53,7 +53,7 @@
 
             <!-- Slide 3 -->
             <div class="carousel-item">
-                <img data-src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/hero-slide-11-3.jpg" class="d-block w-100 hero-bg lazy" alt="hero slide 3">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/hero-slide-11-3.jpg" loading="lazy" class="d-block w-100 hero-bg" alt="hero slide 3">
                 <div class="carousel-caption hero-content d-flex align-items-center justify-content-start h-100">
                     <div class="container px-4 px-md-5">
                         <div class="row">
