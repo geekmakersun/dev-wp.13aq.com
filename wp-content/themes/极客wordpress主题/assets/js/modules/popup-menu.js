@@ -7,10 +7,12 @@
         // 获取元素
         const menuEl = document.querySelector(menu);
         const menuOpenEls = document.querySelectorAll(menuOpen);
-        const menuClsEls = document.querySelectorAll(menuCls);
-        const contentEl = contentSelector ? document.querySelector(contentSelector) : null;
-
+        
         if (!menuEl) return;
+        
+        // 从弹窗内部获取关闭按钮
+        const menuClsEls = menuEl.querySelectorAll(menuCls);
+        const contentEl = contentSelector ? menuEl.querySelector(contentSelector) : null;
 
         // 打开弹窗
         menuOpenEls.forEach(openEl => {
@@ -38,6 +40,7 @@
         menuClsEls.forEach(closeEl => {
             closeEl.addEventListener('click', function (e) {
                 e.preventDefault();
+                e.stopPropagation();
                 menuEl.classList.remove(toggleCls);
             });
         });
@@ -48,7 +51,7 @@
 
     // 初始化新闻订阅弹窗
     if (document.querySelector('.popup-newsletter-active')) {
-        popupMenu('.newsletter-popup', '.newsletter-popup-trigger', '.newsletter-popup-close', 'open');
+        popupMenu('.popup-newsletter-active', '.newsletter-popup-trigger', '.popup-newsletter-closer', 'show', '.newsletter-popup');
     }
 
     // 初始化搜索框弹窗

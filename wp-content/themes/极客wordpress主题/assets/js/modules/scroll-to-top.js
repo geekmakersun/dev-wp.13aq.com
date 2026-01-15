@@ -6,13 +6,10 @@
 
     // 监听滚动事件，控制回到顶部按钮的显示/隐藏
     window.addEventListener("scroll", function () {
-        const scrollTopBtnEl = document.querySelector(scrollToTopBtn);
         if (window.scrollY > 500) {
-            scrollTopBtnEl.style.opacity = "1";
-            scrollTopBtnEl.style.visibility = "visible";
+            document.documentElement.classList.add('scroll-active');
         } else {
-            scrollTopBtnEl.style.opacity = "0";
-            scrollTopBtnEl.style.visibility = "hidden";
+            document.documentElement.classList.remove('scroll-active');
         }
     });
 

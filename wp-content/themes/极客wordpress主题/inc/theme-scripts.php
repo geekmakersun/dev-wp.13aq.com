@@ -90,9 +90,6 @@ function geek_theme_scripts() {
     // 倒计时功能
     wp_enqueue_script('geek-countdown-script', GEEK_THEME_ASSETS_URI . '/js/modules/countdown.js', array('jquery'), '1.0.0', true);
     
-    // 产品切换功能
-    wp_enqueue_script('geek-product-toggler-script', GEEK_THEME_ASSETS_URI . '/js/modules/product-toggler.js', array('jquery'), '1.0.0', true);
-    
     // 图片切换功能
     wp_enqueue_script('geek-image-switcher-script', GEEK_THEME_ASSETS_URI . '/js/modules/image-switcher.js', array('jquery'), '1.0.0', true);
     
@@ -104,12 +101,6 @@ function geek_theme_scripts() {
     
     // 产品轮播功能
     wp_enqueue_script('geek-product-sliders-script', GEEK_THEME_ASSETS_URI . '/js/modules/product-sliders.js', array('jquery'), '1.0.0', true);
-    
-    // 商店标签切换功能
-    wp_enqueue_script('geek-shop-tab-toggler-script', GEEK_THEME_ASSETS_URI . '/js/modules/shop-tab-toggler.js', array('jquery'), '1.0.0', true);
-    
-    // 分类导航切换功能
-    wp_enqueue_script('geek-category-nav-toggler-script', GEEK_THEME_ASSETS_URI . '/js/modules/category-nav-toggler.js', array('jquery'), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'geek_theme_scripts');
 

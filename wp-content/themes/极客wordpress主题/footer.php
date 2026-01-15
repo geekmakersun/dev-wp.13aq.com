@@ -87,8 +87,42 @@
         ******************************** -->
 
 
+    <!-- 返回顶部样式 -->
+    <style>
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 9999;
+    }
+    html.scroll-active .scroll-to-top {
+      opacity: 1;
+      visibility: visible;
+    }
+    .scroll-btn {
+      background-color: #333;
+      color: white;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    .scroll-btn:hover {
+      background-color: #555;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    </style>
     <!-- 返回顶部 -->
-    <a href="#" class="scrollToTop scroll-btn"><i class="far fa-arrow-up"></i></a>
+    <a href="#" class="scroll-to-top scroll-btn"><i class="far fa-arrow-up"></i></a>
 
 
     <!--==============================

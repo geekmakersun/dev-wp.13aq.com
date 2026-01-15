@@ -158,3 +158,105 @@
     z-index: 6;
   }
 }
+
+/*=================================
+    CSS替代JavaScript功能
+==================================*/
+
+/* 1. 产品切换功能 - 使用CSS :hover伪类实现 */
+.product_ripple_body {
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.product_ripple_icon:hover + .product_ripple_body,
+.product_ripple_icon:focus + .product_ripple_body {
+  display: block;
+}
+
+/* 2. 分类导航切换功能 - 使用CSS :focus-within伪类实现 */
+.vs-box-nav .menu-item-has-children > ul {
+  display: none;
+}
+
+.vs-box-nav .menu-item-has-children:focus-within > ul {
+  display: block;
+}
+
+@media (max-width: 576px) {
+  .vs-box-nav .menu-item-has-children > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* 3. 商店标签切换功能 - 使用CSS :target伪类实现 */
+[role="tabpanel"] {
+  display: none;
+}
+
+[role="tabpanel"]:target {
+  display: block;
+}
+
+/* 评论表单的显示/隐藏 */
+#review_form {
+  display: none;
+}
+
+#review_form:target {
+  display: block;
+}
+
+/* 4. 回到顶部功能 - 使用CSS position: fixed和opacity属性实现 */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+/* 当页面滚动超过一定距离时显示 */
+html.scroll-active .scroll-to-top {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 5. 移动端菜单交互 */
+@media (max-width: 768px) {
+  .mobile-menu-toggle + .mobile-menu {
+    display: none;
+  }
+  
+  .mobile-menu-toggle:focus + .mobile-menu {
+    display: block;
+  }
+}
+
+/* 6. 标签页切换的视觉效果 */
+.reviews-summary__buttons a {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reviews-summary__buttons a:hover {
+  color: var(--theme-color);
+}
+
+/* 7. 产品图片切换的过渡效果 */
+.product-img img {
+  transition: all 0.3s ease;
+}
+
+/* 8. 菜单项目的悬停效果 */
+.menu-item-has-children > a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.menu-item-has-children > a:hover {
+  color: var(--theme-color);
+}
