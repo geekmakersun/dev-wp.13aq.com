@@ -466,9 +466,6 @@
     color: $white-color;
     text-align: center;
     font-size: 16px;
-    width: var(--btn-size, 50px);
-    height: var(--btn-size, 50px);
-    line-height: var(--btn-size, 50px);
     z-index: 2;
     border-radius: inherit;
     position: relative;
@@ -502,7 +499,6 @@
   }
 
   @include sm {
-    --btn-size: 40px;
     --extra-shape: -4px;
     right: 15px;
     bottom: 50px;

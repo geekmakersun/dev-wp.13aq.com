@@ -70,15 +70,6 @@ if (! defined('ABSPATH')) {
         Header Area
     ==============================-->
     <header class="vs-header header-layout2">
-        <div class="header-top-notice">今日特惠 <b>7折</b>。结束于
-            <div class="notice-counter d-inline-block" data-offer-date="12/08/2023">
-                <b><span class="day"></span>天 :</b>
-                <b><span class="hour"></span>时 :</b>
-                <b><span class="minute"></span>分 :</b>
-                <b><span class="seconds"></span>秒</b>
-            </div>
-            赶快行动 <i class="far fa-long-arrow-alt-right"></i>
-        </div>
         <div class="container">
             <div class="menu-top">
                 <div class="row align-items-center justify-content-center justify-content-md-between gx-80">
